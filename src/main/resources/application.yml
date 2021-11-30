@@ -1,0 +1,20 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /boot
+mybatis:
+  type-aliases-package: com.shixi.heima_mm.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/heima_mm?useSSL=false
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
