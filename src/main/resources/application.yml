@@ -14,6 +14,12 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/heima_mm?useSSL=false
+  jpa:
+    hibernate:
+      ddl-auto: none #自动更新
+    show-sql: true  #日志中显示sql语句
+  application:
+      name: spring-data-jpa-demo
   mvc:
     view:
       prefix: /WEB-INF/
