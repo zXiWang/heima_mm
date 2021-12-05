@@ -3,8 +3,12 @@ package com.shixi.heima_mm.repository;
 
 import com.shixi.heima_mm.pojo.StCatalog;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface StCatalogDao extends JpaRepository<StCatalog, Long> {
+import java.util.List;
 
-    }
+public interface StCatalogDao extends JpaRepository<StCatalog, String>, JpaSpecificationExecutor<StCatalog> {
+
+
+}
 

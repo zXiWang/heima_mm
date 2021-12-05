@@ -1,8 +1,10 @@
 package com.shixi.heima_mm.repository;
 
 
-public interface StCourseDao {
+import com.shixi.heima_mm.pojo.StCourse;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface StCourseDao extends JpaRepository<StCourse, String>{
 
 
 }

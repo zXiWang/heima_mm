@@ -1,8 +1,7 @@
 server:
-  port: 8081
+  port: 8084
   servlet:
-    context-path: /boot
-mybatis:
+    context-path: /heimamm
   type-aliases-package: com.shixi.heima_mm.model
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -24,3 +23,12 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
+  redis:
+    host: localhost
+    port: 6379
+    database: 5
+    password: root
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
