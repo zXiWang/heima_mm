@@ -1,15 +1,18 @@
 package com.shixi.heima_mm.controller;
 
+import com.shixi.heima_mm.pojo.Result;
 import com.shixi.heima_mm.pojo.UserAdmin;
 import com.shixi.heima_mm.service.IUserAdminService;
+import com.shixi.heima_mm.util.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
-
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping("/admin")
@@ -17,11 +20,23 @@ public class UserAdminController {
     @Autowired
     private IUserAdminService userAdminService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @PostMapping("/adminLogin")
-    public String adminLogin(HttpRequest httpRequest, String name , String password){
+    public Result adminLogin(String name , String password){
+        UserAdmin userAdmin=userAdminService.adminLogin(name,password);
+        if(userAdminService.adminLogin(name,password) == null) {
+            // fail
+            return new Result("500","用户名或密码错误!",null);
+        } else {
+            // SUCCESS
+            String token = JWTUtils.geneJsonWebToken(userAdmin);
+            //放入到redis中
+            redisTemplate.opsForValue().set(token,"login",10, TimeUnit.DAYS);
+            return new Result("666","登陆成功!",null);
+        }
 
-
-        return null;
     }
 }
 //    function adminLogin(){

@@ -16,12 +16,12 @@ public class StCourseServiceImpl implements IStCourseService {
     private StCourseDao stCourseDao;
 
     @Override
-    public List<StCourse> loadAll(String id) {
+    public List<StCourse> loadAll() {
         return stCourseDao.findAll();
     }
 
     @Override
-    public StCourse save(StCourse stCourse) {
+    public StCourse insert(StCourse stCourse) {
         return stCourseDao.save(stCourse);
     }
 
@@ -31,7 +31,7 @@ public class StCourseServiceImpl implements IStCourseService {
     }
 
     @Override
-    public void delById(String id) {
+    public void delById(Integer id) {
         stCourseDao.deleteById(id);
     }
 }

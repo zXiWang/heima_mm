@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
 
-public interface StCatalogDao extends JpaRepository<StCatalog, String>, JpaSpecificationExecutor<StCatalog> {
+public interface StCatalogDao extends JpaRepository<StCatalog, Integer>, JpaSpecificationExecutor<StCatalog> {
+
 
 
 }

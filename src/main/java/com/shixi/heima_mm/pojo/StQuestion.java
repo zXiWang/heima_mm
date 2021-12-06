@@ -3,6 +3,7 @@ package com.shixi.heima_mm.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -14,23 +15,24 @@ import java.util.Date;
 
 @Data
 @Entity
+@DynamicUpdate
 @Table(name = "st_question")
 @EntityListeners(AuditingEntityListener.class)
 public class StQuestion {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "catalog_id")
-    private String catalogId;
+    private Integer catalogId;
 
     @Column(name = "catalog_name" )
     private String catalogName;
 
     @Column(name = "course_id")
-    private String courseId;
+    private Integer courseId;
 
     @Column(name = "course_name")
     private String courseName;

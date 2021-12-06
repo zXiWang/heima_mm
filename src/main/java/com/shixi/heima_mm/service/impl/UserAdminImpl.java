@@ -30,6 +30,21 @@ public class UserAdminImpl implements IUserAdminService {
         }
     }
 
+    @Override
+    public UserAdmin insert(UserAdmin userAdmin) {
+        return userAdminDao.save(userAdmin);
+    }
+
+    @Override
+    public UserAdmin update(UserAdmin userAdmin) {
+        return userAdminDao.save(userAdmin);
+    }
+
+    @Override
+    public void delById(int id) {
+        userAdminDao.deleteById(id);
+    }
+
 
 //    @Override
 //    public String adminLogin(HttpSession session, UserAdmin userAdmin) {

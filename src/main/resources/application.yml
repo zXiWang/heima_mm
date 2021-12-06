@@ -17,6 +17,10 @@ spring:
     hibernate:
       ddl-auto: none #自动更新
     show-sql: true  #日志中显示sql语句
+  mail:
+    host: smtp.qq.com
+    username: 1040331024@qq.com
+    password: dnofwboyfziibcbe
   application:
       name: spring-data-jpa-demo
   mvc:

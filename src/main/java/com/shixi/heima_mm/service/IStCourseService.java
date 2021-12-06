@@ -6,13 +6,13 @@ import com.shixi.heima_mm.pojo.StCourse;
 import java.util.List;
 
 public interface IStCourseService {
-    List<StCourse> loadAll(String id);
+    List<StCourse> loadAll();
 
-    StCourse save(StCourse stCourse);
+    StCourse insert(StCourse stCourse);
 
     StCourse update(StCourse stCourse);
 
-    void delById(String id);
+    void delById(Integer id);
 
 
 

@@ -7,7 +7,13 @@ import java.util.List;
 
 public interface IStCatalogService {
 
-    List<StCatalog> findByCourseId(String courseId);
+    List<StCatalog> findByCourseId(int courseId);
 
+    StCatalog update(StCatalog stCatalog);
 
+    StCatalog insert(StCatalog stCatalog);
+
+    void delById(int id);
+
+    StCatalog findById(int id);
 }

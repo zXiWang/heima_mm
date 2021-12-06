@@ -2,6 +2,7 @@ package com.shixi.heima_mm.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -11,14 +12,15 @@ import java.util.Date;
 
 @Data
 @Entity
+@DynamicUpdate
 @Table(name = "user_admin")
 @EntityListeners(AuditingEntityListener.class)
 public class UserAdmin {
 
         @Id
         @Column(name = "id")
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private String id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id;
 
         @Column(name = "name")
         private String name;

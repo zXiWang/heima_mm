@@ -16,17 +16,38 @@ public class StCatalogServiceImpl implements IStCatalogService {
     @Autowired
     private StCatalogDao stCatalogDao;
 
-    //    @Override
-//    public List<StCatalog> loadAll(String courseId) {
-//        return stCatalogDao.findByCourseId(courseId);
-//    }
     @Override
-    public List<StCatalog> findByCourseId(String courseId) {
+    public List<StCatalog> findByCourseId(int courseId) {
 
         List<StCatalog> stCatalogs = stCatalogDao.findAll(
                 (root, cq, cb) -> cb.equal(root.get("courseId"), courseId)
         );
         return stCatalogs;
+    }
+
+    @Override
+    public StCatalog update(StCatalog stCatalog){
+        return stCatalogDao.save(stCatalog);
+    }
+
+    @Override
+    public StCatalog insert(StCatalog stCatalog) {
+        return stCatalogDao.save(stCatalog);
+    }
+
+    @Override
+    public void delById(int id) {
+        stCatalogDao.deleteById(id);
+    }
+
+    @Override
+    public StCatalog findById(int id) {
+        Optional<StCatalog> op = stCatalogDao.findById(1);
+        if(op.isPresent()) {
+            return op.get();
+        } else  {
+            return null;
+        }
     }
 
 }
