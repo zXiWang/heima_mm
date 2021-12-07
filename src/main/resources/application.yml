@@ -22,7 +22,7 @@ spring:
     username: 1040331024@qq.com
     password: dnofwboyfziibcbe
   application:
-      name: spring-data-jpa-demo
+    name: spring-data-jpa-demo
   mvc:
     view:
       prefix: /WEB-INF/

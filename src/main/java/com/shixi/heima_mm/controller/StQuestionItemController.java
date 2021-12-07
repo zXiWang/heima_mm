@@ -21,16 +21,16 @@ import java.util.Optional;
 public class StQuestionItemController {
 
     @Autowired
-    private IStQuestionItemService iStQuestionItemService;
+    private IStQuestionItemService stQuestionItemService;
 
     @Autowired
-    private IStQuestionService iStQuestionService;
+    private IStQuestionService stQuestionService;
     
     //TODO 单选多选简答的形式判断
     @PostMapping("/judge")
     public Result judge(Integer id,Integer id2,Integer id3,Integer id4){
-        StQuestionItem stQuestionItem=iStQuestionItemService.findById(id);
-        StQuestion stQuestion=iStQuestionService.findById(stQuestionItem.getQuestionId());
+        StQuestionItem stQuestionItem=stQuestionItemService.findById(id);
+        StQuestion stQuestion=stQuestionService.findById(stQuestionItem.getQuestionId());
         int a[]={id,id2,id3,id4};
         //单选
         if(stQuestion.getType().equals("1")){
@@ -38,7 +38,7 @@ public class StQuestionItemController {
             for (int i = 0; i < a.length; i++) {
                 if(a[i]==0)
                     continue;
-                stQuestionItem=iStQuestionItemService.findById(a[i]);
+                stQuestionItem=stQuestionItemService.findById(a[i]);
                 if(stQuestionItem.getIsRight().equals("1"))
                     temp++;
             }
@@ -53,7 +53,7 @@ public class StQuestionItemController {
         else if(stQuestion.getType().equals("2")){
             int temp=0,count=0;
             //得出4个选项的实体
-            List<StQuestionItem> stQuestionItems= iStQuestionItemService.findByQuestionId(stQuestion.getId());
+            List<StQuestionItem> stQuestionItems= stQuestionItemService.findByQuestionId(stQuestion.getId());
             for (int i = 0; i < 4; i++) {
                 //记4个实体中的正确个数
                 if (stQuestionItems.get(i).getIsRight().equals("1"))
@@ -62,7 +62,7 @@ public class StQuestionItemController {
             for (int i = 0; i < 4; i++) {
                 if(a[i]==0)
                     continue;
-                if(!iStQuestionItemService.findById(a[i]).getIsRight().equals("1"))
+                if(!stQuestionItemService.findById(a[i]).getIsRight().equals("1"))
                     return new Result("501","选择了至少一个错误答案!",null);
 
                     temp++;

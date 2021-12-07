@@ -28,7 +28,7 @@ public class UserAdminController {
             return new Result("500","用户名或密码错误!",null);
         } else {
             // SUCCESS
-            String token = JWTUtils.geneJsonWebToken(userAdmin);
+            String token = JWTUtils.geneJsonWebTokenAdmin(userAdmin);
             //放入到redis中
             redisTemplate.opsForValue().set(token,"login",10, TimeUnit.DAYS);
             return new Result("200","登陆成功!",null);

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("question")
 public class StQuestionController {
     @Autowired
-    private IStQuestionService iStQuestionService;
+    private IStQuestionService stQuestionService;
 
     @Autowired
-    private IStCatalogService iStCatalogService;
+    private IStCatalogService stCatalogService;
 
     @PostMapping("/add")
     public Result add(Integer catalogId,String subject,String type,String difficulty,String analysis){
         StQuestion stQuestion=new StQuestion();
-        StCatalog stCatalog=iStCatalogService.findById(catalogId);
+        StCatalog stCatalog=stCatalogService.findById(catalogId);
 
         stQuestion.setCatalogName(stCatalog.getName());
         stQuestion.setCatalogId(catalogId);
@@ -35,11 +35,11 @@ public class StQuestionController {
         stQuestion.setAnalysis(analysis);
         stQuestion.setState("0");
         stQuestion.setReviewStatus("0");
-        Integer id = iStQuestionService.insert(stQuestion).getId();
+        Integer id = stQuestionService.insert(stQuestion).getId();
         if(id==null)
             return new Result("500","获取id失败",null);
         stQuestion.setNumber(id.toString());
-        iStQuestionService.update(stQuestion);
+        stQuestionService.update(stQuestion);
         return new Result("200","创建试题成功!",null);
     }
 
