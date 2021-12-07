@@ -31,4 +31,10 @@ class StQuestionItemServiceImplTest {
     @Test
     void delById() {
     }
+
+    @Test
+    void findById() {
+        System.out.println(stQuestionItemService.findById(1));
+    }
+
 }

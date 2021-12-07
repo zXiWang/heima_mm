@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface UserAdminDao extends JpaRepository<UserAdmin, Integer>, JpaSpecificationExecutor<UserAdmin> {
 
+
+    UserAdmin findByName(@Param("name") String name);
 }

@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserAdminImpl implements IUserAdminService {
+public class UserAdminServiceImpl implements IUserAdminService {
     @Autowired
     private UserAdminDao userAdminDao;
 
     @Override
-    public UserAdmin adminLogin(String name, String password) {
+    public UserAdmin login(String name, String password) {
 
         Optional<UserAdmin> op = userAdminDao.findOne(
                 (root, cq, cb) -> cb.and(
@@ -41,8 +41,24 @@ public class UserAdminImpl implements IUserAdminService {
     }
 
     @Override
+    public boolean findByName(String name) {
+        boolean flag=false;
+        if (userAdminDao.findByName(name)!=null)
+            flag=true;
+        return flag;
+    }
+
+    @Override
     public void delById(int id) {
         userAdminDao.deleteById(id);
+    }
+
+    @Override
+    public boolean findById(Integer id) {
+        boolean flag=false;
+        if (userAdminDao.findById(id).isPresent())
+            flag = true;
+        return flag;
     }
 
 

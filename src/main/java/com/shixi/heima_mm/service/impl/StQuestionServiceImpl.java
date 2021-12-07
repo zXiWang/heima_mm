@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StQuestionServiceImpl implements IStQuestionService {
@@ -37,5 +38,13 @@ public class StQuestionServiceImpl implements IStQuestionService {
     @Override
     public void delById(int id) {
         stQuestionDao.deleteById(id);
+    }
+
+    @Override
+    public StQuestion findById(Integer id) {
+        Optional<StQuestion> op=stQuestionDao.findById(id);
+        if (op.isPresent())
+            return op.get();
+        return null;
     }
 }

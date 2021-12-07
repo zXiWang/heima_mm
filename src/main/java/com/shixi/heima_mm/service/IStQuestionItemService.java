@@ -15,4 +15,5 @@ public interface IStQuestionItemService {
 
     void delById(int id);
 
+    StQuestionItem findById(Integer id);
 }

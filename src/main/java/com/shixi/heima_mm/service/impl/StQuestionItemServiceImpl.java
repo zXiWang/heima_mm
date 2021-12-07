@@ -2,12 +2,14 @@ package com.shixi.heima_mm.service.impl;
 
 
 import com.shixi.heima_mm.pojo.StQuestionItem;
+import com.shixi.heima_mm.pojo.UserAdmin;
 import com.shixi.heima_mm.repository.StQuestionItemDao;
 import com.shixi.heima_mm.service.IStQuestionItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StQuestionItemServiceImpl implements IStQuestionItemService {
@@ -36,5 +38,15 @@ public class StQuestionItemServiceImpl implements IStQuestionItemService {
     @Override
     public void delById(int id) {
 
+    }
+
+    @Override
+    public StQuestionItem findById(Integer id) {
+        Optional<StQuestionItem> op = stQuestionItemDao.findById(id);
+        if(op.isPresent()) {
+            return op.get();
+        } else  {
+            return null;
+        }
     }
 }

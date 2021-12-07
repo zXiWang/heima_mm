@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class UserAdminImplTest {
+class UserAdminServiceImplTest {
     @Autowired
     IUserAdminService iUserAdminService;
 
     @Test
     void adminLogin() {
-        System.out.println(iUserAdminService.adminLogin("admin", "admin"));
+        System.out.println(iUserAdminService.login("admin", "admin"));
     }
 }
