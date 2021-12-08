@@ -1,7 +1,6 @@
 package com.shixi.heima_mm.service.impl;
 
 
-import com.shixi.heima_mm.pojo.StCatalog;
 import com.shixi.heima_mm.pojo.StQuestion;
 import com.shixi.heima_mm.repository.StQuestionDao;
 import com.shixi.heima_mm.service.IStQuestionService;
@@ -46,5 +45,10 @@ public class StQuestionServiceImpl implements IStQuestionService {
         if (op.isPresent())
             return op.get();
         return null;
+    }
+
+    @Override
+    public StQuestion findBySubject(String subject) {
+        return stQuestionDao.findBySubject(subject);
     }
 }

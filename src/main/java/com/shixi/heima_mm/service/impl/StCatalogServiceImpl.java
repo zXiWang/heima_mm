@@ -50,4 +50,14 @@ public class StCatalogServiceImpl implements IStCatalogService {
         }
     }
 
+    @Override
+    public StCatalog findByName(String name) {
+
+        return stCatalogDao.findByName(name);
+    }
+
+    public List<StCatalog> loadAll() {
+
+        return stCatalogDao.findAll();
+    }
 }

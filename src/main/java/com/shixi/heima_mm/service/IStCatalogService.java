@@ -16,4 +16,7 @@ public interface IStCatalogService {
     void delById(int id);
 
     StCatalog findById(int id);
+
+
+    StCatalog findByName(String name);
 }

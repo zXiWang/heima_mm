@@ -52,4 +52,9 @@ public class StCourseServiceImpl implements IStCourseService {
             flag=true;
         return flag;
     }
+
+    @Override
+    public StCourse findByName(String name) {
+        return stCourseDao.findByName(name);
+    }
 }

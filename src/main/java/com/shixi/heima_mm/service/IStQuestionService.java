@@ -2,7 +2,6 @@ package com.shixi.heima_mm.service;
 
 
 import com.shixi.heima_mm.pojo.StQuestion;
-import com.sun.org.apache.xml.internal.resolver.Catalog;
 
 import java.util.List;
 
@@ -16,4 +15,6 @@ public interface IStQuestionService {
     void delById(int id);
 
     StQuestion findById(Integer questionId);
+
+    StQuestion findBySubject(String subject);
 }

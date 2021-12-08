@@ -1,10 +1,8 @@
 package com.shixi.heima_mm.controller;
 
-import com.shixi.heima_mm.pojo.Result;
-import com.shixi.heima_mm.pojo.StCatalog;
-import com.shixi.heima_mm.pojo.StQuestion;
-import com.shixi.heima_mm.pojo.StQuestionItem;
+import com.shixi.heima_mm.pojo.*;
 import com.shixi.heima_mm.service.IStCatalogService;
+import com.shixi.heima_mm.service.IStCourseService;
 import com.shixi.heima_mm.service.IStQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +18,16 @@ public class StQuestionController {
     @Autowired
     private IStCatalogService stCatalogService;
 
-    @PostMapping("/add")
-    public Result add(Integer catalogId,String subject,String type,String difficulty,String analysis){
-        StQuestion stQuestion=new StQuestion();
-        StCatalog stCatalog=stCatalogService.findById(catalogId);
+    @Autowired
+    private IStCourseService stCourseService;
 
-        stQuestion.setCatalogName(stCatalog.getName());
-        stQuestion.setCatalogId(catalogId);
+    @PostMapping("/add")
+    public Result add(String catalogName,String subject,String type,String difficulty,String analysis){
+        StQuestion stQuestion=new StQuestion();
+        StCatalog stCatalog=stCatalogService.findByName(catalogName);
+
+        stQuestion.setCatalogName(catalogName);
+        stQuestion.setCatalogId(stCatalog.getId());
         stQuestion.setCourseName(stCatalog.getCourseName());
         stQuestion.setCourseId(stCatalog.getCourseId());
         stQuestion.setSubject(subject);
@@ -42,6 +43,22 @@ public class StQuestionController {
         stQuestionService.update(stQuestion);
         return new Result("200","创建试题成功!",null);
     }
+    @PostMapping("/change")
+    public Result change(Integer id,String catalogName,String courseName,String subject){
+        StQuestion stQuestion=new StQuestion();
+
+        stQuestion.setCatalogName(catalogName);
+        stQuestion.setCatalogId(stCatalogService.findByName(catalogName).getId());
+        stQuestion.setCourseName(courseName);
+        stQuestion.setCourseId(stCourseService.findByName(courseName).getId());
+        stQuestion.setSubject(subject);
+        stQuestion.setId(id);
+        stQuestionService.update(stQuestion);
+        if(stQuestionService.findBySubject(subject)!=null)
+            return new Result("500","更新失败!",null);
+        return new Result("200","更新成功",null);
+    }
+
     @PostMapping("/del")
     public Result del(Integer id){
         stQuestionService.delById(id);

@@ -16,4 +16,6 @@ public interface IStCourseService {
 
 
     boolean findById(Integer id);
+
+    StCourse findByName(String name);
 }
