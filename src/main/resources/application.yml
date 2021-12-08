@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8085
   servlet:
     context-path: /heimamm
   type-aliases-package: com.shixi.heima_mm.model

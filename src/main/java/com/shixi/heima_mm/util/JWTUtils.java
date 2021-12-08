@@ -36,13 +36,25 @@ public class JWTUtils {
         return token;
     }
 
-    public static String geneJsonWebTokenUser(TrMember trMember){
+    public static String geneJsonWebTokenUserEmail(TrMember trMember){
         String token = Jwts.builder().setSubject(SUBJECT)
 
                 .claim("id",trMember.getId())//载荷 - 有效信息 - 登录用户的有效信息,是为了校验用户是否登录的信息
                 .claim("email",trMember.getEmail())
-                .claim("password",trMember.getPassword())
+                .setIssuedAt(new Date())//颁布时间
+                //过期时间
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
+                .signWith(SignatureAlgorithm.HS256,SECRET).compact();//签名
 
+        token = TOKEN_PREFIX + token;
+        return token;
+    }
+
+    public static String geneJsonWebTokenUserPassword(TrMember trMember){
+        String token = Jwts.builder().setSubject(SUBJECT)
+
+                .claim("name",trMember.getNickName())//载荷 - 有效信息 - 登录用户的有效信息,是为了校验用户是否登录的信息
+                .claim("password",trMember.getPassword())
                 .setIssuedAt(new Date())//颁布时间
                 //过期时间
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))

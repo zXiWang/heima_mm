@@ -6,6 +6,9 @@ import com.shixi.heima_mm.repository.TrExaminationPaperDao;
 import com.shixi.heima_mm.repository.TrMemberDao;
 import com.shixi.heima_mm.service.ITrMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,4 +38,23 @@ public class TrMemberImpl implements ITrMemberService {
     public void delById(Integer id) {
         trMemberDao.deleteById(id);
     }
+
+
+    @Override
+    public TrMember findByName(String name) {
+        return trMemberDao.findByNickName(name);
+    }
+
+    @Override
+    public TrMember findByEmail(String email) {
+        return trMemberDao.findByEmail(email);
+    }
+
+//    @Override
+//    public TrMember findAllById(Integer id, Integer currentPage, Integer pageSize) {
+//        Pageable pageable = PageRequest.of(currentPage, pageSize);
+//
+//
+//        return ResultUtil.unitedResult(ResultEnum.SUCCESS, trMemberDao.findAllById(id, pageable));
+//    }
 }

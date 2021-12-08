@@ -9,6 +9,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.util.concurrent.TimeUnit;
 
 @Controller
@@ -21,19 +23,19 @@ public class UserAdminController {
     private RedisTemplate redisTemplate;
 
     @PostMapping("/login")
-    public Result Login(String name , String password){
+    @ResponseBody
+    public Result login(String name , String password){
         UserAdmin userAdmin=userAdminService.login(name,password);
-        if(userAdminService.login(name,password) == null) {
-            // fail
-            return new Result("500","用户名或密码错误!",null);
-        } else {
-            // SUCCESS
-            String token = JWTUtils.geneJsonWebTokenAdmin(userAdmin);
-            //放入到redis中
-            redisTemplate.opsForValue().set(token,"login",10, TimeUnit.DAYS);
-            return new Result("200","登陆成功!",null);
-        }
+        if(name=="" || password=="")
+            return new Result("500","用户名和密码不能为空!",null);
+        if(userAdmin == null)
+            return new Result("501","用户不存在!",null);
+        if(  !userAdmin.getPassword().equals(password))
+            return new Result("502","用户名或密码错误!",null);
 
+        String token = JWTUtils.geneJsonWebTokenAdmin(userAdmin);
+        redisTemplate.opsForValue().set(token,"loginAdmin",10,TimeUnit.MINUTES);
+        return new Result("200","登录成功!",token);
     }
     @PostMapping("/update")
     public Result update(Integer id,String name,String password){
@@ -58,6 +60,8 @@ public class UserAdminController {
             return new Result("500","用户名或密吗不能为空!",null);
         if(userAdminService.findByName(name))
             return new Result("501","用户名重复!",null);
+        userAdmin.setName(name);
+        userAdmin.setPassword(password);
         userAdminService.insert(userAdmin);
         return new Result("200","添加管理员成功!",null);
     }
