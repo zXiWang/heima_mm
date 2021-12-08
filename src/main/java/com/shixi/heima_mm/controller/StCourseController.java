@@ -1,5 +1,6 @@
 package com.shixi.heima_mm.controller;
 
+import com.shixi.heima_mm.pojo.Result;
 import com.shixi.heima_mm.pojo.StCourse;
 import com.shixi.heima_mm.service.IStCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,16 @@ public class StCourseController {
     @Autowired
     private IStCourseService stCourseService;
 
-    @PostMapping("/index")
+    @PostMapping("/show")
     public List<StCourse> index(){
         return stCourseService.loadAll();
+    }
+
+    @PostMapping("/del")
+    public Result del(Integer id){
+        stCourseService.delById(id);
+        if (stCourseService.findById(id))
+            return new Result("500","删除失败!",null);
+        return new Result("200","删除成功!",null);
     }
 }

@@ -10,6 +10,5 @@ import java.util.List;
 public interface StCatalogDao extends JpaRepository<StCatalog, Integer>, JpaSpecificationExecutor<StCatalog> {
 
 
-
 }
 

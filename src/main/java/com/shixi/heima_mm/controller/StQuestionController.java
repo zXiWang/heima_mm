@@ -42,5 +42,12 @@ public class StQuestionController {
         stQuestionService.update(stQuestion);
         return new Result("200","创建试题成功!",null);
     }
+    @PostMapping("/del")
+    public Result del(Integer id){
+        stQuestionService.delById(id);
+        if (stQuestionService.findById(id)!=null)
+            return new Result("500","删除失败!",null);
+        return new Result("200","删除成功!",null);
+    }
 
 }

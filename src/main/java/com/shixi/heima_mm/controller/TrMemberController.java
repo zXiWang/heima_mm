@@ -109,6 +109,13 @@ public class TrMemberController {
         return new Result("200","注册成功!",null);
     }
 
+    @PostMapping("/del")
+    public Result del(Integer id){
+        trMemberService.delById(id);
+        if (trMemberService.findById(id))
+            return new Result("500","删除失败!",null);
+        return new Result("200","删除成功!",null);
+    }
 
 
 

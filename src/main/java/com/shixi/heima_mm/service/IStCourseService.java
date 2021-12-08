@@ -15,5 +15,5 @@ public interface IStCourseService {
     void delById(Integer id);
 
 
-
+    boolean findById(Integer id);
 }

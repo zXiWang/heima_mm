@@ -29,5 +29,8 @@ class StCourseServiceImplTest {
 
     @Test
     void delById() {
+        stCourseService.delById(7);
     }
+
+
 }

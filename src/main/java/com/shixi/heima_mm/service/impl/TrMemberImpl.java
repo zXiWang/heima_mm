@@ -2,13 +2,9 @@ package com.shixi.heima_mm.service.impl;
 
 
 import com.shixi.heima_mm.pojo.TrMember;
-import com.shixi.heima_mm.repository.TrExaminationPaperDao;
 import com.shixi.heima_mm.repository.TrMemberDao;
 import com.shixi.heima_mm.service.ITrMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,6 +44,14 @@ public class TrMemberImpl implements ITrMemberService {
     @Override
     public TrMember findByEmail(String email) {
         return trMemberDao.findByEmail(email);
+    }
+
+    @Override
+    public Boolean findById(Integer id) {
+        boolean flag=false;
+        if(trMemberDao.findById(id).isPresent())
+            flag=true;
+        return flag;
     }
 
 //    @Override

@@ -37,7 +37,7 @@ public class StQuestionItemServiceImpl implements IStQuestionItemService {
 
     @Override
     public void delById(int id) {
-
+            stQuestionItemDao.deleteById(id);
     }
 
     @Override

@@ -20,5 +20,7 @@ public interface ITrMemberService {
 
     TrMember findByEmail(String email);
 
+    Boolean findById(Integer id);
+
 //    Page<TrMember> findAllById(Pageable pageable);
 }

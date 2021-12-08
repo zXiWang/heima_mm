@@ -30,6 +30,7 @@ class StQuestionItemServiceImplTest {
 
     @Test
     void delById() {
+        stQuestionItemService.delById(131);
     }
 
     @Test
