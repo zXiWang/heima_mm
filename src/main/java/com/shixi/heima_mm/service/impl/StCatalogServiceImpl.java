@@ -2,9 +2,12 @@ package com.shixi.heima_mm.service.impl;
 
 
 import com.shixi.heima_mm.pojo.StCatalog;
+import com.shixi.heima_mm.pojo.StQuestion;
 import com.shixi.heima_mm.repository.StCatalogDao;
 import com.shixi.heima_mm.service.IStCatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,4 +63,9 @@ public class StCatalogServiceImpl implements IStCatalogService {
 
         return stCatalogDao.findAll();
     }
+
+    public Page<StCatalog> show(Pageable pageable, String context) {
+        return stCatalogDao.findAll(pageable);
+    }
+
 }

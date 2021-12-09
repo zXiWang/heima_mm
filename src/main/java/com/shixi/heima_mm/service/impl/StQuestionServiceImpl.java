@@ -5,6 +5,8 @@ import com.shixi.heima_mm.pojo.StQuestion;
 import com.shixi.heima_mm.repository.StQuestionDao;
 import com.shixi.heima_mm.service.IStQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,13 @@ public class StQuestionServiceImpl implements IStQuestionService {
         );
         return stQuestions;
     }
+
+    @Override
+    public Page<StQuestion> show(Pageable pageable, String context, Integer catalogId) {
+        return stQuestionDao.findAll(
+                (root, cq, cb) -> cb.equal(root.get("catalogId"), catalogId), pageable);
+    }
+
 
     @Override
     public StQuestion insert(StQuestion stQuestion) {

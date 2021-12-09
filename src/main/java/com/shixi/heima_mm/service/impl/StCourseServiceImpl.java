@@ -7,6 +7,8 @@ import com.shixi.heima_mm.repository.StCatalogDao;
 import com.shixi.heima_mm.repository.StCourseDao;
 import com.shixi.heima_mm.service.IStCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,5 +58,9 @@ public class StCourseServiceImpl implements IStCourseService {
     @Override
     public StCourse findByName(String name) {
         return stCourseDao.findByName(name);
+    }
+
+    public Page<StCourse> show(Pageable pageable, String context) {
+        return stCourseDao.findAll(pageable);
     }
 }

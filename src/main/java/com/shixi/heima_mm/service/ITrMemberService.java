@@ -1,6 +1,7 @@
 package com.shixi.heima_mm.service;
 
 
+import com.shixi.heima_mm.pojo.StQuestion;
 import com.shixi.heima_mm.pojo.TrMember;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,8 @@ public interface ITrMemberService {
     TrMember findByEmail(String email);
 
     Boolean findById(Integer id);
+
+    Page<TrMember> show(Pageable pageable, String context);
 
 //    Page<TrMember> findAllById(Pageable pageable);
 }

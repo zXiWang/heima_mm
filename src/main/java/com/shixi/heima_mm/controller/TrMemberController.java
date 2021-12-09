@@ -1,10 +1,16 @@
 package com.shixi.heima_mm.controller;
 
+import com.google.gson.Gson;
 import com.shixi.heima_mm.pojo.Result;
+import com.shixi.heima_mm.pojo.TrMember;
 import com.shixi.heima_mm.pojo.TrMember;
 import com.shixi.heima_mm.service.ITrMemberService;
 import com.shixi.heima_mm.util.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.mail.MailSender;
@@ -16,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.websocket.server.PathParam;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Controller
@@ -44,7 +52,7 @@ public class TrMemberController {
 
             msg.setFrom("1040331024@qq.com");
             msg.setSubject("驰星");
-            msg.setText(code+"          验证码5分钟后过期,请及时登录!");
+            msg.setText(code+"          ,验证码5分钟后过期,请及时登录!");
             msg.setTo(email);
 
             mailSender.send(msg);
@@ -60,7 +68,7 @@ public class TrMemberController {
     @ResponseBody
     public Result loginPassword(String name,String password){
         TrMember trMember = trMemberService.findByName(name);
-        if(name==""||password=="")
+        if(name.equals("") || password.equals(""))
             return new Result("500","用户名和密码不能为空!",null);
         if(trMember == null)
             return new Result("501","用户不存在!",null);
@@ -90,6 +98,35 @@ public class TrMemberController {
 
     }
 
+    @RequestMapping("/show")
+    @ResponseBody
+    public String show(String context, Integer currentPage, Integer pageSize, String sort, Boolean asc) {
+        List<Object> trMembers = new ArrayList<>();
+        Pageable pageable;
+
+        if (!"".equals(sort)) {
+            Sort.Order order = new Sort.Order((asc ? Sort.Direction.ASC : Sort.Direction.DESC), sort);
+            Sort s = Sort.by(order);
+            pageable = PageRequest.of(currentPage, pageSize, s);
+        } else {
+            pageable = PageRequest.of(currentPage, pageSize);
+        }
+        Page<TrMember> trMemberPage = this.trMemberService.show(pageable, context);
+        if (trMemberPage.getContent().size() == 0) {
+            return String.valueOf(new Result("500", "失败!", null));
+        }
+
+        trMembers.add(trMemberPage.getTotalElements());
+        trMembers.add(trMemberPage.getTotalPages());
+        trMembers.add(trMemberPage.getContent());
+
+        Result res = new Result("200", "成功", new Gson().toJson(trMembers));
+        System.out.println(res);
+
+        return new Gson().toJson(res);
+
+    }
+
     @PostMapping("/register")
     @ResponseBody
     public Result register(String name,String email,String password){
@@ -109,6 +146,7 @@ public class TrMemberController {
         return new Result("200","注册成功!",null);
     }
 
+    @ResponseBody
     @PostMapping("/del")
     public Result del(Integer id){
         trMemberService.delById(id);

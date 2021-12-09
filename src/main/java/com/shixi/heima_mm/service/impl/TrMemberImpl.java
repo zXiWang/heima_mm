@@ -5,6 +5,8 @@ import com.shixi.heima_mm.pojo.TrMember;
 import com.shixi.heima_mm.repository.TrMemberDao;
 import com.shixi.heima_mm.service.ITrMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,6 +54,11 @@ public class TrMemberImpl implements ITrMemberService {
         if(trMemberDao.findById(id).isPresent())
             flag=true;
         return flag;
+    }
+
+    @Override
+    public Page<TrMember> show(Pageable pageable, String context) {
+        return trMemberDao.findAll(pageable);
     }
 
 //    @Override
