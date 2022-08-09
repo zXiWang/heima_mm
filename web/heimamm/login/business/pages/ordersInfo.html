@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--字体图标-->
+		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
+		<!--动画-->
+		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
+		<!--骨架样式-->
+		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
+		<!--皮肤-->
+		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
+		<!--jquery，不可修改版本-->
+		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+		<!--核心组件-->
+		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+		<!--表单验证-->
+		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.body {
+				min-width: 1200px;
+				background-color: #E7EAED;
+				min-height: 800px;
+			}
+
+			.container {
+				width: 90%;
+				background-color: #fff;
+				margin: 20px auto 100px auto;
+				box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+				min-height: 800px;
+
+			}
+
+			.table {
+				padding: 40px 20px 20px 20px;
+
+				min-height: 700px;
+			}
+
+			.pager {
+				position: initial;
+				padding-bottom: 20px;
+				padding-right: 30px;
+			}
+
+			#table {
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body class="body">
+		<div class="container">
+			<div class="table">
+				<div class="javaex-block">
+					<div class="javaex-list-toolbar clear">
+						<span class="javaex-group-button">
+							<button class="javaex-btn green" onclick="addGoods()"><span class="icon-plus"></span>
+								添加</button>
+							<button class="javaex-btn red"><span class="icon-close2"></span> 删除</button>
+						</span>
+						<span class="fr">
+							<div class="javaex-search-group">
+								<input type="text" class="javaex-text" id="keyword" placeholder="请输入搜索内容" />
+								<button class="javaex-btn blue" onclick="search()">搜索</button>
+							</div>
+						</span>
+					</div>
+
+					<table id="table" class="javaex-table td-c-1 td-c-2">
+						<thead>
+							<tr>
+								<th class="javaex-table-num-col">序号</th>
+								<th class="javaex-table-filter-col"><input type="checkbox" class="javaex-fill"
+										listen="listen-1" /> </th>
+								<th>商品名称</th>
+								<th>价格</th>
+								<th>库存</th>
+								<th>详细信息</th>
+								<th width="210px">操作</th>
+							</tr>
+						</thead>
+						<tbody id="tbody">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pager">
+				<div class="javaex-page">
+					<ul id="page" class="javaex-pagination"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var pageSize = 10;
+		var totalPages;
+		var business = null;
+		var totalNum;
+		var updateGoodsId;
+		var token;
+		window.onload = function() {
+			token = localStorage.getItem("token")
+			initPage();
+		}
+
+		function updateGoodsDialog(id) {
+			updateGoodsId = id;
+
+		}
+
+		function addGoods() {
+			javaex.drawer({
+				width: "500px",
+				title: "添加商品",
+				url: "addGoods.html",
+				isClickMaskClose: true,
+				position: "right",
+				close: function() {
+					console.log("点x关闭时产生的回调");
+					// 如果你想阻止弹出层关闭，直接 return false; 即可
+					// return false;
+				}
+			});
+		}
+
+		function initPage() {
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getGoodsHost() + "/goods/show",
+				dataType: "json",
+				data: {
+					"context": '',
+					"currentPage": 0,
+					"pageSize": pageSize,
+					"sort": '',
+					"asc": true
+				},
+				headers: {
+					"token": token,
+				},
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					if (res.code == 200) {
+						initTable(JSON.parse(res.goods));
+						javaex.render();
+						totalPages = res.totalPages;
+						totalNum = res.totalNum;
+						javaex.page({
+							id: "page", // jquery选择器，指定到ul节点
+							pageNum: 1, // 默认选中第几页
+							pageSize: pageSize, // 每页显示多少条
+							totalPages: totalPages, // 总页数
+							isShowJumpPage: true, // 是否显示跳页\
+							position: "right",
+							totalNum: totalNum, // 总条数，不填时，不显示
+							callback: function(rtn) {
+								if (rtn.pageSize != pageSize) {
+									pageSize = rtn.pageSize;
+									initPage();
+								}
+								$.ajax({
+									type: "post",
+									//后端需要调用的地址
+									url: "http://" + getGoodsHost() + "/goods/show",
+									dataType: "json",
+									data: {
+										"context": '',
+										"currentPage": rtn.pageNum - 1,
+										"pageSize": pageSize,
+										"sort": '',
+										"asc": true
+									},
+									headers: {
+										"token": token,
+									},
+									timeout: 10000,
+									async: true,
+									success: function(res) {
+										console.log(res);
+										if (res.code == 200) {
+											totalPages = res.totalPages;
+											totalNum = res.totalNum;
+											initTable(JSON.parse(res.goods));
+											javaex.render();
+										}
+
+									}
+								});
+							}
+						});
+					}
+				}
+			});
+		}
+
+		function initTable(goods) {
+			$("#tbody").html('');
+			for (var i = 0; i < goods.length; i++) {
+				var html = '';
+				html = html + `
+					<tr>
+						<td>` + goods[i].goodsId + `</td>
+						<td><input type="checkbox" class="javaex-fill" listen="listen-1-2"/> </td>
+						<td>` + goods[i].name + `</td>
+						<td>￥` + goods[i].price + `</td>
+						<td>` + goods[i].stock + `</td>
+						<td>` + goods[i].info + `</td>
+						<td>
+						`
+				if (goods[i].status == -1) {
+					html = html + `<button class="javaex-btn yellow" onclick="reverseDialog(this, '` + goods[i].goodsId +
+						`')">恢复</button>`
+				} else {
+					html = html + `
+							<button class="javaex-btn red" onclick="deleteDialog(this, '` + goods[i].goodsId + `')">删除</button>
+					`
+				}
+				html = html + `
+							<button class="javaex-btn blue" onclick="updateGoodsDialog(` + goods[i].goodsId + `)">更新信息</button>
+						</td>
+					</tr>
+					`
+				$("#tbody").append(html);
+			}
+		}
+
+		function reverseDialog(obj, id) {
+			// obj是必须的
+			javaex.deleteDialog(obj, {
+				content: "确定要恢复么？",
+				confirm: function() {
+					console.log("获取变量值：" + id);
+					$.ajax({
+						url: "http://" + getGoodsHost() + "/goods/reverse",
+						data: {
+							"goodsId": id,
+						},
+						dataType: "json",
+						type: "post",
+						async: false,
+						cache: false,
+						success: function(res) {
+							console.log(res)
+							if (res.code == "200") {
+								javaex.tip({
+									content: "操作成功",
+									type: "success"
+								});
+								// 建议延迟加载
+								setTimeout(function() {
+									window.location.reload();
+								}, 1000);
+
+							} else {
+								javaex.tip({
+									content: "操作失败",
+									type: "error"
+								});
+							}
+						}
+					});
+					// 如果你想阻止弹出层关闭，直接 return false; 即可
+					// return false;
+				}
+			});
+
+		}
+
+
+		// obj为当前点击的元素对象
+		function deleteDialog(obj, id) {
+			// obj是必须的
+			javaex.deleteDialog(obj, {
+				content: "确定要删除么？",
+				confirm: function() {
+					console.log("获取变量值：" + id);
+					$.ajax({
+						url: "http://" + getGoodsHost() + "/goods/delete",
+						data: {
+							"goodsId": id,
+						},
+						dataType: "json",
+						type: "post",
+						async: false,
+						cache: false,
+						success: function(res) {
+							console.log(res)
+							if (res.code == "200") {
+								javaex.tip({
+									content: "操作成功",
+									type: "success"
+								});
+								// 建议延迟加载
+								setTimeout(function() {
+									window.location.reload();
+								}, 1000);
+
+							} else {
+								javaex.tip({
+									content: "操作失败",
+									type: "error"
+								});
+							}
+						}
+					});
+				}
+			});
+		}
+	</script>
+</html>

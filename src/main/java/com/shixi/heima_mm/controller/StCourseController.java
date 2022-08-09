@@ -40,7 +40,7 @@ public class StCourseController {
         return new Result("200","删除成功!",null);
     }
 
-    @PostMapping("/add")
+    @RequestMapping("/add")
     @ResponseBody
     public Result add(String name,String remark,String state){
 

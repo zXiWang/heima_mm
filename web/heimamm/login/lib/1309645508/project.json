@@ -1,0 +1,54 @@
+{
+	"approved" : true,
+	"contentrating" : "Everyone",
+	"description" : "Polygonal Wolf Wallpaper.\r\n[url=http://steamcommunity.com/sharedfiles/filedetails/?id=1310784829] Green Version\t[/url]\r\n[url=https://steamcommunity.com/sharedfiles/filedetails/?id=1481398608] Dark Version [/url]\r\nCode by Jean Villalobos",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"accentcolor" : 
+			{
+				"order" : 100,
+				"text" : "Accent Color",
+				"type" : "color",
+				"value" : "0.2235294117647059 0.49411764705882355 0.8509803921568627"
+			},
+			"body" : 
+			{
+				"order" : 101,
+				"text" : "Background Color",
+				"type" : "color",
+				"value" : "0.13333333333333333 0.13333333333333333 0.13333333333333333"
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "Scheme Color",
+				"type" : "color",
+				"value" : "0.4 0.6 1"
+			},
+			"smoke" : 
+			{
+				"order" : 102,
+				"text" : "Smoke",
+				"type" : "color",
+				"value" : "0.2 0.39215686274509803 0.6470588235294118"
+			},
+			"smokeBefore" : 
+			{
+				"order" : 103,
+				"text" : "Smoke Before",
+				"type" : "color",
+				"value" : "0.13333333333333333 0.13333333333333333 0.13333333333333333"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Animal" ],
+	"title" : "Code Wolf",
+	"type" : "web",
+	"version" : 0,
+	"visibility" : "public",
+	"workshopid" : 1309645508
+}

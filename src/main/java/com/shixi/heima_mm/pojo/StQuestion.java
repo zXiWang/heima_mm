@@ -85,5 +85,4 @@ public class StQuestion {
     @Column(name = "update_time")
     private Date updateTime;
 
-
 }

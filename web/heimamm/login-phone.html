@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>弛星后台登录页面</title>
+	
+    <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content" style="border-radius: 3.3125rem;">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+									<div class="text-center mb-3">
+                    <a href="login-password.html"><button class="btn btn-block" style="float: left;width:125px;margin-left: 80px;">密码登录</button></a>
+                    <a href="login-email.html"><button class="btn btn-block" style="float: left;width:125px;margin-left: 80px;;">邮箱登录</button></a>
+										<a href="index.html"><img src="static/picture/profile1.jpg" style="width:450px;height: 150px;"></a>
+									</div>
+                                    <h4 class="text-center mb-4">登录你的账户</h4>
+                                    <form action="index.html">
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>邮箱</strong></label>
+                                            <input type="email" class="form-control" placeholder="email@qq.com">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>密码</strong></label>
+                                            <input type="password" class="form-control" placeholder="password">
+                                        </div>
+                                        <div class="row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="mb-3">
+                                               <div class="form-check custom-checkbox ms-1">
+													<input type="checkbox" class="form-check-input" id="basic_checkbox_1">
+													<label class="form-check-label" for="basic_checkbox_1">记住密码</label>
+												</div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <a href="forgot-password.html">忘记密码?</a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-block" onclick="login()">登录</button>
+                                        </div>
+                                    </form>
+                                    <div class="new-account mt-3">
+                                        <p>没有账号? <a class="text-primary" href="register.html">注册</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="static/js/global.min.js"></script>
+    <script src="static/js/custom.min.js"></script>
+    <script src="static/js/dlabnav-init.js"></script>
+	<script src="static/js/styleSwitcher.js"></script>
+
+    <script>
+
+function send_code() {
+      //1. 获取邮箱输入框的输入的值
+      let value = $("#email").val();
+
+      //清空一下邮箱错误的那个label
+      $("#email_error").html("");
+      $("#code_error").html("");
+      //前端校验 - email进行数据校验
+      //     /^正则表达式$/
+      let reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+      if (!reg.test(value)) {
+        // alert("非法邮箱!");
+        $("#email_error").html("* 邮箱格式不正确!");
+        return;
+      }
+      //2. ajax技术进行数据的发送
+      $.get('http://localhost:8083/baidu/user/code?email=' + value, null, function (res) {
+        //浏览器控制台
+        //res - 就是后台返回过来的json字符串->json对象
+        console.log(res);
+        if (res.code = "500") {
+          $("#email_error").html(res.msg);
+        }
+        // console.log(res.code);
+        // console.log(res.msg)
+      })
+    }
+    function login() {
+      //1. 获取email以及code
+      let email_value = $("#email").val();
+      let code_value = $("#code").val();
+      //清空一下邮箱错误的那个label
+      $("#email_error").html("");
+      $("#code_error").html("");
+
+      //前端校验 - email进行数据校验
+      //     /^正则表达式$/
+      let reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+      if (!reg.test(email_value)) {
+        // alert("非法邮箱!");
+        $("#email_error").html("* 邮箱格式不正确!");
+        return;
+      }
+
+      //2. ajax - post请求
+      $.post('http://localhost:8083/baidu/user/login', { email: email_value, code: code_value }, function (res) {
+        console.log(res);
+        if (res.code == "404") {
+          $("#email_error").html("邮箱是不存在的!");
+        } else if (res.code == "500") {
+          $("#code_error").html("验证码过期!");
+        } else if (res.code == "400") {
+          $("#code_error").html("验证码错误!");
+        } else if (res.code == "200") {
+          localStorage.setItem("login", res.content);
+          alert("登录成功!");
+          window.location.href='http://localhost:8083/heimamm/userTest.html'
+        }
+      })
+    }
+    //我的收藏
+    function collect() {
+      //jquery - ajax原生的写法
+      $.ajax({
+        //将token放入到请求头中
+        headers: {
+          token: localStorage.getItem("login")
+        },
+        type: 'get',
+        url: 'http://localhost:8083/baidu/resume/search',
+        success: function (res) {
+          console.log(res)
+        }
+      })
+    }
+    </script>
+
+</body>
+</html>

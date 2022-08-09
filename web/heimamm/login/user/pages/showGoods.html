@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索商品</title>
+		<!--字体图标-->
+		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
+		<!--动画-->
+		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
+		<!--骨架样式-->
+		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
+		<!--皮肤-->
+		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
+		<!--jquery，不可修改版本-->
+		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+		<!--核心组件-->
+		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+		<!--表单验证-->
+		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.container {
+			min-width: 1000px;
+			max-width: 1300px;
+			margin: auto;
+		}
+
+		.search {
+			width: 685px;
+			margin: 120px auto 0px auto;
+		}
+
+		.search-input {
+			width: 600px;
+			height: 50px;
+			line-height: 50px;
+			padding: 0 10px;
+			vertical-align: middle;
+		}
+
+		.input-button {
+			height: 50px;
+			width: 80px;
+			font-size: 20px;
+		}
+
+		.main {
+			margin-top: 20px;
+		}
+
+		.title {
+			width: 150px;
+			height: 50px;
+			background-color: #1B9AEE;
+			text-align: center;
+			font-size: 25px;
+			padding-top: 5px;
+			color: #fff;
+			margin-bottom: 20px;
+		}
+
+		.line {
+			border-top: 1px solid #1B9AEE;
+		}
+
+		.result {
+			padding: 30px;
+			width: 1000px;
+			border: 1px #e5e5e5 solid;
+			margin: auto;
+		}
+
+		.row {
+			padding: 20px 0 20px 0;
+		}
+
+		.item {
+			background-color: #fff;
+			height: 380px;
+		}
+
+		.item:hover {
+			box-shadow: 0 2px 5px 0 rgb(0 0 0 / 25%);
+		}
+
+		.item:hover .name {
+			color: #1B9AEE;
+		}
+
+		.item>div {
+			margin: 3px 10px 3px 10px;
+		}
+
+		.img>img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+
+		.name {
+
+			cursor: pointer;
+			height: 60px;
+		}
+
+		.price {
+			font-size: 25px;
+		}
+
+		.shopname {
+			padding-top: 10px;
+			color: #999;
+		}
+
+		.addCart {
+			margin-bottom: 60px;
+			text-align: right;
+		}
+	</style>
+	<body>
+		<header>
+			<div class="javaex-navbar">
+				<div class="javaex-container-fluid clear">
+					<!--logo名称-->
+					<div class="javaex-logo">九美阁商城</div>
+					<!--左侧导航-->
+					<ul class="javaex-nav fl">
+						<li class="active"><a href="javascript:;">首页</a></li>
+					</ul>
+
+					<!--右侧-->
+					<ul class="javaex-nav fr">
+						<li>
+							<a href="javascript:;">欢迎您，管理员</a>
+							<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+								<li><a href="javascript:;">退出当前账号</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<div class="search">
+				<span class="javaex-search-group">
+					<input id="context" type="text" class="search-input" placeholder="搜索商品" />
+					<button id="search" class="javaex-btn blue input-button">
+						<span class="icon-search"></span>
+					</button>
+				</span>
+			</div>
+
+			<div class="main">
+				<fieldset class="javaex-fieldset javaex-fieldset-line">
+					<legend>
+						<div class="title">
+							搜索结果
+						</div>
+					</legend>
+				</fieldset>
+
+				<div class="result" id="result">
+					<div id="goodList" class="goodList">
+
+					</div>
+					<div class="pager">
+						<div class="javaex-page">
+							<ul id="page" class="javaex-pagination"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="javaex-page-footer" style="margin-top: 50px;">
+
+		</div>
+	</body>
+	<script>
+		javaex.page({
+			id: "page", // jquery选择器，指定到ul节点
+			pageNum: 1, // 默认选中第几页
+			pageSize: 10, // 每页显示多少条
+			totalPages: 12, // 总页数
+			isShowJumpPage: true, // 是否显示跳页
+			totalNum: 125, // 总条数，不填时，不显示
+			position: "right",
+			callback: function(rtn) {
+				console.log("当前选中的页数：" + rtn.pageNum);
+				console.log("每页显示条数：" + rtn.pageSize);
+			}
+		});
+
+		$("#search").click(function() {
+			context = $("#context").val();
+			initPage();
+		})
+
+		function toInfo(id) {
+			console.log(id)
+			for (var i = 0; i < goods.length; i++) {
+				if (goods[i].goodsId == id) {
+					localStorage.setItem("goods", JSON.stringify(goods[i]));
+					window.open("goodsInfo.html", "_blank");
+				}
+			}
+		}
+
+		document.onkeydown = function(event) {
+			var e = event || window.event || arguments.callee.caller.arguments[0];
+			if (e && e.keyCode == 13) { // enter 键
+				context = $("#context").val();
+				initPage();
+			}
+		};
+
+
+		var pageSize = 16;
+		var totalPages;
+		var totalNum;
+		var updateGoodsId;
+		var context = '';
+		var token;
+		var goods;
+		window.onload = function() {
+			initPage();
+			context = sessionStorage.getItem("tontext");
+			token = localStorage.getItem("token_user");
+		}
+
+		function initPage() {
+			// 开启
+			javaex.loading({
+				mode: "manual",
+				containerId: "goodList",
+				type: "open"
+			});
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getGoodsHost() + "/goods/showForUser",
+				dataType: "json",
+				data: {
+					"context": context,
+					"currentPage": 0,
+					"pageSize": 16,
+					"sort": '',
+					"asc": true
+				},
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					if (res.code == 200) {
+						goods = JSON.parse(res.goods);
+						createTable(goods);
+						javaex.render();
+						// 关闭
+						javaex.loading({
+							mode: "manual",
+							containerId: "goodList",
+							type: "close"
+						});
+						totalPages = res.totalPages;
+						totalNum = res.totalNum;
+						javaex.page({
+							id: "page", // jquery选择器，指定到ul节点
+							pageNum: 1, // 默认选中第几页
+							totalPages: totalPages, // 总页数
+							isShowJumpPage: true, // 是否显示跳页\
+							position: "right",
+							isShowSelect: false,
+							totalNum: totalNum, // 总条数，不填时，不显示
+							callback: function(rtn) {
+								// 开启
+								javaex.loading({
+									mode: "manual",
+									containerId: "goodList",
+									type: "open"
+								});
+								$.ajax({
+									type: "post",
+									//后端需要调用的地址
+									url: "http://" + getGoodsHost() + "/goods/showForUser",
+									dataType: "json",
+									data: {
+										"context": '',
+										"currentPage": rtn.pageNum - 1,
+										"pageSize": 16,
+										"sort": '',
+										"asc": true
+									},
+									timeout: 10000,
+									async: true,
+									success: function(res) {
+										// 关闭
+										javaex.loading({
+											mode: "manual",
+											containerId: "goodList",
+											type: "close"
+										});
+										console.log(res);
+										if (res.code == 200) {
+											totalPages = res.totalPages;
+											totalNum = res.totalNum;
+											goods = JSON.parse(res.goods);
+											createTable(goods);
+											javaex.render();
+										}
+
+									}
+								});
+							}
+						});
+					} else if (res.code == 500) {
+						$("#goodList").html("没有找到商品QAQ")
+						javaex.page({
+							id: "page", // jquery选择器，指定到ul节点
+							pageNum: 1, // 默认选中第几页
+							totalPages: 0, // 总页数
+							position: "right",
+							callback: function(rtn) {
+								console.log("当前选中的页数：" + rtn.pageNum);
+								console.log("每页显示条数：" + rtn.pageSize);
+							}
+						});
+
+					} else {
+						$("#goodList").html(res);
+						javaex.page({
+							id: "page", // jquery选择器，指定到ul节点
+							pageNum: 1, // 默认选中第几页
+							totalPages: 0, // 总页数
+							position: "right",
+							callback: function(rtn) {
+								console.log("当前选中的页数：" + rtn.pageNum);
+								console.log("每页显示条数：" + rtn.pageSize);
+							}
+						});
+					}
+				}
+			});
+		}
+
+		function createTable(goods) {
+			$("#goodList").html('');
+			var temp = new Array();
+			for (var i = 0; i < goods.length; i++) {
+				if (temp.length == 4) {
+					createRow(temp);
+					temp = new Array();
+				}
+				if (goods[i].name.length > 30) {
+					goods[i].name = goods[i].name.substr(0, 30) + "...";
+				}
+				temp.push(goods[i])
+			}
+			createRow(temp);
+		}
+
+		function createRow(goods) {
+			console.log(goods.length)
+			var row = `<div class="row javaex-grid">`;
+			for (var i = 0; i < goods.length; i++) {
+				row = row + `
+				<div class="item javaex-grid-3 ml-20 mr-20">
+					<div class="img">
+						<img src="` + goods[i].img + `" />
+					</div>
+					<div class="price">
+						￥` + goods[i].price + `
+					</div>
+					<div class="name" onclick="toInfo(` + goods[i].goodsId + `)">
+						` + goods[i].name + `
+					</div>
+					<div class="addCart">
+						<button class="javaex-btn yellow" onclick="addCart(` + goods[i].goodsId + `)">加入购物车</button>
+					</div>
+					<div class="shopname">
+						` + goods[i].shopName + `
+					</div>
+				</div>
+				`;
+			}
+			if (goods.length < 4) {
+				for (var i = 0; i < 4 - goods.length; i++) {
+					row += `
+					<div class="javaex-grid-3 ml-20 mr-20">
+
+					</div>
+					`
+				}
+			}
+			row += `</div>`;
+			$("#goodList").append(row);
+		}
+
+		function addCart(id) {
+			javaex.tip({
+				content: "数据提交中，请稍候...",
+				type: "submit"
+			});
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getCartHost() + "/shopCart/add",
+				dataType: "json",
+				data: {
+					"goodsId": id,
+					"num": 1
+				},
+				headers: {
+					"token": token
+				},
+				// contentType: "json/application",
+				//设置超时
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					console.log(res)
+					if (res.code == 200) {
+						javaex.tip({
+							content: "操作成功",
+							type: "success"
+						});
+						// 建议延迟加载
+						setTimeout(function() {
+							// 刷新页面
+							// window.location.reload();
+							// 跳转页面
+							// window.location.href = "${pageContext.request.contextPath}/zone_info/list.action";
+						}, 1000);
+					} else {
+						javaex.tip({
+							content: "操作失败",
+							type: "error"
+						});
+					}
+				},
+				error: function(res) {
+					javaex.tip({
+						content: "操作失败",
+						type: "error"
+					});
+				}
+			});
+		}
+	</script>
+</html>

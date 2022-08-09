@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--字体图标-->
+		<link href="../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
+		<!--动画-->
+		<link href="../lib/javaex/pc/css/animate.css" rel="stylesheet" />
+		<!--骨架样式-->
+		<link href="../lib/javaex/pc/css/common.css" rel="stylesheet" />
+		<!--皮肤-->
+		<link href="../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
+		<!--jquery，不可修改版本-->
+		<script src="../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+		<!--核心组件-->
+		<script src="../lib/javaex/pc/js/javaex.min.js"></script>
+		<!--表单验证-->
+		<script src="../lib/javaex/pc/js/javaex-formVerify.js"></script>
+		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="javaex-navbar">
+			<div class="javaex-container-fluid clear">
+				<!--logo名称-->
+				<div class="javaex-logo">九美阁商城后台管理系统</div>
+
+				<!--右侧-->
+				<ul class="javaex-nav fr" id="bar-right">
+					<li>
+						<a href="javascript:;">欢迎您，管理员</a>
+						<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+							<li><a href="#" onclick="logout()">退出当前账号</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="javaex-main-container">
+			<!--左侧菜单-->
+			<div class="javaex-aside javaex-aside-fixed">
+				<h1><span class="javaex-nav-name">后台概览</span></h1>
+				<div id="javaex-toc" class="javaex-toc">
+					<div class="javaex-menu-container">
+						<div id="menu" class="javaex-menu">
+							<ul>
+								<li class="javaex-menu-item">
+									<ul>
+										<li><a href="javascript:page('login.html');">全部项目</a></li>
+									</ul>
+								</li>
+								<li class="javaex-menu-item"><a href="javascript:page('pages/goodsInfo.html');">商品信息</a>
+								</li>
+								<li class="javaex-menu-item"><a
+										href="javascript:page('pages/ordersInfo.html');">订单信息</a>
+								</li>
+								<li class="javaex-menu-item"><a href="javascript:page('pages/stockInfo.html');">库存信息</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--iframe载入内容-->
+			<div class="javaex-markdown">
+				<iframe scrolling="auto" id="page" src="pages/goodsInfo.html"></iframe>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			var business = sessionStorage.getItem("business");
+			var token = localStorage.getItem("token");
+			console.log(business);
+			if (business != "" && business != undefined && business != null) {
+				business = JSON.parse(business);
+				var html = `
+			<li>
+				<a href="javascript:;">欢迎您，` + business.username + `</a>
+				<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+					<li><a href="javascript:logout();">退出当前账号</a></li>
+				</ul>
+			</li>
+			`
+				$("#bar-right").html(html);
+			} else {
+				$.ajax({
+					type: "post",
+					//后端需要调用的地址
+					url: "http://" + getBusinessHost() + "/business/author",
+					dataType: "json",
+					headers: {
+						"token": token,
+					},
+					// contentType: "json/application",
+					//设置超时
+					timeout: 10000,
+					async: true,
+					success: function(response) {
+						console.log(response);
+						if (response.code == "200") {
+							sessionStorage.setItem("business", response.business);
+							window.location.reload();
+						} else {
+							javaex.alert({
+								content: "请先登录",
+								closeIcon: "false",
+								confirm: function() {
+									window.location.href = "login.html";
+								}
+							});
+						}
+					},
+					error: function(data) {
+						javaex.alert({
+							content: "请先登录",
+							closeIcon: "false",
+							confirm: function() {
+								window.location.href = "login.html";
+								// 如果你想阻止弹出层关闭，直接 return false; 即可
+								// return false;
+							}
+						});
+					}
+				});
+
+			}
+		}
+
+		$(function() {
+			// 设置左侧菜单高度
+			setMenuHeight();
+		});
+
+		/**
+		 * 设置左侧菜单高度
+		 */
+		function setMenuHeight() {
+			var height = document.documentElement.clientHeight - $("#javaex-toc").offset().top;
+			height = height - 10;
+			$("#javaex-toc").css("height", height + "px");
+		}
+
+		// 控制页面载入
+		function page(url) {
+			$("#page").attr("src", url);
+		}
+
+		function logout() {
+			sessionStorage.clear();
+			localStorage.clear();
+			javaex.alert({
+				content: "账号退出成功"
+			});
+			window.location.href = "login.html";
+		}
+	</script>
+</html>

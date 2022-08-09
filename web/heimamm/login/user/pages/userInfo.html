@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--字体图标-->
+		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
+		<!--动画-->
+		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
+		<!--骨架样式-->
+		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
+		<!--皮肤-->
+		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
+		<!--jquery，不可修改版本-->
+		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+		<!--核心组件-->
+		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+		<!--表单验证-->
+		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				background-color: #DEE1E6;
+			}
+
+			.container {
+				width: 1000px;
+				margin: 6% auto 0 auto;
+				background-color: #fff;
+				box-shadow: 0 2px 5px 0 rgb(0 0 0 / 25%);
+				padding: 50px;
+				border-radius: 5px;
+
+			}
+
+			.title {
+				width: 150px;
+				height: 50px;
+				background-color: #1B9AEE;
+				text-align: center;
+				font-size: 25px;
+				padding-top: 5px;
+				color: #fff;
+				margin-bottom: 20px;
+			}
+
+			.button {
+				margin-left: 30px;
+			}
+
+			.context {
+				margin-top: 30px;
+			}
+
+			span {
+				cursor: pointer;
+			}
+
+			span:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="javaex-navbar">
+				<div class="javaex-container-fluid clear">
+					<!--logo名称-->
+					<div class="javaex-logo">九美阁商城</div>
+					<!--左侧导航-->
+					<ul class="javaex-nav fl">
+						<li class="active"><a href="javascript:;">首页</a></li>
+					</ul>
+
+					<!--右侧-->
+					<ul class="javaex-nav fr">
+						<li>
+							<a href="javascript:;">欢迎您，管理员</a>
+							<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+								<li><a href="javascript:;">退出当前账号</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<!-- 			<div class="info">
+				<fieldset class="javaex-fieldset javaex-fieldset-line">
+					<legend>
+						<div class="title">
+							个人信息
+						</div>
+					</legend>
+				</fieldset>
+				<form id="form">
+					<div class="javaex-unit clear">
+						<div class="javaex-unit-left">
+							<p class="subtitle required">您的昵称</p>
+						</div>
+						<div class="javaex-unit-right">
+							<input style="width: 180px;" type="text" class="javaex-text" placeholder="请输入昵称" />
+						</div>
+					</div>
+					<div class="javaex-unit clear">
+						<div class="javaex-unit-left">
+							<p class="subtitle required">性别</p>
+						</div>
+						<div class="javaex-unit-right">
+							<ul class="javaex-equal-8 clear">
+								<li><input type="radio" class="javaex-fill" name="sex" checked />男</li>
+								<li><input type="radio" class="javaex-fill" name="sex" />女</li>
+							</ul>
+						</div>
+					</div>
+					<div class="javaex-unit clear">
+						<div class="javaex-unit-left">
+							<p class="subtitle required">您的生日</p>
+						</div>
+						<div class="javaex-unit-right">
+							<input type="text" id="date" class="javaex-date" style="width: 180px;" value="" readonly />
+						</div>
+					</div>
+					<div class="javaex-unit clear tc">
+						<input type="button" id="save" class="javaex-btn yes" value="保存" />
+					</div>
+				</form>
+			</div> -->
+			<div class="address">
+				<fieldset class="javaex-fieldset javaex-fieldset-line">
+					<legend>
+						<div class="title">
+							收件地址
+						</div>
+					</legend>
+				</fieldset>
+				<div class="button">
+					<button class="javaex-btn yellow" onclick="add()">添加收货地址</button>
+				</div>
+				<div class="context">
+					<fieldset class="javaex-fieldset">
+						<legend>我的收货地址</legend>
+						<div class="javaex-fieldset-box">
+							<table id="table" class="javaex-table td-c-1 td-c-2">
+								<thead style="text-align: center;">
+									<tr>
+										<th width="90px">收货人</th>
+										<th>所在地区</th>
+										<th>详细地址</th>
+										<th width="90px">邮编</th>
+										<th>电话/手机</th>
+										<th>操作</th>
+										<th>默认地址</th>
+									</tr>
+								</thead>
+								<tbody style="text-align: center;" id="tbody">
+
+								</tbody>
+							</table>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+
+		<div class="javaex-page-footer" style="margin-top: 50px;">
+
+		</div>
+	</body>
+	<script>
+		javaex.select({
+			id: "select",
+			isSearch: false
+		});
+
+		var token;
+		window.onload = function() {
+			token = localStorage.getItem("token_user");
+			initAddress();
+		}
+
+		function initAddress() {
+			javaex.tip({
+				content: "数据提交中，请稍候...",
+				type: "submit"
+			});
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getAddressHost() + "/address/show",
+				dataType: "json",
+				headers: {
+					"token": token
+				},
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					if (res.code == 200) {
+						createAddressTable(JSON.parse(res.address));
+						javaex.tip({
+							content: "操作成功",
+							type: "success"
+						});
+						// 建议延迟加载
+						setTimeout(function() {}, 1000);
+					} else {
+						javaex.tip({
+							content: "操作失败",
+							type: "error"
+						});
+					}
+				},
+				error: function(res) {
+					javaex.tip({
+						content: "操作失败",
+						type: "error"
+					});
+				}
+			});
+		}
+
+		function deleteAddress(id) {
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getAddressHost() + "/address/delete",
+				dataType: "json",
+				data: {
+					"addressId": id
+				},
+				headers: {
+					"token": token
+				},
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					console.log(res)
+					if (res.code == 200) {
+						javaex.tip({
+							content: "操作成功",
+							type: "success"
+						});
+						// 建议延迟加载
+						setTimeout(function() {
+							window.location.reload();
+						}, 500);
+					} else {
+						javaex.tip({
+							content: "操作失败",
+							type: "error"
+						});
+					}
+				},
+				error: function(res) {
+					javaex.tip({
+						content: "操作失败",
+						type: "error"
+					});
+				}
+			});
+		}
+
+		var ori_id;
+
+		function createAddressTable(address) {
+			var html = ``;
+			for (var i = 0; i < address.length; i++) {
+				html += `
+				<tr>
+					<td>` + address[i].name + `</td>
+					<td>` + address[i].province + ` ` + address[i].city + ` ` + address[i].district + `</td>
+					<td>` + address[i].address + `</td>`
+				if (address[i].code == null || address[i].code == '') {
+					html += `<td>000000</td>`
+				} else {
+					html += `<td>` + address[i].code + `</td>`
+				}
+				html += `
+					<td>` + address[i].phone + `</td>
+					<td><span onclick="update(` + address[i].addressId + `)">修改</span>&nbsp;|&nbsp;
+					<span onclick="deleteAddress(` + address[i].addressId + `)">删除</span></td>`
+				if (address[i].status == 1) {
+					ori_id = address[i].addressId;
+					html += `<td><button class="javaex-btn red" disabled="disabled">默认地址</button></td>
+						</tr>`
+				} else {
+					html += `<td><button class="javaex-btn yellow" onclick="change(` + address[i].addressId + `)">设为默认</button></td>
+						</tr>`
+				}
+			}
+			$("#tbody").html(html);
+		}
+
+
+		// 监听点击保存按钮事件
+		$("#save").click(function() {
+			// 表单验证函数
+			if (javaexVerify()) {
+				// 返回错误信息时，可以添加自定义异常提示。参数为元素id和提示
+				// addErrorMsg("username", "用户名不存在");
+				// 提交
+				// $("#form").submit();
+				alert("验证通过");
+			}
+		});
+
+
+		function add() {
+			javaex.dialog({
+				type: "window",
+				id: "test", // 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+				url: "addAddress.html", // 页面地址或网址或请求地址
+				width: "800", // 弹出层宽度
+				height: "600", // 弹出层高度
+				hasBackground: true,
+				close: function() {
+					console.log("右上角点击X关闭时的回调");
+					// 如果你想阻止弹出层关闭，直接 return false; 即可
+					// return false;
+				}
+			});
+		}
+
+		function update(id) {
+			sessionStorage.setItem("updateAddressId", id);
+			javaex.dialog({
+				type: "window",
+				id: "test", // 指定id，仅当页面存在多个弹出层，需要关闭指定弹出层时才使用
+				url: "updateAddress.html", // 页面地址或网址或请求地址
+				width: "800", // 弹出层宽度
+				height: "600", // 弹出层高度
+				hasBackground: true,
+				close: function() {
+					console.log("右上角点击X关闭时的回调");
+					sessionStorage.removeItem("updateAddressId");
+					// 如果你想阻止弹出层关闭，直接 return false; 即可
+					// return false;
+				}
+			});
+		}
+
+		function change(id) {
+			javaex.tip({
+				content: "数据提交中，请稍候...",
+				type: "submit"
+			});
+			$.ajax({
+				type: "post",
+				//后端需要调用的地址
+				url: "http://" + getAddressHost() + "/address/updateStatus",
+				dataType: "json",
+				data: {
+					"ori_id": ori_id,
+					"id": id
+				},
+				timeout: 10000,
+				async: true,
+				success: function(res) {
+					console.log(res)
+					if (res.code == 200) {
+						javaex.tip({
+							content: "操作成功",
+							type: "success"
+						});
+						// 建议延迟加载
+						setTimeout(function() {
+							window.location.reload();
+						}, 500);
+					} else {
+						javaex.tip({
+							content: "操作失败",
+							type: "error"
+						});
+					}
+				},
+				error: function(res) {
+					javaex.tip({
+						content: "操作失败",
+						type: "error"
+					});
+				}
+			});
+		}
+	</script>
+</html>
