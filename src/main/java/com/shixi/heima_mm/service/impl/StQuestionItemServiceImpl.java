@@ -19,8 +19,8 @@ public class StQuestionItemServiceImpl implements IStQuestionItemService {
 
     @Override
     public List<StQuestionItem> findByQuestionId(int questionId) {
-        List<StQuestionItem> stQuestionItems=stQuestionItemDao.findAll(
-                (root, cq, cb) -> cb.equal(root.get("questionId"),questionId)
+        List<StQuestionItem> stQuestionItems = stQuestionItemDao.findAll(
+                (root, cq, cb) -> cb.equal(root.get("questionId"), questionId)
         );
         return stQuestionItems;
     }
@@ -37,15 +37,15 @@ public class StQuestionItemServiceImpl implements IStQuestionItemService {
 
     @Override
     public void delById(int id) {
-            stQuestionItemDao.deleteById(id);
+        stQuestionItemDao.deleteById(id);
     }
 
     @Override
     public StQuestionItem findById(Integer id) {
         Optional<StQuestionItem> op = stQuestionItemDao.findById(id);
-        if(op.isPresent()) {
+        if (op.isPresent()) {
             return op.get();
-        } else  {
+        } else {
             return null;
         }
     }

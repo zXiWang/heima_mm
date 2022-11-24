@@ -19,6 +19,6 @@ class StCourseControllerTest {
 
     @Test
     void add() {
-        stCourseController.add("1","2","3");
+        stCourseController.add("1", "2", "3");
     }
 }

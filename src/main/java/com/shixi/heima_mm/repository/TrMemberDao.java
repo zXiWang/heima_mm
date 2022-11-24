@@ -8,9 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-public interface TrMemberDao extends JpaRepository<TrMember,Integer>, CrudRepository<TrMember,Integer> {
+public interface TrMemberDao extends JpaRepository<TrMember, Integer>, CrudRepository<TrMember, Integer> {
 
     TrMember findByEmail(@Param("email") String email);
+
     TrMember findByNickName(String name);
 
     Page<TrMember> findAllById(@Param("id") Integer id, Pageable pageable);

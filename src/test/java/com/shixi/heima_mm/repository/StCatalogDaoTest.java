@@ -12,7 +12,7 @@ class StCatalogDaoTest {
     StCatalogDao stCatalogDao;
 
     @Test
-    public void zhubuz(){
+    public void zhubuz() {
         stCatalogDao.findAll().forEach(System.out::println);
     }
 

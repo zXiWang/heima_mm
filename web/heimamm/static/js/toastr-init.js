@@ -2,32 +2,31 @@
     "use strict"
 
 
-/*******************
-Toastr
-*******************/
+    /*******************
+     Toastr
+     *******************/
 
     $("#toastr-success-top-right").on("click", function () {
-                toastr.success("This Is Success Message", "Top Right", {
-                    timeOut: 500000000,
-                    closeButton: !0,
-                    debug: !1,
-                    newestOnTop: !0,
-                    progressBar: !0,
-                    positionClass: "toast-top-right",
-                    preventDuplicates: !0,
-                    onclick: null,
-                    showDuration: "300",
-                    hideDuration: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "swing",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    tapToDismiss: !1
-                })
-            }
-
-        ),
+            toastr.success("This Is Success Message", "Top Right", {
+                timeOut: 500000000,
+                closeButton: !0,
+                debug: !1,
+                newestOnTop: !0,
+                progressBar: !0,
+                positionClass: "toast-top-right",
+                preventDuplicates: !0,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut",
+                tapToDismiss: !1
+            })
+        }
+    ),
         $("#toastr-success-bottom-right").on("click", function () {
                 toastr.success("This Is Success Message", "Bottom Right", {
                     positionClass: "toast-bottom-right",
@@ -48,7 +47,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-bottom-left").on("click", function () {
                 toastr.success("This Is Success Message", "Bottom Left", {
@@ -70,7 +68,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-top-left").on("click", function () {
                 toastr.success("This Is Success Message", "Top Left", {
@@ -92,7 +89,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-top-full-width").on("click", function () {
                 toastr.success("This Is Success Message", "Top Full Width", {
@@ -114,7 +110,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-bottom-full-width").on("click", function () {
                 toastr.success("This Is Success Message", "Bottom Full Width", {
@@ -136,7 +131,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-top-center").on("click", function () {
                 toastr.success("This Is Success Message", "Top Center", {
@@ -158,7 +152,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-success-bottom-center").on("click", function () {
                 toastr.success("This Is Success Message", "Bottom Center", {
@@ -180,7 +173,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-top-right").on("click", function () {
                 toastr.info("This Is info Message", "Top Right", {
@@ -202,7 +194,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-bottom-right").on("click", function () {
                 toastr.info("This Is info Message", "Bottom Right", {
@@ -224,7 +215,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-bottom-left").on("click", function () {
                 toastr.info("This Is info Message", "Bottom Left", {
@@ -246,7 +236,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-top-left").on("click", function () {
                 toastr.info("This Is info Message", "Top Left", {
@@ -268,7 +257,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-top-full-width").on("click", function () {
                 toastr.info("This Is info Message", "Top Full Width", {
@@ -290,7 +278,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-bottom-full-width").on("click", function () {
                 toastr.info("This Is info Message", "Bottom Full Width", {
@@ -312,7 +299,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-top-center").on("click", function () {
                 toastr.info("This Is info Message", "Top Center", {
@@ -334,7 +320,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-info-bottom-center").on("click", function () {
                 toastr.info("This Is info Message", "Bottom Center", {
@@ -356,7 +341,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-top-right").on("click", function () {
                 toastr.warning("This Is warning Message", "Top Right", {
@@ -378,7 +362,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-bottom-right").on("click", function () {
                 toastr.warning("This Is warning Message", "Bottom Right", {
@@ -400,7 +383,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-bottom-left").on("click", function () {
                 toastr.warning("This Is warning Message", "Bottom Left", {
@@ -422,7 +404,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-top-left").on("click", function () {
                 toastr.warning("This Is warning Message", "Top Left", {
@@ -444,7 +425,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-top-full-width").on("click", function () {
                 toastr.warning("This Is warning Message", "Top Full Width", {
@@ -466,7 +446,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-bottom-full-width").on("click", function () {
                 toastr.warning("This Is warning Message", "Bottom Full Width", {
@@ -488,7 +467,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-top-center").on("click", function () {
                 toastr.warning("This Is warning Message", "Top Center", {
@@ -510,7 +488,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-warning-bottom-center").on("click", function () {
                 toastr.warning("This Is warning Message", "Bottom Center", {
@@ -532,7 +509,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-top-right").on("click", function () {
                 toastr.error("This Is error Message", "Top Right", {
@@ -554,7 +530,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-bottom-right").on("click", function () {
                 toastr.error("This Is error Message", "Bottom Right", {
@@ -576,7 +551,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-bottom-left").on("click", function () {
                 toastr.error("This Is error Message", "Bottom Left", {
@@ -598,7 +572,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-top-left").on("click", function () {
                 toastr.error("This Is error Message", "Top Left", {
@@ -620,7 +593,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-top-full-width").on("click", function () {
                 toastr.error("This Is error Message", "Top Full Width", {
@@ -642,7 +614,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-bottom-full-width").on("click", function () {
                 toastr.error("This Is error Message", "Bottom Full Width", {
@@ -664,7 +635,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-top-center").on("click", function () {
                 toastr.error("This Is error Message", "Top Center", {
@@ -686,7 +656,6 @@ Toastr
                     tapToDismiss: !1
                 })
             }
-
         ),
         $("#toastr-danger-bottom-center").on("click", function () {
             toastr.error("This Is error Message", "Bottom Center", {

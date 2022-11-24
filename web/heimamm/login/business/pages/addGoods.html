@@ -1,274 +1,274 @@
 <html>
 
-	<head>
+<head>
 
-		<title>添加商品页面</title>
-		<!--字体图标-->
-		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style>
-			.bg-wrap,
-			body,
-			html {
-				height: 100%;
-			}
+    <title>添加商品页面</title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .bg-wrap,
+        body,
+        html {
+            height: 100%;
+        }
 
-			input {
-				line-height: normal;
-				-webkit-appearance: textfield;
-				background-color: white;
-				-webkit-rtl-ordering: logical;
-				cursor: text;
-				padding: 1px;
-				border-width: 2px;
-				border-style: inset;
-				border-color: initial;
-				border-image: initial;
-			}
+        input {
+            line-height: normal;
+            -webkit-appearance: textfield;
+            background-color: white;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            padding: 1px;
+            border-width: 2px;
+            border-style: inset;
+            border-color: initial;
+            border-image: initial;
+        }
 
-			input[type="text"],
-			input[type="password"] {
-				border: 0;
-				outline: 0;
-			}
+        input[type="text"],
+        input[type="password"] {
+            border: 0;
+            outline: 0;
+        }
 
-			input,
-			button {
-				text-rendering: auto;
-				color: initial;
-				letter-spacing: normal;
-				word-spacing: normal;
-				text-transform: none;
-				text-indent: 0px;
-				text-shadow: none;
-				display: inline-block;
-				text-align: start;
-				margin: 0em;
-				font: 400 13.3333px Arial;
-			}
+        input,
+        button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+        }
 
-			input[type=button] {
-				-webkit-appearance: button;
-				cursor: pointer;
-			}
+        input[type=button] {
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
 
-			.bg-wrap {
-				position: relative;
-				background-size: cover;
-				overflow: hidden;
-			}
+        .bg-wrap {
+            position: relative;
+            background-size: cover;
+            overflow: hidden;
+        }
 
-			.main-cont-wrap {
-				z-index: 1;
-				position: absolute;
-				top: 40%;
-				left: 50%;
-				margin-left: -190px;
-				margin-top: -255px;
-				box-sizing: border-box;
-				width: 380px;
-				padding: 30px 30px 40px;
-				background: #fff;
-				box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
-				border-radius: 10px;
-			}
+        .main-cont-wrap {
+            z-index: 1;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-left: -190px;
+            margin-top: -255px;
+            box-sizing: border-box;
+            width: 380px;
+            padding: 30px 30px 40px;
+            background: #fff;
+            box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+            border-radius: 10px;
+        }
 
-			.form-title {
-				margin-bottom: 40px;
-				text-align: center;
-			}
+        .form-title {
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-			.form-title>span {
-				font-size: 20px;
-				color: #2589ff;
-			}
+        .form-title > span {
+            font-size: 20px;
+            color: #2589ff;
+        }
 
-			.form-item {
-				margin-bottom: 30px;
-				position: relative;
-				height: 40px;
-				line-height: 40px;
-				border-bottom: 1px solid #e3e3e3;
-				box-sizing: border-box;
-			}
+        .form-item {
+            margin-bottom: 30px;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #e3e3e3;
+            box-sizing: border-box;
+        }
 
-			.form-txt {
-				display: inline-block;
-				width: 70px;
-				color: #595961;
-				font-size: 14px;
-				margin-right: 10px;
-			}
+        .form-txt {
+            display: inline-block;
+            width: 70px;
+            color: #595961;
+            font-size: 14px;
+            margin-right: 10px;
+        }
 
-			.form-input {
-				border: 0;
-				outline: 0;
-				font-size: 14px;
-				color: #595961;
-				width: 155px;
-			}
+        .form-input {
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            color: #595961;
+            width: 155px;
+        }
 
-			.form-btn {
-				margin-top: 40px;
-			}
+        .form-btn {
+            margin-top: 40px;
+        }
 
-			.ui-button {
-				display: block;
-				width: 320px;
-				height: 50px;
-				text-align: center;
-				color: #fff;
-				background: #2589ff;
-				border-radius: 6px;
-				font-size: 16px;
-				border: 0;
-				outline: 0;
-			}
+        .ui-button {
+            display: block;
+            width: 320px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: #2589ff;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 0;
+            outline: 0;
+        }
 
-			.javaex-file-container .javaex-cover {
-				width: 320px;
-				height: 100px;
-			}
+        .javaex-file-container .javaex-cover {
+            width: 320px;
+            height: 100px;
+        }
 
-			.javaex-file-container .javaex-cover img {
-				margin: 20px auto;
-			}
-		</style>
-	</head>
+        .javaex-file-container .javaex-cover img {
+            margin: 20px auto;
+        }
+    </style>
+</head>
 
-	<body>
-		<div class="bg-wrap">
-			<div class="main-cont-wrap login-model">
-				<form id="form">
-					<div class="form-title">
-						<span>添加商品</span>
-					</div>
-					<div class="form-item">
-						<span class="form-txt">商品名：</span>
-						<input type="text" class="form-input original" id="name" name="loginName" placeholder="请输入商品名"
-							data-type="必填" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">价格：</span>
-						<input type="text" class="form-input original" id="price" placeholder="请输入价格" data-type="必填"
-							error-pos="32" />
-					</div>
+<body>
+<div class="bg-wrap">
+    <div class="main-cont-wrap login-model">
+        <form id="form">
+            <div class="form-title">
+                <span>添加商品</span>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">商品名：</span>
+                <input type="text" class="form-input original" id="name" name="loginName" placeholder="请输入商品名"
+                       data-type="必填" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">价格：</span>
+                <input type="text" class="form-input original" id="price" placeholder="请输入价格" data-type="必填"
+                       error-pos="32"/>
+            </div>
 
-					<div class="form-item">
-						<span class="form-txt">库存：</span>
-						<input type="number" class="form-input original" id="stock" placeholder="请输入库存" data-type="必填"
-							error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">详细信息：</span>
-						<input type="text" class="form-input original" id="info" placeholder="请输入详细信息" data-type="必填"
-							error-pos="32" />
-					</div>
-					<div id="container" class="javaex-file-container">
-						<div class="javaex-cover">
-							<!--如果不需要回显图片，src留空即可-->
-							<img class="javaex-upload-img-cover" src="" />
-							<input type="file" class="javaex-file" id="upload"
-								accept="image/gif, image/jpeg, image/jpg, image/png" />
-						</div>
-					</div>
+            <div class="form-item">
+                <span class="form-txt">库存：</span>
+                <input type="number" class="form-input original" id="stock" placeholder="请输入库存" data-type="必填"
+                       error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">详细信息：</span>
+                <input type="text" class="form-input original" id="info" placeholder="请输入详细信息" data-type="必填"
+                       error-pos="32"/>
+            </div>
+            <div id="container" class="javaex-file-container">
+                <div class="javaex-cover">
+                    <!--如果不需要回显图片，src留空即可-->
+                    <img class="javaex-upload-img-cover" src=""/>
+                    <input type="file" class="javaex-file" id="upload"
+                           accept="image/gif, image/jpeg, image/jpg, image/png"/>
+                </div>
+            </div>
 
-					<div class="form-btn">
-						<input type="button" onclick="addGoods()" class="ui-button" id="add" value="添加" />
-					</div>
-				</form>
-			</div>
-		</div>
-	</body>
+            <div class="form-btn">
+                <input type="button" onclick="addGoods()" class="ui-button" id="add" value="添加"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
 
 
-	<script>
-		var img = ''
-		javaex.upload({
-			type: "image",
-			id: "upload", // <input type="file" />的id
-			containerId: "container", // 容器id
-			dataType: "base64", // 返回的数据类型：base64 或 url
-			// maxSize: 1024,
-			callback: function(rtn) {
-				img = rtn;
-				$("#container img").attr("src", rtn);
-			},
-			deleteImage: function() {
-				console.log("做点什么吧");
-			},
-			chooseBefore: function() {
-				console.log("选择文件前的回调函数");
-			},
-			chooseAfter: function(rtn) {
-				console.log("选择文件后的回调函数");
-				// 选择文件后的回调函数，会返回一些文件信息
-				console.log(rtn.filename);
-				console.log(rtn.filesize);
-				console.log(rtn.fileSuffix);
-			}
-		});
+<script>
+    var img = ''
+    javaex.upload({
+        type: "image",
+        id: "upload", // <input type="file" />的id
+        containerId: "container", // 容器id
+        dataType: "base64", // 返回的数据类型：base64 或 url
+        // maxSize: 1024,
+        callback: function (rtn) {
+            img = rtn;
+            $("#container img").attr("src", rtn);
+        },
+        deleteImage: function () {
+            console.log("做点什么吧");
+        },
+        chooseBefore: function () {
+            console.log("选择文件前的回调函数");
+        },
+        chooseAfter: function (rtn) {
+            console.log("选择文件后的回调函数");
+            // 选择文件后的回调函数，会返回一些文件信息
+            console.log(rtn.filename);
+            console.log(rtn.filesize);
+            console.log(rtn.fileSuffix);
+        }
+    });
 
-		function addGoods() {
-			var token = localStorage.getItem("token");
-			var name = $("#name").val();
-			var price = $("#price").val();
-			var stock = $("#stock").val();
-			var info = $("#info").val();
+    function addGoods() {
+        var token = localStorage.getItem("token");
+        var name = $("#name").val();
+        var price = $("#price").val();
+        var stock = $("#stock").val();
+        var info = $("#info").val();
 
-			javaex.tip({
-				content: "数据提交中，请稍候...",
-				type: "submit"
-			});
-			$.ajax({
-				url: "http://" + getGoodsHost() + "/goods/add",
-				data: {
-					"name": name,
-					"price": price,
-					"stock": stock,
-					"info": info,
-					"imgUrl": img
-				},
-				headers: {
-					"token": token,
-				},
-				dataType: "json",
-				type: "post",
-				async: false,
-				cache: false,
-				success: function(res) {
-					console.log(res)
-					if (res.code == "200") {
-						javaex.tip({
-							content: "操作成功",
-							type: "success"
-						});
-						// 建议延迟加载
-						setTimeout(function() {
-							parent.location.reload();
-						}, 1000);
+        javaex.tip({
+            content: "数据提交中，请稍候...",
+            type: "submit"
+        });
+        $.ajax({
+            url: "http://" + getGoodsHost() + "/goods/add",
+            data: {
+                "name": name,
+                "price": price,
+                "stock": stock,
+                "info": info,
+                "imgUrl": img
+            },
+            headers: {
+                "token": token,
+            },
+            dataType: "json",
+            type: "post",
+            async: false,
+            cache: false,
+            success: function (res) {
+                console.log(res)
+                if (res.code == "200") {
+                    javaex.tip({
+                        content: "操作成功",
+                        type: "success"
+                    });
+                    // 建议延迟加载
+                    setTimeout(function () {
+                        parent.location.reload();
+                    }, 1000);
 
-					} else {
-						javaex.tip({
-							content: "操作失败",
-							type: "error"
-						});
-					}
-				}
-			});
-		}
-	</script>
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+    }
+</script>
 
 </html>

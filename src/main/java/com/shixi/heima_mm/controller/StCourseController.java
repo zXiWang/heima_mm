@@ -27,45 +27,45 @@ public class StCourseController {
     private IStCourseService stCourseService;
 
     @GetMapping("/show")
-    public List<StCourse> show(){
+    public List<StCourse> show() {
         return stCourseService.loadAll();
     }
 
     @PostMapping("/del")
     @ResponseBody
-    public Result del(Integer id){
+    public Result del(Integer id) {
         stCourseService.delById(id);
         if (stCourseService.findById(id))
-            return new Result("500","删除失败!",null);
-        return new Result("200","删除成功!",null);
+            return new Result("500", "删除失败!", null);
+        return new Result("200", "删除成功!", null);
     }
 
     @RequestMapping("/add")
     @ResponseBody
-    public Result add(String name,String remark,String state){
+    public Result add(String name, String remark, String state) {
 
-        StCourse stCourse=new StCourse();
-        if (stCourseService.findByName(name)!=null)
-            return new Result("404","已有同名学科!",null);
+        StCourse stCourse = new StCourse();
+        if (stCourseService.findByName(name) != null)
+            return new Result("404", "已有同名学科!", null);
         stCourse.setName(name);
         stCourse.setRemark(remark);
         stCourse.setState(state);
         stCourseService.insert(stCourse);
-        if(stCourseService.findByName(name)==null)
-            return new Result("500","添加失败!",null);
-        return new Result("200","添加成功",null);
+        if (stCourseService.findByName(name) == null)
+            return new Result("500", "添加失败!", null);
+        return new Result("200", "添加成功", null);
     }
 
     @PostMapping("/change")
-    public Result change(Integer id,String name,String remark){
-        StCourse stCourse=new StCourse();
+    public Result change(Integer id, String name, String remark) {
+        StCourse stCourse = new StCourse();
         stCourse.setName(name);
         stCourse.setRemark(remark);
         stCourse.setId(id);
         stCourseService.update(stCourse);
-        if(stCourseService.findByName(name)==null)
-            return new Result("500","更新失败!",null);
-        return new Result("200","更新成功",null);
+        if (stCourseService.findByName(name) == null)
+            return new Result("500", "更新失败!", null);
+        return new Result("200", "更新成功", null);
     }
 
     @RequestMapping("/show")

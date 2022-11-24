@@ -23,7 +23,7 @@ public class TrExaminationPaper {
     @Column(name = "member_id")
     private Integer memberId;
 
-    @Column(name = "score" )
+    @Column(name = "score")
     private Float score;
 
 
@@ -32,11 +32,11 @@ public class TrExaminationPaper {
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @Column(name ="create_time" )
+    @Column(name = "create_time")
     private Date createTime;
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @Column(name ="apply_time" )
+    @Column(name = "apply_time")
     private Date applyTime;
 }

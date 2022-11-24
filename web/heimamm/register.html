@@ -3,52 +3,54 @@
 
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="">
-	
-	<!-- PAGE TITLE HERE -->
-	<title>注册页面</title>
-	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+
+    <!-- PAGE TITLE HERE -->
+    <title>注册页面</title>
+
     <link href="static/css/style.css" rel="stylesheet">
 
 </head>
 
 <body class="vh-100">
-    <div class="authincation h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100 align-items-center">
-                <div class="col-md-6">
-                    <div class="authincation-content" style="border-radius: 3.3125rem;">
-                        <div class="row no-gutters">
-                            <div class="col-xl-12">
-                                <div class="auth-form">
-									<div class="text-center mb-3">
-										<a href="index.html"><img src="static/picture/profile1.jpg" style="width:450px;height: 150px;"></a>
-									</div>
-                                    <h4 class="text-center mb-4">创建你的账户</h4>
-                                    <form action="index.html">
-                                        <div class="mb-3">
-                                            <label class="mb-1"><strong>用户名</strong></label>
-                                            <input id="name" type="text" class="form-control" placeholder="username">
-                                            <label class="text-danger" id="name_error"></label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="mb-1"><strong>邮箱</strong></label>
-                                            <input id="email" type="email" class="form-control" placeholder="email@qq.com">
-                                            <label class="text-danger" id="email_error"></label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="mb-1"><strong>密码</strong></label>
-                                            <input id="password" type="password" class="form-control" placeholder="password">
-                                            <label class="text-danger" id="password_error"></label>
-                                        </div>
-                                        <div class="text-center mt-4">
-                                            <a type="submit"onclick="register()" class="btn btn-primary btn-block">创建账号</a>
-                                        </div>
-                                    </form>
-                                    <div class="new-account mt-3">
-                                        <p>准备好登录了吗? <a class="text-primary" href="login-password.html">登录</a></p>
+<div class="authincation h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col-md-6">
+                <div class="authincation-content" style="border-radius: 3.3125rem;">
+                    <div class="row no-gutters">
+                        <div class="col-xl-12">
+                            <div class="auth-form">
+                                <div class="text-center mb-3">
+                                    <a href="index.html"><img src="static/picture/profile1.jpg"
+                                                              style="width:450px;height: 150px;"></a>
+                                </div>
+                                <h4 class="text-center mb-4">创建你的账户</h4>
+                                <form action="index.html">
+                                    <div class="mb-3">
+                                        <label class="mb-1"><strong>用户名</strong></label>
+                                        <input id="name" type="text" class="form-control" placeholder="username">
+                                        <label class="text-danger" id="name_error"></label>
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="mb-1"><strong>邮箱</strong></label>
+                                        <input id="email" type="email" class="form-control" placeholder="email@qq.com">
+                                        <label class="text-danger" id="email_error"></label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="mb-1"><strong>密码</strong></label>
+                                        <input id="password" type="password" class="form-control"
+                                               placeholder="password">
+                                        <label class="text-danger" id="password_error"></label>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <a type="submit" onclick="register()"
+                                           class="btn btn-primary btn-block">创建账号</a>
+                                    </div>
+                                </form>
+                                <div class="new-account mt-3">
+                                    <p>准备好登录了吗? <a class="text-primary" href="login-password.html">登录</a></p>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +59,7 @@
             </div>
         </div>
     </div>
+</div>
 
 <!--**********************************
 	Scripts
@@ -68,45 +71,48 @@
 <script src="static/js/styleSwitcher.js"></script>
 
 <script>
-function register() {
-    //1. 获取email以及code
-    let name_value=$("#name").val();
-    let email_value = $("#email").val();
-    let password_value = $("#password").val();
-    //清空一下邮箱错误的那个label
-    $("#email_error").html("");
-    $("#name_error").html("");
-    //前端校验 - email进行数据校验
-    //     /^正则表达式$/
-    let reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
-    if (!reg.test(email_value)) {
-      // alert("非法邮箱!");
-      $("#email_error").html("* 邮箱格式不正确!");
-      return;
-    }
+    function register() {
+        //1. 获取email以及code
+        let name_value = $("#name").val();
+        let email_value = $("#email").val();
+        let password_value = $("#password").val();
+        //清空一下邮箱错误的那个label
+        $("#email_error").html("");
+        $("#name_error").html("");
+        //前端校验 - email进行数据校验
+        //     /^正则表达式$/
+        let reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+        if (!reg.test(email_value)) {
+            // alert("非法邮箱!");
+            $("#email_error").html("* 邮箱格式不正确!");
+            return;
+        }
 
-    //2. ajax - post请求
-    $.post('http://localhost:8083/hm/trMember/register', { name: name_value,email: email_value, password: password_value }, function (res) {
-      console.log(res);
-      if(res.code=="503"){
-          $("#password_error").html("密码不能为空!");
-      }
-      if (res.code == "502") {
-        $("#name_error").html("用户名重复!");
-        $("#email_error").html("邮箱已被注册!");
-      }
-      if (res.code == "500") {
-        $("#name_error").html("用户名重复!");
-        
-      }
-      if(res.code=="501"){
-        $("email_error").html("邮箱已被注册!");
-      }
-       else if (res.code == "200") {
-        alert("注册成功!");
-        window.location.href='http://localhost:8083/heimamm/login-password.html';
-      }
-    })
-  }</script>
+        //2. ajax - post请求
+        $.post('http://localhost:8083/hm/trMember/register', {
+            name: name_value,
+            email: email_value,
+            password: password_value
+        }, function (res) {
+            console.log(res);
+            if (res.code == "503") {
+                $("#password_error").html("密码不能为空!");
+            }
+            if (res.code == "502") {
+                $("#name_error").html("用户名重复!");
+                $("#email_error").html("邮箱已被注册!");
+            }
+            if (res.code == "500") {
+                $("#name_error").html("用户名重复!");
+
+            }
+            if (res.code == "501") {
+                $("email_error").html("邮箱已被注册!");
+            } else if (res.code == "200") {
+                alert("注册成功!");
+                window.location.href = 'http://localhost:8083/heimamm/login-password.html';
+            }
+        })
+    }</script>
 </body>
 </html>

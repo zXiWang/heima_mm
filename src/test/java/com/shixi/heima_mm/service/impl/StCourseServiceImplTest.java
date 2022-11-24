@@ -16,7 +16,7 @@ class StCourseServiceImplTest {
 
     @Test
     void loadAll() {
-        stCourseService.loadAll().forEach(e-> System.out.println(e));
+        stCourseService.loadAll().forEach(e -> System.out.println(e));
     }
 
     @Test

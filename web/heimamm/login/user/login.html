@@ -1,309 +1,309 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<!-- <title>后台管理登录页面</title> -->
-		<title>用户登录页面</title>
-		<!--字体图标-->
-		<link href="../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			.bg-wrap,
-			body,
-			html {
-				height: 100%;
-			}
+<head>
+    <meta charset="utf-8"/>
+    <!-- <title>后台管理登录页面</title> -->
+    <title>用户登录页面</title>
+    <!--字体图标-->
+    <link href="../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .bg-wrap,
+        body,
+        html {
+            height: 100%;
+        }
 
-			input {
-				line-height: normal;
-				-webkit-appearance: textfield;
-				background-color: white;
-				-webkit-rtl-ordering: logical;
-				cursor: text;
-				padding: 1px;
-				border-width: 2px;
-				border-style: inset;
-				border-color: initial;
-				border-image: initial;
-			}
+        input {
+            line-height: normal;
+            -webkit-appearance: textfield;
+            background-color: white;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            padding: 1px;
+            border-width: 2px;
+            border-style: inset;
+            border-color: initial;
+            border-image: initial;
+        }
 
-			input[type="text"],
-			input[type="password"] {
-				border: 0;
-				outline: 0;
-			}
+        input[type="text"],
+        input[type="password"] {
+            border: 0;
+            outline: 0;
+        }
 
-			input,
-			button {
-				text-rendering: auto;
-				color: initial;
-				letter-spacing: normal;
-				word-spacing: normal;
-				text-transform: none;
-				text-indent: 0px;
-				text-shadow: none;
-				display: inline-block;
-				text-align: start;
-				margin: 0em;
-				font: 400 13.3333px Arial;
-			}
+        input,
+        button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+        }
 
-			input[type=button] {
-				-webkit-appearance: button;
-				cursor: pointer;
-			}
+        input[type=button] {
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
 
-			.bg-wrap {
-				position: relative;
-				background: url(../img/bg.jpg) top left no-repeat;
-				background-size: cover;
-				overflow: hidden;
-			}
+        .bg-wrap {
+            position: relative;
+            background: url(../img/bg.jpg) top left no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
 
-			.main-cont-wrap {
-				z-index: 1;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-left: -190px;
-				margin-top: -255px;
-				box-sizing: border-box;
-				width: 380px;
-				padding: 30px 30px 40px;
-				background: #fff;
-				box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
-				border-radius: 10px;
-			}
+        .main-cont-wrap {
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -190px;
+            margin-top: -255px;
+            box-sizing: border-box;
+            width: 380px;
+            padding: 30px 30px 40px;
+            background: #fff;
+            box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+            border-radius: 10px;
+        }
 
-			.form-title {
-				margin-bottom: 20px;
-			}
+        .form-title {
+            margin-bottom: 20px;
+        }
 
-			.form-title>span {
-				font-size: 20px;
-				color: #2589ff;
-			}
+        .form-title > span {
+            font-size: 20px;
+            color: #2589ff;
+        }
 
-			.form-item {
-				margin-bottom: 30px;
-				position: relative;
-				height: 40px;
-				line-height: 40px;
-				border-bottom: 1px solid #e3e3e3;
-				box-sizing: border-box;
-			}
+        .form-item {
+            margin-bottom: 30px;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #e3e3e3;
+            box-sizing: border-box;
+        }
 
-			.form-txt {
-				display: inline-block;
-				width: 70px;
-				color: #595961;
-				font-size: 14px;
-				margin-right: 10px;
-			}
+        .form-txt {
+            display: inline-block;
+            width: 70px;
+            color: #595961;
+            font-size: 14px;
+            margin-right: 10px;
+        }
 
-			.form-input {
-				border: 0;
-				outline: 0;
-				font-size: 14px;
-				color: #595961;
-				width: 150px;
-			}
+        .form-input {
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            color: #595961;
+            width: 150px;
+        }
 
-			.form-btn {
-				margin-top: 40px;
-			}
+        .form-btn {
+            margin-top: 40px;
+        }
 
-			.ui-button {
-				display: block;
-				width: 320px;
-				height: 50px;
-				text-align: center;
-				color: #fff;
-				background: #2589ff;
-				border-radius: 6px;
-				font-size: 16px;
-				border: 0;
-				outline: 0;
-			}
+        .ui-button {
+            display: block;
+            width: 320px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: #2589ff;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 0;
+            outline: 0;
+        }
 
-			.method {
-				width: 260px;
-				margin: auto;
-				margin-bottom: 30px;
-			}
+        .method {
+            width: 260px;
+            margin: auto;
+            margin-bottom: 30px;
+        }
 
-			.get-code {
-				margin-bottom: 10px;
-			}
+        .get-code {
+            margin-bottom: 10px;
+        }
 
-			.w {
-				z-index: 100;
-				position: relative;
-				bottom: 80px;
-				padding-top: 20px;
-				width: 100%;
-				margin: auto;
-				background-color: #fff;
-			}
+        .w {
+            z-index: 100;
+            position: relative;
+            bottom: 80px;
+            padding-top: 20px;
+            width: 100%;
+            margin: auto;
+            background-color: #fff;
+        }
 
-			a {
-				cursor: pointer;
-			}
+        a {
+            cursor: pointer;
+        }
 
-			#footer-2013 {
-				padding-bottom: 20px;
-				text-align: center;
-			}
+        #footer-2013 {
+            padding-bottom: 20px;
+            text-align: center;
+        }
 
-			#footer-2013 .links a,
-			#footer-2013 .links span {
-				margin: 0 10px;
-			}
+        #footer-2013 .links a,
+        #footer-2013 .links span {
+            margin: 0 10px;
+        }
 
-			#footer-2013 .links a {
-				color: #666;
-				text-decoration: none;
-			}
+        #footer-2013 .links a {
+            color: #666;
+            text-decoration: none;
+        }
 
-			#footer-2013 .copy a {
-				cursor: pointer;
-			}
+        #footer-2013 .copy a {
+            cursor: pointer;
+        }
 
-			.tips-wrapper {
-				background: #fff8f0;
-				width: 100%;
-				padding-top: 10px;
-				padding-bottom: 10px;
-				text-align: center;
-			}
+        .tips-wrapper {
+            background: #fff8f0;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
 
-			.cont-wrapper {
-				display: inline-block;
-				width: 90%;
-			}
+        .cont-wrapper {
+            display: inline-block;
+            width: 90%;
+        }
 
-			.tips-wrapper p {
-				vertical-align: middle;
-				color: #999;
-				font-size: 12px;
-				display: inline-block;
-			}
+        .tips-wrapper p {
+            vertical-align: middle;
+            color: #999;
+            font-size: 12px;
+            display: inline-block;
+        }
 
-			.tips-wrapper .black {
-				color: #333;
-			}
+        .tips-wrapper .black {
+            color: #333;
+        }
 
-			.bar {
-				height: 50px;
-			}
-		</style>
-	</head>
-	<body onload="time()">
-		<div class="javaex-navbar bar">
-			<div class="javaex-container-fluid clear">
-				<!--右侧-->
-				<ul class="javaex-nav fr">
+        .bar {
+            height: 50px;
+        }
+    </style>
+</head>
+<body onload="time()">
+<div class="javaex-navbar bar">
+    <div class="javaex-container-fluid clear">
+        <!--右侧-->
+        <ul class="javaex-nav fr">
 					<span id="showtime"
-						style="float: right; font-size: larger;font-weight: bold; position: relative; top: 13px ; right: 10px;"></span>
+                          style="float: right; font-size: larger;font-weight: bold; position: relative; top: 13px ; right: 10px;"></span>
 
-				</ul>
-			</div>
-		</div>
-		<div class="bg-wrap">
-			<div class="main-cont-wrap login-model">
-				<div class="form-title" style="text-align: center;">
-					<span>欢迎登录</span>
-				</div>
-				<div class="method">
-					<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="1"
-							checked />密码</label>
-					<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
-							value="2" />短信</label>
-					<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
-							value="3" />邮箱</label>
-					<label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
-							value="4" />人脸</label>
-				</div>
-				<div id="form">
+        </ul>
+    </div>
+</div>
+<div class="bg-wrap">
+    <div class="main-cont-wrap login-model">
+        <div class="form-title" style="text-align: center;">
+            <span>欢迎登录</span>
+        </div>
+        <div class="method">
+            <label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3" value="1"
+                                             checked/>密码</label>
+            <label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
+                                             value="2"/>短信</label>
+            <label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
+                                             value="3"/>邮箱</label>
+            <label class="javaex-btn"><input type="radio" class="javaex-fake" name="radio3"
+                                             value="4"/>人脸</label>
+        </div>
+        <div id="form">
 
-				</div>
-				<a class="radius-5 button blue fr" onclick="javascrtpt:toRegister()" style="margin-top: 20px;">前往注册</a>
-			</div>
+        </div>
+        <a class="radius-5 button blue fr" onclick="javascrtpt:toRegister()" style="margin-top: 20px;">前往注册</a>
+    </div>
 
 
-		</div>
+</div>
 
-		<canvas style="display: none" id="canvas" width="480" height="320"></canvas>
+<canvas style="display: none" id="canvas" width="480" height="320"></canvas>
 
-		<!-- 12.04 尾部新增部分 -->
-		<div class="w">
-			<div id="footer-2013">
-				<div class="links">
-					<a href="#"> 关于我们 </a>
-					|
-					<a href="#" style="outline: rgb(109,109,109) none 0px"> 联系我们 </a>
-					|
-					<a href="#"> 人才招聘 </a>
-					|
-					<a href="#"> 企业入驻 </a>
-					|
-					<a href="#"> 广告服务 </a>
-					|
-					<a href="#"> 驰星教育 </a>
-					|
-					<a href="#"> 友情链接 </a>
-					|
-					<a href="#"> 销售联盟 </a>
-					|
-					<a href="#"> 驰星社区 </a>
-					|
-					<a href="#"> 驰星公益 </a>
-					|
-					<a href="#"> English Site </a>
-					|
-				</div>
-				<div class="copy">
-					Copyright © 2004-2021 苏州驰星CX.com 版权所有
-				</div>
-			</div>
-		</div>
-	</body>
-	<script type="text/javascript">
-		javaex.fakeRadio({
-			name: "radio3",
-			uncheckClass: "wathet", // 未选中时添加的class
-			checkedClass: "blue", // 选中时添加的class
-			isInit: true, // 初始化是否调用回调函数
-			callback: function(rtn) {
-				// console.log(123)
-				changeMethod(rtn.val)
-			}
-		});
+<!-- 12.04 尾部新增部分 -->
+<div class="w">
+    <div id="footer-2013">
+        <div class="links">
+            <a href="#"> 关于我们 </a>
+            |
+            <a href="#" style="outline: rgb(109,109,109) none 0px"> 联系我们 </a>
+            |
+            <a href="#"> 人才招聘 </a>
+            |
+            <a href="#"> 企业入驻 </a>
+            |
+            <a href="#"> 广告服务 </a>
+            |
+            <a href="#"> 驰星教育 </a>
+            |
+            <a href="#"> 友情链接 </a>
+            |
+            <a href="#"> 销售联盟 </a>
+            |
+            <a href="#"> 驰星社区 </a>
+            |
+            <a href="#"> 驰星公益 </a>
+            |
+            <a href="#"> English Site </a>
+            |
+        </div>
+        <div class="copy">
+            Copyright © 2004-2021 苏州驰星CX.com 版权所有
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    javaex.fakeRadio({
+        name: "radio3",
+        uncheckClass: "wathet", // 未选中时添加的class
+        checkedClass: "blue", // 选中时添加的class
+        isInit: true, // 初始化是否调用回调函数
+        callback: function (rtn) {
+            // console.log(123)
+            changeMethod(rtn.val)
+        }
+    });
 
-		function toRegister() {
-			window.location.href = "register.html"
-		}
+    function toRegister() {
+        window.location.href = "register.html"
+    }
 
-		function toIndex() {
-			window.location.href = "index.html"
-		}
+    function toIndex() {
+        window.location.href = "index.html"
+    }
 
-		function changeMethod(n) {
-			var html = ``;
-			if (n == 1) {
-				html = `
+    function changeMethod(n) {
+        var html = ``;
+        if (n == 1) {
+            html = `
 				<div class="form-item javaex-animated-fadein-down">
 					<span class="form-txt">账号：</span>
 					<input type="text" class="form-input original" id="username" name="loginName"
@@ -318,9 +318,9 @@
 					<input type="button" class="ui-button" id="save" onclick="loginByPassword()" value="登录" />
 				</div>
 				`
-			}
-			if (n == 2) {
-				html = `
+        }
+        if (n == 2) {
+            html = `
 					<div class="form-item javaex-animated-fadein-down">
 						<span class="form-txt">手机号：</span>
 						<input type="text" class="form-input original" id="username" name="loginName"
@@ -337,9 +337,9 @@
 						<input type="button" class="ui-button" id="save" onclick="loginByPhone()" value="登录" />
 					</div>
 				`
-			}
-			if (n == 3) {
-				html = `
+        }
+        if (n == 3) {
+            html = `
 				<div class="form-item javaex-animated-fadein-down">
 					<span class="form-txt">邮箱：</span>
 					<input type="text" class="form-input original" id="username" name="loginName"
@@ -355,413 +355,428 @@
 					<input type="button" class="ui-button" id="save" onclick="loginByEmail()" value="登录" />
 				</div>
 				`
-			}
-			if (n == 4) {
-				html = `
+        }
+        if (n == 4) {
+            html = `
 				<div class="javaex-animated-fadein-down">
 					<video id="video" width="320" height="180" style="margin-bottom:20px" controls></video>
 					<input type="button" onclick="loginByFace()" class="ui-button" id="login" value="登录" />
 					
 				</div>
 				`
-			}
-			$("#form").html(html);
-			if (n == 4) {
-				initVideo();
-			}
-		}
+        }
+        $("#form").html(html);
+        if (n == 4) {
+            initVideo();
+        }
+    }
 
-		function getEmailCode() {
+    function getEmailCode() {
 
-			var phone = $("#username").val();
-			if (phone != null || phone != '') {
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getUserHost() + "/user/sendEmailMessage",
-					dataType: "json",
-					data: {
-						"email": phone
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						javaex.code({
-							id: "get-code",
-							second: 60
-						});
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "发送成功",
-								type: "success"
-							});
-							setTimeout(function() {}, 1000);
-						} else {
-							javaex.tip({
-								content: "发送失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
-			}
-		}
+        var phone = $("#username").val();
+        if (phone != null || phone != '') {
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getUserHost() + "/user/sendEmailMessage",
+                dataType: "json",
+                data: {
+                    "email": phone
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    javaex.code({
+                        id: "get-code",
+                        second: 60
+                    });
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "发送成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "发送失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
+        }
+    }
 
-		function loginByEmail() {
-			if (javaexVerify()) {
-				var username = $("#username").val();
-				var code = $("#code").val();
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getUserHost() + "/user/loginByEmail",
-					dataType: "json",
-					data: {
-						"email": username,
-						"code": code,
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "登录成功",
-								type: "success"
-							});
-							setTimeout(function() {
-								sessionStorage.setItem("user", response.user);
-								localStorage.setItem("token_user",response.token);
-								toIndex();
-							}, 1000);
-						} else {
-							javaex.tip({
-								content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
-			}
-		}
+    function loginByEmail() {
+        if (javaexVerify()) {
+            var username = $("#username").val();
+            var code = $("#code").val();
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getUserHost() + "/user/loginByEmail",
+                dataType: "json",
+                data: {
+                    "email": username,
+                    "code": code,
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "登录成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                            sessionStorage.setItem("user", response.user);
+                            localStorage.setItem("token_user", response.token);
+                            toIndex();
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
+        }
+    }
 
-		function getPhoneCode() {
-			javaex.code({
-				id: "get-code",
-				second: 60
-			});
-			var phone = $("#username").val();
-			console.log(phone)
-			if (phone != null || phone != '') {
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getUserHost() + "/user/sendPhoneMessage",
-					dataType: "json",
-					data: {
-						"phone": phone
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "发送成功",
-								type: "success"
-							});
-							setTimeout(function() {}, 1000);
-						} else {
-							javaex.tip({
-								content: "发送失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
-			}
-		}
+    function getPhoneCode() {
+        javaex.code({
+            id: "get-code",
+            second: 60
+        });
+        var phone = $("#username").val();
+        console.log(phone)
+        if (phone != null || phone != '') {
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getUserHost() + "/user/sendPhoneMessage",
+                dataType: "json",
+                data: {
+                    "phone": phone
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "发送成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "发送失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
+        }
+    }
 
-		function loginByPhone() {
-			if (javaexVerify()) {
-				var username = $("#username").val();
-				var code = $("#code").val();
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getUserHost() + "/user/loginByPhone",
-					dataType: "json",
-					data: {
-						"phone": username,
-						"code": code,
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "登录成功",
-								type: "success"
-							});
-							setTimeout(function() {
-								sessionStorage.setItem("user", response.user);
-								localStorage.setItem("token_user",response.token);
-								toIndex();
-							}, 1000);
-						} else {
-							javaex.tip({
-								content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
-			}
-		}
+    function loginByPhone() {
+        if (javaexVerify()) {
+            var username = $("#username").val();
+            var code = $("#code").val();
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getUserHost() + "/user/loginByPhone",
+                dataType: "json",
+                data: {
+                    "phone": username,
+                    "code": code,
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "登录成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                            sessionStorage.setItem("user", response.user);
+                            localStorage.setItem("token_user", response.token);
+                            toIndex();
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
+        }
+    }
 
-		function loginByPassword() {
-			if (javaexVerify()) {
-				var username = $("#username").val();
-				var password = $("#password").val();
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getUserHost() + "/user/loginByPassword",
-					dataType: "json",
-					data: {
-						"username": username,
-						"password": password,
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "登录成功",
-								type: "success"
-							});
-							setTimeout(function() {
-								sessionStorage.setItem("user", response.user);
-								localStorage.setItem("token_user",response.token);
-								toIndex();
-							}, 1000);
-						} else {
-							javaex.tip({
-								content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
-			}
-		}
+    function loginByPassword() {
+        if (javaexVerify()) {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getUserHost() + "/user/loginByPassword",
+                dataType: "json",
+                data: {
+                    "username": username,
+                    "password": password,
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "登录成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                            sessionStorage.setItem("user", response.user);
+                            localStorage.setItem("token_user", response.token);
+                            toIndex();
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
+        }
+    }
 
-		function loginByFace() {
-			javaex.tip({
-				content: "数据提交中，请稍候...",
-				type: "submit"
-			});
-			let canvas = document.getElementById('canvas');
-			let context = canvas.getContext('2d');
-			canvas.width = 480;
-			canvas.height = 320;
-			context.drawImage(video, 0, 0, 480, 320);
-			var imgData = canvas.toDataURL();
-			$.ajax({
-				type: "post",
-				//后端需要调用的地址
-				url: "http://" + getUserHost() + "/user/loginByFace",
-				dataType: "json",
-				data: {
-					"MD5": imgData
-				},
-				// contentType: "json/application",
-				//设置超时
-				timeout: 10000,
-				async: true,
-				success: function(response) {
-					console.log(response);
-					if (response.code == "200") {
-						javaex.tip({
-							content: "登录成功",
-							type: "success"
-						});
-						setTimeout(function() {
-							sessionStorage.setItem("user", response.user);
-								localStorage.setItem("token_user",response.token);
-							toIndex();
-						}, 1000);
-					} else {
-						javaex.tip({
-							content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				},
-				error: function(data) {
-					javaex.tip({
-						content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-						type: "error"
-					});
-					setTimeout(function() {}, 1000);
-				}
-			});
-		}
+    function loginByFace() {
+        javaex.tip({
+            content: "数据提交中，请稍候...",
+            type: "submit"
+        });
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        canvas.width = 480;
+        canvas.height = 320;
+        context.drawImage(video, 0, 0, 480, 320);
+        var imgData = canvas.toDataURL();
+        $.ajax({
+            type: "post",
+            //后端需要调用的地址
+            url: "http://" + getUserHost() + "/user/loginByFace",
+            dataType: "json",
+            data: {
+                "MD5": imgData
+            },
+            // contentType: "json/application",
+            //设置超时
+            timeout: 10000,
+            async: true,
+            success: function (response) {
+                console.log(response);
+                if (response.code == "200") {
+                    javaex.tip({
+                        content: "登录成功",
+                        type: "success"
+                    });
+                    setTimeout(function () {
+                        sessionStorage.setItem("user", response.user);
+                        localStorage.setItem("token_user", response.token);
+                        toIndex();
+                    }, 1000);
+                } else {
+                    javaex.tip({
+                        content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            },
+            error: function (data) {
+                javaex.tip({
+                    content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                    type: "error"
+                });
+                setTimeout(function () {
+                }, 1000);
+            }
+        });
+    }
 
-		function initVideo() {
-			//访问用户媒体设备的兼容方法
-			function getUserMedia(constraints, success, error) {
-				if (navigator.mediaDevices.getUserMedia) {
-					//最新的标准API
-					navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
-				} else if (navigator.webkitGetUserMedia) {
-					//webkit核心浏览器
-					navigator.webkitGetUserMedia(constraints, success, error)
-				} else if (navigator.mozGetUserMedia) {
-					//firfox浏览器
-					navigator.mozGetUserMedia(constraints, success, error);
-				} else if (navigator.getUserMedia) {
-					//旧版API
-					navigator.getUserMedia(constraints, success, error);
-				}
-			}
+    function initVideo() {
+        //访问用户媒体设备的兼容方法
+        function getUserMedia(constraints, success, error) {
+            if (navigator.mediaDevices.getUserMedia) {
+                //最新的标准API
+                navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+            } else if (navigator.webkitGetUserMedia) {
+                //webkit核心浏览器
+                navigator.webkitGetUserMedia(constraints, success, error)
+            } else if (navigator.mozGetUserMedia) {
+                //firfox浏览器
+                navigator.mozGetUserMedia(constraints, success, error);
+            } else if (navigator.getUserMedia) {
+                //旧版API
+                navigator.getUserMedia(constraints, success, error);
+            }
+        }
 
-			function success(stream) {
-				//兼容webkit核心浏览器
-				let CompatibleURL = window.URL || window.webkitURL;
-				//将视频流设置为video元素的源
-				console.log(stream);
+        function success(stream) {
+            //兼容webkit核心浏览器
+            let CompatibleURL = window.URL || window.webkitURL;
+            //将视频流设置为video元素的源
+            console.log(stream);
 
-				//video.src = CompatibleURL.createObjectURL(stream);
-				video.srcObject = stream;
-				video.play();
-			}
+            //video.src = CompatibleURL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.play();
+        }
 
-			function error(error) {
-				console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
-			}
+        function error(error) {
+            console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+        }
 
-			if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator
-				.mozGetUserMedia) {
-				//调用用户媒体设备, 访问摄像头
-				getUserMedia({
-					video: {
-						width: 480,
-						height: 320
-					}
-				}, success, error);
-			} else {
-				alert('不支持访问用户媒体');
-			}
-			let video = document.getElementById('video');
-			video.controls = false;
-		}
+        if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator
+            .mozGetUserMedia) {
+            //调用用户媒体设备, 访问摄像头
+            getUserMedia({
+                video: {
+                    width: 480,
+                    height: 320
+                }
+            }, success, error);
+        } else {
+            alert('不支持访问用户媒体');
+        }
+        let video = document.getElementById('video');
+        video.controls = false;
+    }
 
-		// 日期
-		javaex.date({
-			id: "date1", // 承载日期组件的id
-			monthNum: 1, // 1代表选择单日日期
-			date: "2021-12-05", // 选择的日期
-			// 重新选择日期之后返回一个时间对象
-			callback: function(rtn) {
-				alert(rtn.date);
-			}
-		});
+    // 日期
+    javaex.date({
+        id: "date1", // 承载日期组件的id
+        monthNum: 1, // 1代表选择单日日期
+        date: "2021-12-05", // 选择的日期
+        // 重新选择日期之后返回一个时间对象
+        callback: function (rtn) {
+            alert(rtn.date);
+        }
+    });
 
-		// 时间
-		function time() {
-			t_div = document.getElementById('showtime');
-			var now = new Date();
-			t_div.innerHTML = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getHours() +
-				":" + now.getMinutes() + ":" + now.getSeconds() + "";
-			setTimeout(time, 1000);
-		}
+    // 时间
+    function time() {
+        t_div = document.getElementById('showtime');
+        var now = new Date();
+        t_div.innerHTML = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getHours() +
+            ":" + now.getMinutes() + ":" + now.getSeconds() + "";
+        setTimeout(time, 1000);
+    }
 
-		//时间：另一种样式
-		function mytime() {
-			var a = new Date();
-			var b = a.toLocaleTimeString();
-			var c = a.toLocaleDateString();
-			document.getElementById("time").innerHTML = c + "&nbsp" + b;
-		}
-		setInterval(function() {
-			mytime()
-		}, 1000);
-	</script>
-	<!-- 点击出现社会主义彩色文字 -->
-	<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/shehuizhuyi.js"></script>
+    //时间：另一种样式
+    function mytime() {
+        var a = new Date();
+        var b = a.toLocaleTimeString();
+        var c = a.toLocaleDateString();
+        document.getElementById("time").innerHTML = c + "&nbsp" + b;
+    }
+
+    setInterval(function () {
+        mytime()
+    }, 1000);
+</script>
+<!-- 点击出现社会主义彩色文字 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/shehuizhuyi.js"></script>
 </html>

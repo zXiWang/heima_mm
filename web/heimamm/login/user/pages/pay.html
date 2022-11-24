@@ -2,225 +2,227 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title></title>
-	<!--字体图标-->
-	<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-	<!--动画-->
-	<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-	<!--骨架样式-->
-	<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-	<!--皮肤-->
-	<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-	<!--jquery，不可修改版本-->
-	<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-	<!--核心组件-->
-	<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-	<!--表单验证-->
-	<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-	<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
-	<style type="text/css">
-		body {
-			background-color: #E7EAED;
-		}
+    <meta charset="utf-8">
+    <title></title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        body {
+            background-color: #E7EAED;
+        }
 
-		.container {
-			width: 90%;
-			background-color: #fff;
-			margin: 100px auto 100px auto;
-			box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
-			min-height: 800px;
-		}
+        .container {
+            width: 90%;
+            background-color: #fff;
+            margin: 100px auto 100px auto;
+            box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+            min-height: 800px;
+        }
 
-		.address {
-			padding: 30px;
-		}
+        .address {
+            padding: 30px;
+        }
 
-		.box {
-			border-bottom: none;
-			padding-left: 20px;
-		}
+        .box {
+            border-bottom: none;
+            padding-left: 20px;
+        }
 
-		.selected {
-			border: 2px solid #1B9AEE;
-		}
+        .selected {
+            border: 2px solid #1B9AEE;
+        }
 
-		.goods {
-			padding: 30px;
-		}
+        .goods {
+            padding: 30px;
+        }
 
-		.goods-img {
-			width: 200px;
-			height: 200px;
-			background: url(../../img/gua.jpg);
-			background-size: contain;
-			float: left;
-		}
+        .goods-img {
+            width: 200px;
+            height: 200px;
+            background: url(../../img/gua.jpg);
+            background-size: contain;
+            float: left;
+        }
 
-		.descript{
-			float: left;
-			margin: 0 0 0 40px;
-		}
+        .descript {
+            float: left;
+            margin: 0 0 0 40px;
+        }
 
-		.goods-title {
-			font-size: 18px;
-			font-weight: 600;
-			width: 300px;
-		}
+        .goods-title {
+            font-size: 18px;
+            font-weight: 600;
+            width: 300px;
+        }
 
-		.goods-detail {
-			margin-top: 20px;
-			color: darkgrey;
-			width: 300px;
-		}
+        .goods-detail {
+            margin-top: 20px;
+            color: darkgrey;
+            width: 300px;
+        }
 
-		.business-name {
-			font-size: 20px;
-			font-weight: 700;
-			color: #8C63A6;
-		}
+        .business-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #8C63A6;
+        }
 
-		.count {
-			float: right;
-			font-size: 16px;
-		}
+        .count {
+            float: right;
+            font-size: 16px;
+        }
 
-		.price {
-			margin-top: 140px;
-			font-size: 18px;
-			color: #1B9AEE;
-		}
-	</style>
+        .price {
+            margin-top: 140px;
+            font-size: 18px;
+            color: #1B9AEE;
+        }
+    </style>
 </head>
 
 <body>
-	<header>
-		<div class="javaex-navbar">
-			<div class="javaex-container-fluid clear">
-				<!--logo名称-->
-				<div class="javaex-logo">九美阁商城</div>
-				<!--左侧导航-->
-				<ul class="javaex-nav fl">
-					<li class="active"><a href="javascript:;">首页</a></li>
-				</ul>
+<header>
+    <div class="javaex-navbar">
+        <div class="javaex-container-fluid clear">
+            <!--logo名称-->
+            <div class="javaex-logo">九美阁商城</div>
+            <!--左侧导航-->
+            <ul class="javaex-nav fl">
+                <li class="active"><a href="javascript:;">首页</a></li>
+            </ul>
 
-				<!--右侧-->
-				<ul class="javaex-nav fr">
-					<li>
-						<a href="javascript:;">欢迎您，管理员</a>
-						<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
-							<li><a href="javascript:;">退出当前账号</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</header>
-	<div class="container">
-		<div class="address">
-			<fieldset class="javaex-fieldset">
-				<legend>选择地址</legend>
-				<div id="addressTable" class="javaex-fieldset-box">
-					
-				</div>
-			</fieldset>
-		</div>
-		<div class="goods">
-			<fieldset class="javaex-fieldset" style="height: 250px;">
-				<legend>商品信息</legend>
-				<div class="javaex-fieldset-box">
-					<div class="goods-info">
-						<div class="goods-img">
-						</div>
-						<div class="descript">
-							<div class="goods-title">
-								基尘是帅哥
-							</div>
-							<div class="goods-detail">
-								基尘基尘是帅哥是怎么回事呢？基尘相信大家都很熟悉，但是基尘基尘是帅哥是怎么回事呢，下面就让小编带大家一起了解吧。
-								基尘基尘是帅哥，其实就是基尘是大帅哥，大家可能会很惊讶基尘怎么会基尘是帅哥呢？但事实就是这样，小编也感到非常惊讶。
-								这就是关于基尘基尘是帅哥的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！
-							</div>
-							<div class="count">
-								<span>1</span>
-								X
-								<span>100</span>
-								￥
-							</div>
-						</div>
-					</div>
-					<div style="float: right;">
-						<div class="business-name">
-							<span class="icon-home"></span>
-							基尘的大店
-						</div>
-						<div class="price">
-							总价：
-							<span>
+            <!--右侧-->
+            <ul class="javaex-nav fr">
+                <li>
+                    <a href="javascript:;">欢迎您，管理员</a>
+                    <ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+                        <li><a href="javascript:;">退出当前账号</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="address">
+        <fieldset class="javaex-fieldset">
+            <legend>选择地址</legend>
+            <div id="addressTable" class="javaex-fieldset-box">
+
+            </div>
+        </fieldset>
+    </div>
+    <div class="goods">
+        <fieldset class="javaex-fieldset" style="height: 250px;">
+            <legend>商品信息</legend>
+            <div class="javaex-fieldset-box">
+                <div class="goods-info">
+                    <div class="goods-img">
+                    </div>
+                    <div class="descript">
+                        <div class="goods-title">
+                            基尘是帅哥
+                        </div>
+                        <div class="goods-detail">
+                            基尘基尘是帅哥是怎么回事呢？基尘相信大家都很熟悉，但是基尘基尘是帅哥是怎么回事呢，下面就让小编带大家一起了解吧。
+                            基尘基尘是帅哥，其实就是基尘是大帅哥，大家可能会很惊讶基尘怎么会基尘是帅哥呢？但事实就是这样，小编也感到非常惊讶。
+                            这就是关于基尘基尘是帅哥的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！
+                        </div>
+                        <div class="count">
+                            <span>1</span>
+                            X
+                            <span>100</span>
+                            ￥
+                        </div>
+                    </div>
+                </div>
+                <div style="float: right;">
+                    <div class="business-name">
+                        <span class="icon-home"></span>
+                        基尘的大店
+                    </div>
+                    <div class="price">
+                        总价：
+                        <span>
 								1234
 							</span>
-							￥
-						</div>
-					</div>
-				</div>
-			</fieldset>
-			<button style="float: right; margin-right: 20px; font-size: 16px; width: 80px; height: 40px;" class="javaex-btn yellow">买！</button>
-		</div>
-	</div>
-	<div class="javaex-page-footer" style="margin-top: 50px;">
+                        ￥
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <button style="float: right; margin-right: 20px; font-size: 16px; width: 80px; height: 40px;"
+                class="javaex-btn yellow">买！
+        </button>
+    </div>
+</div>
+<div class="javaex-page-footer" style="margin-top: 50px;">
 
-	</div>
+</div>
 </body>
 <script>
-	var addressList;
-	var token;
-	var selectedIndex;
-	var ordersId;
+    var addressList;
+    var token;
+    var selectedIndex;
+    var ordersId;
 
-	window.onload = function() {
-		token = localStorage.getItem("token_user");
-		ordersId = sessionStorage.getItem("ordersId");
-		getAddress();
-	}
-
-
-	function getAddress() {
-		javaex.loading({
-				mode: "manual",
-				containerId: "table",
-				type: "open"
-			});
-		$.ajax({
-			url: "http://" + getAddressHost() + "/address/show",
-			headers: {
-				"token": token
-			},
-
-			dataType: "json",
-			type: "post",
-			timeout: 10000,
-			async: true,
-			success: function (res) {
-				if (res.code == "200") {
-					addressList = JSON.parse(res.address);
-					initAddress();
-
-				} else {
-					javaex.tip({
-						content: "操作失败",
-						type: "error"
-					});
-				}
-			}
-		});
+    window.onload = function () {
+        token = localStorage.getItem("token_user");
+        ordersId = sessionStorage.getItem("ordersId");
+        getAddress();
+    }
 
 
-	}
+    function getAddress() {
+        javaex.loading({
+            mode: "manual",
+            containerId: "table",
+            type: "open"
+        });
+        $.ajax({
+            url: "http://" + getAddressHost() + "/address/show",
+            headers: {
+                "token": token
+            },
 
-	function initAddress() {
-		var table = $("#addressTable");
-		for(var i = 0; i < addressList.length; ++i) {
-			var html = `
+            dataType: "json",
+            type: "post",
+            timeout: 10000,
+            async: true,
+            success: function (res) {
+                if (res.code == "200") {
+                    addressList = JSON.parse(res.address);
+                    initAddress();
+
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+
+
+    }
+
+    function initAddress() {
+        var table = $("#addressTable");
+        for (var i = 0; i < addressList.length; ++i) {
+            var html = `
 					<div class="javaex-breadcrumb box ` + (addressList[i].status == 1 ? "selected" : "") + `" onclick="changeSelectAddress(this ,` + i + `)">
 						<span>` + addressList[i].name + `</span>
 						<span class="divider">/</span>
@@ -233,57 +235,56 @@
 						<span>` + addressList[i].address + `</span>
 					</div>
 			`
-			table.append(html);
-		}
-	}
+            table.append(html);
+        }
+    }
 
-	function changeSelectAddress(obj, index) {
-		$(".javaex-breadcrumb").removeClass("selected");
-		$(obj).addClass("selected");
-		selectedIndex = index;
-	}
+    function changeSelectAddress(obj, index) {
+        $(".javaex-breadcrumb").removeClass("selected");
+        $(obj).addClass("selected");
+        selectedIndex = index;
+    }
 
-	function getGoodsInfo() {
-		javaex.loading({
-				mode: "manual",
-				containerId: "table",
-				type: "open"
-			});
-		$.ajax({
-			url: "http://" + getOrdersHost() + "/orders/show",
-			headers: {
-				"token": token
-			},
-			data: {
-				"ordersId": ordersId
-			},
-			dataType: "json",
-			type: "post",
-			timeout: 10000,
-			async: true,
-			success: function (res) {
-				if (res.code == "200") {
-					var goods = JSON.parse(res.goods);
-					var user = JSON.parse(res.user);
-					var business = JSON.parse(res.business);
-					var num = JSON.parse(num);
-					initInfo(goods, user, business, num);
-				} else {
-					javaex.tip({
-						content: "操作失败",
-						type: "error"
-					});
-				}
-			}
-		});
-	}
+    function getGoodsInfo() {
+        javaex.loading({
+            mode: "manual",
+            containerId: "table",
+            type: "open"
+        });
+        $.ajax({
+            url: "http://" + getOrdersHost() + "/orders/show",
+            headers: {
+                "token": token
+            },
+            data: {
+                "ordersId": ordersId
+            },
+            dataType: "json",
+            type: "post",
+            timeout: 10000,
+            async: true,
+            success: function (res) {
+                if (res.code == "200") {
+                    var goods = JSON.parse(res.goods);
+                    var user = JSON.parse(res.user);
+                    var business = JSON.parse(res.business);
+                    var num = JSON.parse(num);
+                    initInfo(goods, user, business, num);
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+    }
 
-	function initInfo(goods, user, business, num) {
+    function initInfo(goods, user, business, num) {
 
-	}
+    }
 
 </script>
-
 
 
 </html>

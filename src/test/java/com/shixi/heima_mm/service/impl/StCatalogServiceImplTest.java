@@ -15,9 +15,10 @@ class StCatalogServiceImplTest {
 
     @Autowired
     private IStCatalogService iStCatalogService;
+
     @Test
     void findByCourseId() {
-        iStCatalogService.findByCourseId(1).forEach(e-> System.out.println(e));
+        iStCatalogService.findByCourseId(1).forEach(e -> System.out.println(e));
     }
 
     @Test
@@ -32,7 +33,7 @@ class StCatalogServiceImplTest {
 
     @Test
     void save() {
-        StCatalog stCatalog=new StCatalog();
+        StCatalog stCatalog = new StCatalog();
         stCatalog.setName("11111");
 
         iStCatalogService.insert(stCatalog);

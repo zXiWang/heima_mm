@@ -17,15 +17,15 @@ public class UserAdminAuditor implements AuditorAware<String> {
     public Optional<String> getCurrentAuditor() {
         HttpServletRequest request;
         //管理员名
-        String name="anonymous";
-        ServletRequestAttributes requestAttributes=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if(requestAttributes!=null){
-            request=requestAttributes.getRequest();
-            HttpSession session=request.getSession();
-            Object obj=session.getAttribute("userAdmin");
-            if(obj instanceof UserAdmin){
-                UserAdmin userAdmin=(UserAdmin)obj;
-                name=userAdmin.getName();
+        String name = "anonymous";
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (requestAttributes != null) {
+            request = requestAttributes.getRequest();
+            HttpSession session = request.getSession();
+            Object obj = session.getAttribute("userAdmin");
+            if (obj instanceof UserAdmin) {
+                UserAdmin userAdmin = (UserAdmin) obj;
+                name = userAdmin.getName();
             }
         }
         return Optional.of(name);

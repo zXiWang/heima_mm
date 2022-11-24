@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @DynamicUpdate
-@Table(name="tr_member_question")
+@Table(name = "tr_member_question")
 @EntityListeners(AuditingEntityListener.class)
 public class TrMemberQuestion {
     @Id
@@ -21,7 +21,7 @@ public class TrMemberQuestion {
     @Column(name = "question_id")
     private Integer questionId;
 
-    @Column(name = "examinationpaper_id" )
+    @Column(name = "examinationpaper_id")
     private Integer examinationpaperId;
 
     @Column(name = "answer_result")

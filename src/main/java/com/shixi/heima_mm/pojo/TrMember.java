@@ -23,7 +23,7 @@ public class TrMember {
     @Column(name = "nick_name")
     private String nickName;
 
-    @Column(name = "password" )
+    @Column(name = "password")
     private String password;
 
 
@@ -38,7 +38,7 @@ public class TrMember {
     @Column(name = "birthday")
     private Date birthday;
 
-    @Column(name = "email" )
+    @Column(name = "email")
     private String email;
 
 
@@ -50,7 +50,7 @@ public class TrMember {
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @Column(name = "register_date" )
+    @Column(name = "register_date")
     private Date registerDate;
 
 

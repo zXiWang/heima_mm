@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class TrMemberQuestionImpl implements ITrMemberQuestionService {
-   @Autowired
+    @Autowired
     private TrMemberQuestionDao trMemberQuestionDao;
 
     @Override

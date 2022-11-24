@@ -28,7 +28,7 @@ public class StQuestion {
     @Column(name = "catalog_id")
     private Integer catalogId;
 
-    @Column(name = "catalog_name" )
+    @Column(name = "catalog_name")
     private String catalogName;
 
     @Column(name = "course_id")
@@ -73,7 +73,7 @@ public class StQuestion {
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @Column(name ="create_time" )
+    @Column(name = "create_time")
     private Date createTime;
 
     @LastModifiedBy

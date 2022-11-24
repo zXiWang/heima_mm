@@ -23,9 +23,9 @@ public class UserAdminServiceImpl implements IUserAdminService {
                 )
         );
 
-        if(op.isPresent()) {
+        if (op.isPresent()) {
             return op.get();
-        } else  {
+        } else {
             return null;
         }
     }
@@ -42,9 +42,9 @@ public class UserAdminServiceImpl implements IUserAdminService {
 
     @Override
     public boolean findByName(String name) {
-        boolean flag=false;
-        if (userAdminDao.findByName(name)!=null)
-            flag=true;
+        boolean flag = false;
+        if (userAdminDao.findByName(name) != null)
+            flag = true;
         return flag;
     }
 
@@ -55,7 +55,7 @@ public class UserAdminServiceImpl implements IUserAdminService {
 
     @Override
     public boolean findById(Integer id) {
-        boolean flag=false;
+        boolean flag = false;
         if (userAdminDao.findById(id).isPresent())
             flag = true;
         return flag;

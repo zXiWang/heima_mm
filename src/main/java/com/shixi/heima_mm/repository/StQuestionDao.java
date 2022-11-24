@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface StQuestionDao extends JpaRepository<StQuestion,Integer>, JpaSpecificationExecutor<StQuestion> {
+public interface StQuestionDao extends JpaRepository<StQuestion, Integer>, JpaSpecificationExecutor<StQuestion> {
 
     StQuestion findBySubject(@Param("subject") String subject);
 }

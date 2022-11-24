@@ -1,460 +1,465 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>后台管理注册页面</title>
-		<!--字体图标-->
-		<link href="../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			.bg-wrap,
-			body,
-			html {
-				height: 100%;
-			}
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理注册页面</title>
+    <!--字体图标-->
+    <link href="../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .bg-wrap,
+        body,
+        html {
+            height: 100%;
+        }
 
-			input {
-				line-height: normal;
-				-webkit-appearance: textfield;
-				background-color: white;
-				-webkit-rtl-ordering: logical;
-				cursor: text;
-				padding: 1px;
-				border-width: 2px;
-				border-style: inset;
-				border-color: initial;
-				border-image: initial;
-			}
+        input {
+            line-height: normal;
+            -webkit-appearance: textfield;
+            background-color: white;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            padding: 1px;
+            border-width: 2px;
+            border-style: inset;
+            border-color: initial;
+            border-image: initial;
+        }
 
-			input[type="text"],
-			input[type="password"] {
-				border: 0;
-				outline: 0;
-			}
+        input[type="text"],
+        input[type="password"] {
+            border: 0;
+            outline: 0;
+        }
 
-			a {
-				cursor: pointer;
-			}
+        a {
+            cursor: pointer;
+        }
 
-			input,
-			button {
-				text-rendering: auto;
-				color: initial;
-				letter-spacing: normal;
-				word-spacing: normal;
-				text-transform: none;
-				text-indent: 0px;
-				text-shadow: none;
-				display: inline-block;
-				text-align: start;
-				margin: 0em;
-				font: 400 13.3333px Arial;
-			}
+        input,
+        button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+        }
 
-			input[type=button] {
-				-webkit-appearance: button;
-				cursor: pointer;
-			}
+        input[type=button] {
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
 
-			.bg-wrap {
-				position: relative;
-				background: url(../img/bg_register.png) top left no-repeat;
-				background-size: cover;
-				overflow: hidden;
-			}
+        .bg-wrap {
+            position: relative;
+            background: url(../img/bg_register.png) top left no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
 
-			.main-cont-wrap {
-				z-index: 1;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-left: -190px;
-				margin-top: -320px;
-				box-sizing: border-box;
-				width: 380px;
-				padding: 30px 30px 40px;
-				background: #fff;
-				box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
-				border-radius: 10px;
-			}
+        .main-cont-wrap {
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -190px;
+            margin-top: -320px;
+            box-sizing: border-box;
+            width: 380px;
+            padding: 30px 30px 40px;
+            background: #fff;
+            box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+            border-radius: 10px;
+        }
 
-			.form-title {
-				margin-bottom: 20px;
-			}
+        .form-title {
+            margin-bottom: 20px;
+        }
 
-			.form-title>span {
-				font-size: 20px;
-				color: #2589ff;
-			}
+        .form-title > span {
+            font-size: 20px;
+            color: #2589ff;
+        }
 
-			.form-item {
-				margin-bottom: 30px;
-				position: relative;
-				height: 40px;
-				line-height: 40px;
-				border-bottom: 1px solid #e3e3e3;
-				box-sizing: border-box;
-			}
+        .form-item {
+            margin-bottom: 30px;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #e3e3e3;
+            box-sizing: border-box;
+        }
 
-			.form-txt {
-				display: inline-block;
-				width: 70px;
-				color: #595961;
-				font-size: 14px;
-				margin-right: 10px;
-			}
+        .form-txt {
+            display: inline-block;
+            width: 70px;
+            color: #595961;
+            font-size: 14px;
+            margin-right: 10px;
+        }
 
-			.form-input {
-				border: 0;
-				outline: 0;
-				font-size: 14px;
-				color: #595961;
-				width: 150px;
-			}
+        .form-input {
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            color: #595961;
+            width: 150px;
+        }
 
-			.form-btn {
-				margin-top: 20px;
-			}
+        .form-btn {
+            margin-top: 20px;
+        }
 
-			.ui-button {
-				display: block;
-				width: 320px;
-				height: 50px;
-				text-align: center;
-				color: #fff;
-				background: #2589ff;
-				border-radius: 6px;
-				font-size: 16px;
-				border: 0;
-				outline: 0;
-			}
+        .ui-button {
+            display: block;
+            width: 320px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: #2589ff;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 0;
+            outline: 0;
+        }
 
-			.face-button {
-				margin: auto;
-				display: block;
-				width: 200px;
-				height: 30px;
-				text-align: center;
-				color: #fff;
-				background: #2589ff;
-				border-radius: 6px;
-				font-size: 16px;
-				border: 0;
-				outline: 0;
-			}
+        .face-button {
+            margin: auto;
+            display: block;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            color: #fff;
+            background: #2589ff;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 0;
+            outline: 0;
+        }
 
-			.red-icon {
-				color: red;
-				font-size: 16px;
-			}
+        .red-icon {
+            color: red;
+            font-size: 16px;
+        }
 
-			.w {
-				z-index: 100;
-				position: relative;
-				bottom: 89px;
-				padding-top: 20px;
-				width: 100%;
-				margin: auto;
-				background-color: #fff;
-			}
+        .w {
+            z-index: 100;
+            position: relative;
+            bottom: 89px;
+            padding-top: 20px;
+            width: 100%;
+            margin: auto;
+            background-color: #fff;
+        }
 
-			#footer-2013 {
-				padding-bottom: 30px;
+        #footer-2013 {
+            padding-bottom: 30px;
 
-				text-align: center;
-			}
+            text-align: center;
+        }
 
-			#footer-2013 .links a,
-			#footer-2013 .links span {
-				margin: 0 10px;
-			}
+        #footer-2013 .links a,
+        #footer-2013 .links span {
+            margin: 0 10px;
+        }
 
-			#footer-2013 .links a {
-				color: #666;
-				text-decoration: none;
-			}
+        #footer-2013 .links a {
+            color: #666;
+            text-decoration: none;
+        }
 
-			#footer-2013 .copy a {
-				cursor: pointer;
-			}
+        #footer-2013 .copy a {
+            cursor: pointer;
+        }
 
-			.green-icon {
-				color: green;
-				font-size: 16px;
-			}
+        .green-icon {
+            color: green;
+            font-size: 16px;
+        }
 
-			.method {
-				width: 260px;
-				margin: auto;
-				margin-bottom: 30px;
-			}
+        .method {
+            width: 260px;
+            margin: auto;
+            margin-bottom: 30px;
+        }
 
-			.get-code {
-				margin-bottom: 10px;
-			}
-			.bar {
-				height: 50px;
-			}
-		</style>
-	</head>
-	<body onload="time()">
-		<div class="javaex-navbar bar">
-			<div class="javaex-container-fluid clear">
-				<!--右侧-->
-				<ul class="javaex-nav fr">
+        .get-code {
+            margin-bottom: 10px;
+        }
+
+        .bar {
+            height: 50px;
+        }
+    </style>
+</head>
+<body onload="time()">
+<div class="javaex-navbar bar">
+    <div class="javaex-container-fluid clear">
+        <!--右侧-->
+        <ul class="javaex-nav fr">
 					<span id="showtime"
-						style="float: right; font-size: larger;font-weight: bold; position: relative; top: 13px ; right: 10px;"></span>
-		
-				</ul>
-			</div>
-		</div>
-		<div class="bg-wrap">
-			<div class="main-cont-wrap login-model  javaex-animated-fadein-down">
-				<div id="form">
-					<div class="form-title">
-						<span>用户注册</span>
-						<a class="radius-5 button blue fr" onclick="javascrtpt:toLogin()">前往登录</a>
-					</div>
-					<div class="form-item">
-						<span class="form-txt">账号：</span>
-						<input type="text" class="form-input original" id="username" name="loginName"
-							placeholder="请输入账号" data-type="required" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">密码：</span>
-						<input type="password" class="form-input original" id="password" name="password"
-							placeholder="请输入密码" data-type="required" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">店铺名：</span>
-						<input type="text" class="form-input original" id="shopName" name="shopName"
-							placeholder="请输入商铺名" data-type="required" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">手机号：</span>
-						<input type="text" class="form-input original" id="phone" name="phone" placeholder="请输入手机号"
-							data-type="phone" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">邮箱：</span>
-						<input type="text" class="form-input original" id="email" name="email" placeholder="请输入邮箱"
-							data-type="email" error-pos="32" />
-					</div>
-					<div class="form-item">
-						<span class="form-txt">人脸数据：</span>
-						<span class="icon-close red-icon" id="isFaceIn">暂未录入人脸信息</span>
-					</div>
-					<div class="form-btn">
-						<input type="button" class="ui-button" id="face" onclick="face()" value="录入人脸" />
-					</div>
-					<div class="form-btn">
-						<input type="button" class="ui-button" id="register" onclick="register()" value="注册" />
-					</div>
-				</div>
-			</div>
-		</div>
-		<canvas style="display: none" id="canvas" width="480" height="320"></canvas>
-		<!-- 12.04 尾部新增部分 -->
-		<div class="w">
-			<div id="footer-2013">
-				<div class="links">
-					<a href="#"> 关于我们 </a>
-					|
-					<a href="#" style="outline: rgb(109,109,109) none 0px"> 联系我们 </a>
-					|
-					<a href="#"> 人才招聘 </a>
-					|
-					<a href="#"> 企业入驻 </a>
-					|
-					<a href="#"> 广告服务 </a>
-					|
-					<a href="#"> 驰星教育 </a>
-					|
-					<a href="#"> 友情链接 </a>
-					|
-					<a href="#"> 销售联盟 </a>
-					|
-					<a href="#"> 驰星社区 </a>
-					|
-					<a href="#"> 驰星公益 </a>
-					|
-					<a href="#"> English Site </a>
-					|
-				</div>
-				<div class="copy">
-					Copyright © 2004-2021 苏州驰星CX.com 版权所有
-				</div>
-			</div>
-		</div>
-	</body>
-	<script type="text/javascript">
-		var imgData;
+                          style="float: right; font-size: larger;font-weight: bold; position: relative; top: 13px ; right: 10px;"></span>
 
-		function toLogin() {
-			window.location.href = "login.html"
-		}
+        </ul>
+    </div>
+</div>
+<div class="bg-wrap">
+    <div class="main-cont-wrap login-model  javaex-animated-fadein-down">
+        <div id="form">
+            <div class="form-title">
+                <span>用户注册</span>
+                <a class="radius-5 button blue fr" onclick="javascrtpt:toLogin()">前往登录</a>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">账号：</span>
+                <input type="text" class="form-input original" id="username" name="loginName"
+                       placeholder="请输入账号" data-type="required" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">密码：</span>
+                <input type="password" class="form-input original" id="password" name="password"
+                       placeholder="请输入密码" data-type="required" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">店铺名：</span>
+                <input type="text" class="form-input original" id="shopName" name="shopName"
+                       placeholder="请输入商铺名" data-type="required" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">手机号：</span>
+                <input type="text" class="form-input original" id="phone" name="phone" placeholder="请输入手机号"
+                       data-type="phone" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">邮箱：</span>
+                <input type="text" class="form-input original" id="email" name="email" placeholder="请输入邮箱"
+                       data-type="email" error-pos="32"/>
+            </div>
+            <div class="form-item">
+                <span class="form-txt">人脸数据：</span>
+                <span class="icon-close red-icon" id="isFaceIn">暂未录入人脸信息</span>
+            </div>
+            <div class="form-btn">
+                <input type="button" class="ui-button" id="face" onclick="face()" value="录入人脸"/>
+            </div>
+            <div class="form-btn">
+                <input type="button" class="ui-button" id="register" onclick="register()" value="注册"/>
+            </div>
+        </div>
+    </div>
+</div>
+<canvas style="display: none" id="canvas" width="480" height="320"></canvas>
+<!-- 12.04 尾部新增部分 -->
+<div class="w">
+    <div id="footer-2013">
+        <div class="links">
+            <a href="#"> 关于我们 </a>
+            |
+            <a href="#" style="outline: rgb(109,109,109) none 0px"> 联系我们 </a>
+            |
+            <a href="#"> 人才招聘 </a>
+            |
+            <a href="#"> 企业入驻 </a>
+            |
+            <a href="#"> 广告服务 </a>
+            |
+            <a href="#"> 驰星教育 </a>
+            |
+            <a href="#"> 友情链接 </a>
+            |
+            <a href="#"> 销售联盟 </a>
+            |
+            <a href="#"> 驰星社区 </a>
+            |
+            <a href="#"> 驰星公益 </a>
+            |
+            <a href="#"> English Site </a>
+            |
+        </div>
+        <div class="copy">
+            Copyright © 2004-2021 苏州驰星CX.com 版权所有
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var imgData;
 
-		function face() {
+    function toLogin() {
+        window.location.href = "login.html"
+    }
 
-			javaex.alert({
-				content: `
+    function face() {
+
+        javaex.alert({
+            content: `
                 <div class="javaex-animated-fadein-down">
 					<video id="video" width="320" height="180" style="margin-bottom:20px" controls></video>
 				</div>
                 `,
 
-				width: "350px",
-				title: "人脸录入",
+            width: "350px",
+            title: "人脸录入",
 
-				confirm: function() {
-					$("#isFaceIn").removeClass("icon-close red-icon");
-					$("#isFaceIn").addClass("icon-check green-icon");
-					$("#isFaceIn").html("完成录入人脸信息")
-					getFaceData();
+            confirm: function () {
+                $("#isFaceIn").removeClass("icon-close red-icon");
+                $("#isFaceIn").addClass("icon-check green-icon");
+                $("#isFaceIn").html("完成录入人脸信息")
+                getFaceData();
 
-				}
-			});
-			initVideo();
+            }
+        });
+        initVideo();
 
-		}
+    }
 
-		function register() {
-			console.log(0);
-			if (javaexVerify() && imgData != null) {
-				var username = $("#username").val();
-				var password = $("#password").val();
-				var shopName = $("#shopName").val();
-				var phone = $("#phone").val();
-				var email = $("#email").val();
-				var face = imgData;
-				console.log(1)
-				javaex.tip({
-					content: "数据提交中，请稍候...",
-					type: "submit"
-				});
+    function register() {
+        console.log(0);
+        if (javaexVerify() && imgData != null) {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var shopName = $("#shopName").val();
+            var phone = $("#phone").val();
+            var email = $("#email").val();
+            var face = imgData;
+            console.log(1)
+            javaex.tip({
+                content: "数据提交中，请稍候...",
+                type: "submit"
+            });
 
-				$.ajax({
-					type: "post",
-					//后端需要调用的地址
-					url: "http://" + getBusinessHost() + "/business/register",
-					dataType: "json",
-					data: {
-						"username": username,
-						"password": password,
-						"shopName": shopName,
-						"phone": phone,
-						"email": email,
-						"face": face
-					},
-					// contentType: "json/application",
-					//设置超时
-					timeout: 10000,
-					async: true,
-					success: function(response) {
-						console.log(response);
-						if (response.code == "200") {
-							javaex.tip({
-								content: "注册成功",
-								type: "success"
-							});
-							setTimeout(function() {}, 1000);
-						} else {
-							javaex.tip({
-								content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
-								type: "error"
-							});
-							setTimeout(function() {}, 1000);
-						}
-					},
-					error: function(data) {
-						javaex.tip({
-							content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
-							type: "error"
-						});
-						setTimeout(function() {}, 1000);
-					}
-				});
+            $.ajax({
+                type: "post",
+                //后端需要调用的地址
+                url: "http://" + getBusinessHost() + "/business/register",
+                dataType: "json",
+                data: {
+                    "username": username,
+                    "password": password,
+                    "shopName": shopName,
+                    "phone": phone,
+                    "email": email,
+                    "face": face
+                },
+                // contentType: "json/application",
+                //设置超时
+                timeout: 10000,
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        javaex.tip({
+                            content: "注册成功",
+                            type: "success"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    } else {
+                        javaex.tip({
+                            content: "登录失败,错误码：" + response.code + "，错误信息" + response.message,
+                            type: "error"
+                        });
+                        setTimeout(function () {
+                        }, 1000);
+                    }
+                },
+                error: function (data) {
+                    javaex.tip({
+                        content: "发送失败,错误码：" + data.status + "，错误信息" + data.error,
+                        type: "error"
+                    });
+                    setTimeout(function () {
+                    }, 1000);
+                }
+            });
 
 
-			}
-		}
+        }
+    }
 
-		function getFaceData() {
-			let canvas = document.getElementById('canvas');
-			let context = canvas.getContext('2d');
-			canvas.width = 480;
-			canvas.height = 320;
-			context.drawImage(video, 0, 0, 480, 320);
-			imgData = canvas.toDataURL();
-		}
+    function getFaceData() {
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+        canvas.width = 480;
+        canvas.height = 320;
+        context.drawImage(video, 0, 0, 480, 320);
+        imgData = canvas.toDataURL();
+    }
 
-		function initVideo() {
-			//访问用户媒体设备的兼容方法
-			function getUserMedia(constraints, success, error) {
-				if (navigator.mediaDevices.getUserMedia) {
-					//最新的标准API
-					navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
-				} else if (navigator.webkitGetUserMedia) {
-					//webkit核心浏览器
-					navigator.webkitGetUserMedia(constraints, success, error)
-				} else if (navigator.mozGetUserMedia) {
-					//firfox浏览器
-					navigator.mozGetUserMedia(constraints, success, error);
-				} else if (navigator.getUserMedia) {
-					//旧版API
-					navigator.getUserMedia(constraints, success, error);
-				}
-			}
+    function initVideo() {
+        //访问用户媒体设备的兼容方法
+        function getUserMedia(constraints, success, error) {
+            if (navigator.mediaDevices.getUserMedia) {
+                //最新的标准API
+                navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+            } else if (navigator.webkitGetUserMedia) {
+                //webkit核心浏览器
+                navigator.webkitGetUserMedia(constraints, success, error)
+            } else if (navigator.mozGetUserMedia) {
+                //firfox浏览器
+                navigator.mozGetUserMedia(constraints, success, error);
+            } else if (navigator.getUserMedia) {
+                //旧版API
+                navigator.getUserMedia(constraints, success, error);
+            }
+        }
 
-			function success(stream) {
-				//兼容webkit核心浏览器
-				let CompatibleURL = window.URL || window.webkitURL;
-				//将视频流设置为video元素的源
-				console.log(stream);
+        function success(stream) {
+            //兼容webkit核心浏览器
+            let CompatibleURL = window.URL || window.webkitURL;
+            //将视频流设置为video元素的源
+            console.log(stream);
 
-				//video.src = CompatibleURL.createObjectURL(stream);
-				video.srcObject = stream;
-				video.play();
-			}
+            //video.src = CompatibleURL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.play();
+        }
 
-			function error(error) {
-				console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
-			}
+        function error(error) {
+            console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+        }
 
-			if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator
-				.mozGetUserMedia) {
-				//调用用户媒体设备, 访问摄像头
-				getUserMedia({
-					video: {
-						width: 480,
-						height: 320
-					}
-				}, success, error);
-			} else {
-				alert('不支持访问用户媒体');
-			}
-			let video = document.getElementById('video');
-			video.controls = false;
-		}
-		// 时间
-		function time() {
-			t_div = document.getElementById('showtime');
-			var now = new Date();
-			t_div.innerHTML = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getHours() +
-				":" + now.getMinutes() + ":" + now.getSeconds() + "";
-			setTimeout(time, 1000);
-		}
-	</script>
+        if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator
+            .mozGetUserMedia) {
+            //调用用户媒体设备, 访问摄像头
+            getUserMedia({
+                video: {
+                    width: 480,
+                    height: 320
+                }
+            }, success, error);
+        } else {
+            alert('不支持访问用户媒体');
+        }
+        let video = document.getElementById('video');
+        video.controls = false;
+    }
+
+    // 时间
+    function time() {
+        t_div = document.getElementById('showtime');
+        var now = new Date();
+        t_div.innerHTML = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getHours() +
+            ":" + now.getMinutes() + ":" + now.getSeconds() + "";
+        setTimeout(time, 1000);
+    }
+</script>
 </html>

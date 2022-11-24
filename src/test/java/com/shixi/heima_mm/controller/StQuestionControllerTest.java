@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StQuestionControllerTest {
     @Autowired
     StQuestionController stQuestionController;
+
     @Test
     void add() {
 

@@ -1,209 +1,208 @@
 :root {
-	--primary: #6699ff;
-	--secondary: #6699ff;
-	--sec: #222;
-	--fontsize: 5rem;
-	--angle: 45deg;
-  }
+    --primary: #6699ff;
+    --secondary: #6699ff;
+    --sec: #222;
+    --fontsize: 5rem;
+    --angle: 45deg;
+}
 
 body {
-	font-family: sans-serif;
-  margin: 0;
-  background-color: var(--sec);
+    font-family: sans-serif;
+    margin: 0;
+    background-color: var(--sec);
 }
 
 .logo {
-	padding: 0 15px;
-	margin: 0;
-	width: 100%;
-	color: black;
-	position: absolute;
-	left: 0;
-	overflow: hidden;
+    padding: 0 15px;
+    margin: 0;
+    width: 100%;
+    color: black;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
 }
 
 .logo h2 {
-	margin: 0;
+    margin: 0;
 }
 
 .view-before .logo {
-	color: black;
-	
+    color: black;
+
 }
 
 .logo img {
-	width: 30px;
-	vertical-align: bottom;
+    width: 30px;
+    vertical-align: bottom;
 }
 
 .view {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .backgroundcolor {
-	color: black;
-  z-index: 1;
+    color: black;
+    z-index: 1;
 }
 
 .accentcolor {
-  background-color: var(--secondary);
-  z-index: 2;
-	transition: width 1s ease-in-out;
+    background-color: var(--secondary);
+    z-index: 2;
+    transition: width 1s ease-in-out;
 }
 
-.wrapper-after , .wrapper-before {
-/* Make Wrapper take the whole screen for relative positioning of wrapper */
-  height: 100%;
-  width: 100vw;
-	position: absolute;
-	color: black;
+.wrapper-after, .wrapper-before {
+    /* Make Wrapper take the whole screen for relative positioning of wrapper */
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    color: black;
 }
 
 .img-wrapper {
-/*  Fixed width for consistency on resize & movement  */
-  
-  position: relative;
-  top: 50%;
-transform: translate(-4px, -50%);
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 32vh;
-  
+    /*  Fixed width for consistency on resize & movement  */
+
+    position: relative;
+    top: 50%;
+    transform: translate(-4px, -50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 32vh;
+
 }
 
 /* Text */
 .backgroundcolor, .text-before {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .backgroundcolor h2, .text-before h2 {
-	position: absolute;
-	width: 30%;
-	padding: 0 2%;
-	top: 50%;
-	transform: translatey(-50%);
+    position: absolute;
+    width: 30%;
+    padding: 0 2%;
+    top: 50%;
+    transform: translatey(-50%);
 }
 
-.backgroundcolor h2:nth-child(1) , .text-before h2:nth-child(1) {
-	left: 0;
+.backgroundcolor h2:nth-child(1), .text-before h2:nth-child(1) {
+    left: 0;
 }
 
-.backgroundcolor h2:nth-child(2) , .text-before h2:nth-child(2) {
-	right: 0;
+.backgroundcolor h2:nth-child(2), .text-before h2:nth-child(2) {
+    right: 0;
 }
 
 .backgroundcolor {
-	color: var(--sec);
+    color: var(--sec);
 }
 
 .text-before {
-	color: black;
+    color: black;
 }
 
 /* Exported to PNG */
 
 .img-wrapper img {
-  width: 100%;
-	animation: float 3s infinite;
+    width: 100%;
+    animation: float 3s infinite;
 }
 
 .img-shadow {
-	background: url(https://static.enginethemes.com/main/img/shadow.png) no-repeat center center;
-	width: 250px;
-	height: 24px;
-	left: 0;
-  right: 0;
-  margin: 0 auto;
-	position: absolute;
-	bottom: 18%;
-	animation: shadowMagnify 3s infinite;
-	
+    background: url(https://static.enginethemes.com/main/img/shadow.png) no-repeat center center;
+    width: 250px;
+    height: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 18%;
+    animation: shadowMagnify 3s infinite;
+
 }
 
 /* Menu */
 
 .menu {
-	position: absolute;
-	right: 0;
-	z-index: 1;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 
 .menu li {
-	margin-right: 10px;
-	display: inline-block;
+    margin-right: 10px;
+    display: inline-block;
 }
 
 .menu a {
-	font-weight: bold;
-	text-decoration: none;
-	color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--primary);
 }
 
 
 /* Animations */
 
 @keyframes shadowMagnify {
-	0% {
-		transform: scale(0.7);
-		opacity: 0.7;
-	}
-	50% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(0.7);
-		opacity: 0.7;
-	}
-	
+    0% {
+        transform: scale(0.7);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.7);
+        opacity: 0.7;
+    }
+
 }
 
 @keyframes float {
-	0% {
-		transform: translatey(0%);
-	}
-	50% {
-		transform: translatey(8%);
-	}
-	100% {
-		transform: translatey(0%);
-	}
+    0% {
+        transform: translatey(0%);
+    }
+    50% {
+        transform: translatey(8%);
+    }
+    100% {
+        transform: translatey(0%);
+    }
 }
 
 /* Particles */
 
 #backgroundcolor div[data-name="mojs-shape"] {
-	position: absolute;
-	z-index: -10;
+    position: absolute;
+    z-index: -10;
 }
 
 #accentcolor div[data-name="mojs-shape"] {
-	position: absolute;
-	z-index: -10;
+    position: absolute;
+    z-index: -10;
 }
 
 /* Media Queries */
 
- @media only screen
-  and (min-width: 320px)
-  and (max-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen
+and (min-width: 320px)
+and (max-width: 736px)
+and (-webkit-min-device-pixel-ratio: 1) {
 
-	  /*Header*/
-	  
-	.backgroundcolor , .text-before {
-		display: none;
-	}
+    /*Header*/
+    .backgroundcolor, .text-before {
+        display: none;
+    }
 
-	.logo h2 {
-		font-size: 18px;
-		}
-		
-		.menu {
-			display: none;
-		}
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    .menu {
+        display: none;
+    }
 }

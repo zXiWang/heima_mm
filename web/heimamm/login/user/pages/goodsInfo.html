@@ -1,208 +1,208 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>商品详情</title>
-		<!--字体图标-->
-		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			body {
-				background-color: #EEE;
-			}
+<head>
+    <meta charset="utf-8">
+    <title>商品详情</title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        body {
+            background-color: #EEE;
+        }
 
-			.container {
-				min-width: 1000px;
-				max-width: 1300px;
-				margin: 9% auto 0 auto;
-				background-color: #fff;
-				border-radius: 10px;
-				box-shadow: 0 2px 5px 0 rgb(0 0 0 / 25%);
-			}
+        .container {
+            min-width: 1000px;
+            max-width: 1300px;
+            margin: 9% auto 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 25%);
+        }
 
-			.pic {
-				width: 400px;
-			}
+        .pic {
+            width: 400px;
+        }
 
-			.pic>img {
-				width: 100%;
-				object-fit: cover;
-			}
+        .pic > img {
+            width: 100%;
+            object-fit: cover;
+        }
 
-			.right {
-				height: 500px;
-			}
+        .right {
+            height: 500px;
+        }
 
-			.right>div {
-				padding: 20px 0px 20px 50px;
-			}
+        .right > div {
+            padding: 20px 0px 20px 50px;
+        }
 
-			.info {
-				padding: 40px;
-				min-height: 500px;
-			}
+        .info {
+            padding: 40px;
+            min-height: 500px;
+        }
 
-			.title {
-				font-size: 42px;
-			}
+        .title {
+            font-size: 42px;
+        }
 
-			.good_info {
-				font-size: 20px;
-				min-height: 160px;
-			}
+        .good_info {
+            font-size: 20px;
+            min-height: 160px;
+        }
 
-			.count {
-				height: 50px;
-				font-size: 20px;
-			}
+        .count {
+            height: 50px;
+            font-size: 20px;
+        }
 
-			.counter {
-				padding-top: 10px;
-				margin-left: 2rem;
-				font-size: 15px;
-				color: #999;
-			}
+        .counter {
+            padding-top: 10px;
+            margin-left: 2rem;
+            font-size: 15px;
+            color: #999;
+        }
 
-			.action {
-				margin-top: 10px;
-				margin-left: 2rem;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<div class="javaex-navbar">
-				<div class="javaex-container-fluid clear">
-					<!--logo名称-->
-					<div class="javaex-logo">九美阁商城</div>
-					<!--左侧导航-->
-					<ul class="javaex-nav fl">
-						<li class="active"><a href="javascript:;">首页</a></li>
-					</ul>
+        .action {
+            margin-top: 10px;
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="javaex-navbar">
+        <div class="javaex-container-fluid clear">
+            <!--logo名称-->
+            <div class="javaex-logo">九美阁商城</div>
+            <!--左侧导航-->
+            <ul class="javaex-nav fl">
+                <li class="active"><a href="javascript:;">首页</a></li>
+            </ul>
 
-					<!--右侧-->
-					<ul class="javaex-nav fr">
-						<li>
-							<a href="javascript:;">欢迎您，管理员</a>
-							<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
-								<li><a href="javascript:;">退出当前账号</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
-		<div class="container">
-			<div class="info javaex-grid">
-				<div class="pic javaex-grid-4">
-					<img id="pic" src="">
-				</div>
-				<div class="right javaex-grid-8">
-					<div id="title" class="title">
-						北冰洋的企鹅
-					</div>
-					<div id="good_info" class="good_info">
-						不要忘记，在某个角落，始终有一个人在为你而战。只要你记住她，你就不是孤单一个人。
-						<br />
-						Hi！我是北冰洋的企鹅 ，一个刚刚入门 算法 的萌新大学生。
-						<br />
-						很高兴遇见你
-					</div>
-					<div class="price" id="price">
-						￥10000
-					</div>
-					<div class="count">
-						选择数量:<br />
-						<div class="counter">
-							<input id="numChose" class="javaex-numChose" value="1" readonly />
-							&nbsp;&nbsp;&nbsp;剩余库存<span id="stockstock">1</span>件
-						</div>
-						<div class="action">
-							<button class="javaex-btn red">立即购买</button>
-							<button class="javaex-btn yellow" onclick="addCart()">添加购物车</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+            <!--右侧-->
+            <ul class="javaex-nav fr">
+                <li>
+                    <a href="javascript:;">欢迎您，管理员</a>
+                    <ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+                        <li><a href="javascript:;">退出当前账号</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="info javaex-grid">
+        <div class="pic javaex-grid-4">
+            <img id="pic" src="">
+        </div>
+        <div class="right javaex-grid-8">
+            <div id="title" class="title">
+                北冰洋的企鹅
+            </div>
+            <div id="good_info" class="good_info">
+                不要忘记，在某个角落，始终有一个人在为你而战。只要你记住她，你就不是孤单一个人。
+                <br/>
+                Hi！我是北冰洋的企鹅 ，一个刚刚入门 算法 的萌新大学生。
+                <br/>
+                很高兴遇见你
+            </div>
+            <div class="price" id="price">
+                ￥10000
+            </div>
+            <div class="count">
+                选择数量:<br/>
+                <div class="counter">
+                    <input id="numChose" class="javaex-numChose" value="1" readonly/>
+                    &nbsp;&nbsp;&nbsp;剩余库存<span id="stockstock">1</span>件
+                </div>
+                <div class="action">
+                    <button class="javaex-btn red">立即购买</button>
+                    <button class="javaex-btn yellow" onclick="addCart()">添加购物车</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 
-	<script type="text/javascript">
-		var goods;
-		window.onload = function() {
-			goods = JSON.parse(localStorage.getItem("goods"));
-			console.log(goods);
-			javaex.numChose({
-				id: "numChose",
-				maxValue: goods.stock
-			});
-			$("#title").text(goods.name);
-			$("#stockstock").text(goods.stock);
-			$("#good_info").text(goods.info);
-			$("#pic").attr("src", goods.img);
-		}
+<script type="text/javascript">
+    var goods;
+    window.onload = function () {
+        goods = JSON.parse(localStorage.getItem("goods"));
+        console.log(goods);
+        javaex.numChose({
+            id: "numChose",
+            maxValue: goods.stock
+        });
+        $("#title").text(goods.name);
+        $("#stockstock").text(goods.stock);
+        $("#good_info").text(goods.info);
+        $("#pic").attr("src", goods.img);
+    }
 
-		function addCart() {
-			javaex.tip({
-				content: "数据提交中，请稍候...",
-				type: "submit"
-			});
-			$.ajax({
-				type: "post",
-				//后端需要调用的地址
-				url: "http://" + getCartHost() + "/shopCart/add",
-				dataType: "json",
-				data: {
-					"goodsId": goods.goodsId,
-					"num": $("#numChose").val()
-				},
-				headers: {
-					"token": localStorage.getItem("token_user")
-				},
-				// contentType: "json/application",
-				//设置超时
-				timeout: 10000,
-				async: true,
-				success: function(res) {
-					console.log(res)
-					if (res.code == 200) {
-						javaex.tip({
-							content: "操作成功",
-							type: "success"
-						});
-						// 建议延迟加载
-						setTimeout(function() {
-							// 刷新页面
-							// window.location.reload();
-							// 跳转页面
-							// window.location.href = "${pageContext.request.contextPath}/zone_info/list.action";
-						}, 1000);
-					} else {
-						javaex.tip({
-							content: "操作失败",
-							type: "error"
-						});
-					}
-				},
-				error: function(res) {
-					javaex.tip({
-						content: "操作失败",
-						type: "error"
-					});
-				}
-			});
-		}
-	</script>
+    function addCart() {
+        javaex.tip({
+            content: "数据提交中，请稍候...",
+            type: "submit"
+        });
+        $.ajax({
+            type: "post",
+            //后端需要调用的地址
+            url: "http://" + getCartHost() + "/shopCart/add",
+            dataType: "json",
+            data: {
+                "goodsId": goods.goodsId,
+                "num": $("#numChose").val()
+            },
+            headers: {
+                "token": localStorage.getItem("token_user")
+            },
+            // contentType: "json/application",
+            //设置超时
+            timeout: 10000,
+            async: true,
+            success: function (res) {
+                console.log(res)
+                if (res.code == 200) {
+                    javaex.tip({
+                        content: "操作成功",
+                        type: "success"
+                    });
+                    // 建议延迟加载
+                    setTimeout(function () {
+                        // 刷新页面
+                        // window.location.reload();
+                        // 跳转页面
+                        // window.location.href = "${pageContext.request.contextPath}/zone_info/list.action";
+                    }, 1000);
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            },
+            error: function (res) {
+                javaex.tip({
+                    content: "操作失败",
+                    type: "error"
+                });
+            }
+        });
+    }
+</script>
 </html>

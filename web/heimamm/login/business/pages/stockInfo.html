@@ -1,204 +1,204 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<!--字体图标-->
-		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			.body {
-				min-width: 1200px;
-				background-color: #E7EAED;
-				min-height: 800px;
-			}
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .body {
+            min-width: 1200px;
+            background-color: #E7EAED;
+            min-height: 800px;
+        }
 
-			.container {
-				width: 90%;
-				background-color: #fff;
-				margin: 20px auto 100px auto;
-				box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
-				min-height: 800px;
-			}
+        .container {
+            width: 90%;
+            background-color: #fff;
+            margin: 20px auto 100px auto;
+            box-shadow: 0 20px 30px 0 rgb(0 0 0 / 15%);
+            min-height: 800px;
+        }
 
-			.table {
-				padding: 40px 20px 20px 20px;
+        .table {
+            padding: 40px 20px 20px 20px;
 
-				min-height: 700px;
-			}
+            min-height: 700px;
+        }
 
-			.pager {
-				position: initial;
-				padding-bottom: 20px;
-				padding-right: 30px;
-			}
+        .pager {
+            position: initial;
+            padding-bottom: 20px;
+            padding-right: 30px;
+        }
 
-			#table {
-				margin-top: 30px;
-			}
-		</style>
-	</head>
-	<body class="body">
-		<div class="container">
-			<div class="table">
-				<div class="javaex-block">
-					<div class="javaex-list-toolbar clear">
+        #table {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="body">
+<div class="container">
+    <div class="table">
+        <div class="javaex-block">
+            <div class="javaex-list-toolbar clear">
 						<span class="fr">
 							<div class="javaex-search-group">
-								<input type="text" class="javaex-text" id="keyword" placeholder="请输入搜索内容" />
+								<input type="text" class="javaex-text" id="keyword" placeholder="请输入搜索内容"/>
 								<button class="javaex-btn blue" onclick="search()">搜索</button>
 								<button class="javaex-btn red" onclick="clear()">清空</button>
 							</div>
 						</span>
-					</div>
+            </div>
 
-					<table id="table" class="javaex-table td-c-1 td-c-2">
-						<thead>
-							<tr>
-								<th class="javaex-table-num-col">序号</th>
-								<th>商品名称</th>
-								<th>类型</th>
-								<th>时间</th>
-								<th>数量</th>
-								<th>详细信息</th>
-								<th>订单号</th>
-							</tr>
-						</thead>
-						<tbody id="tbody">
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="pager">
-				<div class="javaex-page">
-					<ul id="page" class="javaex-pagination"></ul>
-				</div>
-			</div>
-		</div>
+            <table id="table" class="javaex-table td-c-1 td-c-2">
+                <thead>
+                <tr>
+                    <th class="javaex-table-num-col">序号</th>
+                    <th>商品名称</th>
+                    <th>类型</th>
+                    <th>时间</th>
+                    <th>数量</th>
+                    <th>详细信息</th>
+                    <th>订单号</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="pager">
+        <div class="javaex-page">
+            <ul id="page" class="javaex-pagination"></ul>
+        </div>
+    </div>
+</div>
 
-		<div class="javaex-page-footer" style="margin-top: 30px;">
+<div class="javaex-page-footer" style="margin-top: 30px;">
 
-		</div>
-	</body>
-	<script>
-		var pageSize = 10;
-		var totalPages;
-		var business = null;
-		var totalNum;
-		var updateGoodsId;
-		var context = '';
-		var token;
-		window.onload = function() {
-			token = localStorage.getItem("token")
-			initPage();
-		}
+</div>
+</body>
+<script>
+    var pageSize = 10;
+    var totalPages;
+    var business = null;
+    var totalNum;
+    var updateGoodsId;
+    var context = '';
+    var token;
+    window.onload = function () {
+        token = localStorage.getItem("token")
+        initPage();
+    }
 
-		function updateStockDialog(id) {
-			updateGoodsId = id;
-		}
+    function updateStockDialog(id) {
+        updateGoodsId = id;
+    }
 
-		function search() {
-			context = $("#keyword").val();
-			initPage();
-		}
+    function search() {
+        context = $("#keyword").val();
+        initPage();
+    }
 
-		function clear() {
-			context = '';
-			initPage();
-		}
+    function clear() {
+        context = '';
+        initPage();
+    }
 
-		function initPage() {
-			$.ajax({
-				type: "post",
-				//后端需要调用的地址
-				url: "http://" + getStockHost() + "/stock/showAll",
-				dataType: "json",
-				data: {
-					"context": context,
-					"currentPage": 0,
-					"pageSize": pageSize,
-					"sort": 'date',
-					"asc": false
-				},
-				headers: {
-					"token": token,
-				},
-				timeout: 10000,
-				async: true,
-				success: function(res) {
-					if (res.code == 200) {
-						initTable(JSON.parse(res.history));
-						javaex.render();
-						totalPages = res.totalPages;
-						totalNum = res.totalNum;
-						javaex.page({
-							id: "page", // jquery选择器，指定到ul节点
-							pageNum: 1, // 默认选中第几页
-							pageSize: pageSize, // 每页显示多少条
-							totalPages: totalPages, // 总页数
-							isShowJumpPage: true, // 是否显示跳页\
-							position: "right",
-							totalNum: totalNum, // 总条数，不填时，不显示
-							callback: function(rtn) {
-								if (rtn.pageSize != pageSize) {
-									pageSize = rtn.pageSize;
-									initPage();
-								}
-								$.ajax({
-									type: "post",
-									//后端需要调用的地址
-									url: "http://" + getStockHost() + "/stock/showAll",
-									dataType: "json",
-									data: {
-										"context": '',
-										"currentPage": rtn.pageNum - 1,
-										"pageSize": pageSize,
-										"sort": 'date',
-										"asc": false
-									},
-									headers: {
-										"token": token,
-									},
-									timeout: 10000,
-									async: true,
-									success: function(res) {
-										console.log(res);
-										if (res.code == 200) {
-											totalPages = res.totalPages;
-											totalNum = res.totalNum;
-											initTable(JSON.parse(res.history));
-											javaex.render();
-										}
+    function initPage() {
+        $.ajax({
+            type: "post",
+            //后端需要调用的地址
+            url: "http://" + getStockHost() + "/stock/showAll",
+            dataType: "json",
+            data: {
+                "context": context,
+                "currentPage": 0,
+                "pageSize": pageSize,
+                "sort": 'date',
+                "asc": false
+            },
+            headers: {
+                "token": token,
+            },
+            timeout: 10000,
+            async: true,
+            success: function (res) {
+                if (res.code == 200) {
+                    initTable(JSON.parse(res.history));
+                    javaex.render();
+                    totalPages = res.totalPages;
+                    totalNum = res.totalNum;
+                    javaex.page({
+                        id: "page", // jquery选择器，指定到ul节点
+                        pageNum: 1, // 默认选中第几页
+                        pageSize: pageSize, // 每页显示多少条
+                        totalPages: totalPages, // 总页数
+                        isShowJumpPage: true, // 是否显示跳页\
+                        position: "right",
+                        totalNum: totalNum, // 总条数，不填时，不显示
+                        callback: function (rtn) {
+                            if (rtn.pageSize != pageSize) {
+                                pageSize = rtn.pageSize;
+                                initPage();
+                            }
+                            $.ajax({
+                                type: "post",
+                                //后端需要调用的地址
+                                url: "http://" + getStockHost() + "/stock/showAll",
+                                dataType: "json",
+                                data: {
+                                    "context": '',
+                                    "currentPage": rtn.pageNum - 1,
+                                    "pageSize": pageSize,
+                                    "sort": 'date',
+                                    "asc": false
+                                },
+                                headers: {
+                                    "token": token,
+                                },
+                                timeout: 10000,
+                                async: true,
+                                success: function (res) {
+                                    console.log(res);
+                                    if (res.code == 200) {
+                                        totalPages = res.totalPages;
+                                        totalNum = res.totalNum;
+                                        initTable(JSON.parse(res.history));
+                                        javaex.render();
+                                    }
 
-									}
-								});
-							}
-						});
-					}
-				}
-			});
-		}
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    }
 
-		function initTable(stock) {
-			$("#tbody").html('');
-			for (var i = 0; i < stock.length; i++) {
-				if (stock[i].goodsName.length > 30) {
-					stock[i].goodsName = stock[i].goodsName.substr(0, 30) + "...";
-				}
-				var html = '';
-				html = html + `
+    function initTable(stock) {
+        $("#tbody").html('');
+        for (var i = 0; i < stock.length; i++) {
+            if (stock[i].goodsName.length > 30) {
+                stock[i].goodsName = stock[i].goodsName.substr(0, 30) + "...";
+            }
+            var html = '';
+            html = html + `
 					<tr>
 						<td>` + stock[i].stockId + `</td>
 						<td  style="text-align: left;">` + stock[i].goodsName + `</td>
@@ -208,8 +208,8 @@
 						<td>` + stock[i].info + `</td>
 						<td>` + (stock[i].ordersId == "" ? '无订单信息' : stock[i].ordersId) + `</td>
 						`
-				$("#tbody").append(html);
-			}
-		}
-	</script>
+            $("#tbody").append(html);
+        }
+    }
+</script>
 </html>

@@ -1,13 +1,13 @@
 package com.shixi.heima_mm.pojo;
 
 
-
 import lombok.Data;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+
 @Data
 @Entity
 @DynamicUpdate
@@ -23,7 +23,7 @@ public class StQuestionItem {
     @Column(name = "question_id")
     private Integer questionId;
 
-    @Column(name = "content" )
+    @Column(name = "content")
     private String content;
 
 

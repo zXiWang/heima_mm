@@ -50,7 +50,7 @@ public class StQuestionServiceImpl implements IStQuestionService {
 
     @Override
     public StQuestion findById(Integer id) {
-        Optional<StQuestion> op=stQuestionDao.findById(id);
+        Optional<StQuestion> op = stQuestionDao.findById(id);
         if (op.isPresent())
             return op.get();
         return null;

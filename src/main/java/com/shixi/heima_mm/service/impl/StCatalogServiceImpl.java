@@ -29,7 +29,7 @@ public class StCatalogServiceImpl implements IStCatalogService {
     }
 
     @Override
-    public StCatalog update(StCatalog stCatalog){
+    public StCatalog update(StCatalog stCatalog) {
         return stCatalogDao.save(stCatalog);
     }
 
@@ -46,9 +46,9 @@ public class StCatalogServiceImpl implements IStCatalogService {
     @Override
     public StCatalog findById(int id) {
         Optional<StCatalog> op = stCatalogDao.findById(1);
-        if(op.isPresent()) {
+        if (op.isPresent()) {
             return op.get();
-        } else  {
+        } else {
             return null;
         }
     }

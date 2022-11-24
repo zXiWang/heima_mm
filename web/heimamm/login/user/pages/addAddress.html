@@ -1,177 +1,178 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>添加地址</title>
-		<!--字体图标-->
-		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+<head>
+    <meta charset="utf-8">
+    <title>添加地址</title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
 
-		<link rel="stylesheet" href="../../lib/province/css/pick-pcc.min.1.0.1.css">
-		<script type="text/javascript" src="../../lib/province/js/pick-pcc.min.1.0.1.js"></script>
-		<style type="text/css">
-			.container {
-				width: 400px;
-				margin: 50px auto 0 auto;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<form id="form">
-				<!--文本框-->
-				<div class="javaex-unit clear">
-					<div class="javaex-unit-left">
-						<p class="subtitle required">收货人姓名</p>
-					</div>
-					<div class="javaex-unit-right">
-						<input id="name" type="text" data-type="chinese" error-msg="暂不支持英文" class="javaex-text"
-							placeholder="长度不超过25个字符" />
-					</div>
-				</div>
+    <link rel="stylesheet" href="../../lib/province/css/pick-pcc.min.1.0.1.css">
+    <script type="text/javascript" src="../../lib/province/js/pick-pcc.min.1.0.1.js"></script>
+    <style type="text/css">
+        .container {
+            width: 400px;
+            margin: 50px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form id="form">
+        <!--文本框-->
+        <div class="javaex-unit clear">
+            <div class="javaex-unit-left">
+                <p class="subtitle required">收货人姓名</p>
+            </div>
+            <div class="javaex-unit-right">
+                <input id="name" type="text" data-type="chinese" error-msg="暂不支持英文" class="javaex-text"
+                       placeholder="长度不超过25个字符"/>
+            </div>
+        </div>
 
-				<!--下拉选择框-->
-				<div class="javaex-unit clear">
-					<div class="javaex-unit-left">
-						<p class="subtitle required">地址信息:</p>
-					</div>
-					<div class="javaex-unit-right">
-						<a href="javascript:void(0)" class="pick-area pick-area1" name="山东省/临沂市/兰陵县"></a>
-					</div>
-				</div>
-				<!--文本框-->
-				<div class="javaex-unit clear">
-					<div class="javaex-unit-left">
-						<p class="subtitle required">详细地址:</p>
-					</div>
-					<div class="javaex-unit-right">
+        <!--下拉选择框-->
+        <div class="javaex-unit clear">
+            <div class="javaex-unit-left">
+                <p class="subtitle required">地址信息:</p>
+            </div>
+            <div class="javaex-unit-right">
+                <a href="javascript:void(0)" class="pick-area pick-area1" name="山东省/临沂市/兰陵县"></a>
+            </div>
+        </div>
+        <!--文本框-->
+        <div class="javaex-unit clear">
+            <div class="javaex-unit-left">
+                <p class="subtitle required">详细地址:</p>
+            </div>
+            <div class="javaex-unit-right">
 						<textarea id="address" data-type="chinese" error-msg="暂不支持英文" class="javaex-desc"
-							placeholder="请输入详细地址信息，如道路、门牌号、小区、楼栋号、单元等信息"></textarea>
-					</div>
-				</div>
-				<!--文本框-->
-				<div class="javaex-unit clear">
-					<div class="javaex-unit-left">
-						<p class="subtitle">邮政编码:</p>
-					</div>
-					<div class="javaex-unit-right">
-						<input id="code" type="text" class="javaex-text" placeholder="请填写邮编" />
-					</div>
-				</div>
-				<!--文本框-->
-				<div class="javaex-unit clear">
-					<div class="javaex-unit-left">
-						<p class="subtitle required">手机号码:</p>
-					</div>
-					<div class="javaex-unit-right">
-						<input id="phone" type="text" data-type="phone" error-msg="手机号格式错误" class="javaex-text"
-							placeholder="请填写正确的手机号码" />
-					</div>
-				</div>
+                                  placeholder="请输入详细地址信息，如道路、门牌号、小区、楼栋号、单元等信息"></textarea>
+            </div>
+        </div>
+        <!--文本框-->
+        <div class="javaex-unit clear">
+            <div class="javaex-unit-left">
+                <p class="subtitle">邮政编码:</p>
+            </div>
+            <div class="javaex-unit-right">
+                <input id="code" type="text" class="javaex-text" placeholder="请填写邮编"/>
+            </div>
+        </div>
+        <!--文本框-->
+        <div class="javaex-unit clear">
+            <div class="javaex-unit-left">
+                <p class="subtitle required">手机号码:</p>
+            </div>
+            <div class="javaex-unit-right">
+                <input id="phone" type="text" data-type="phone" error-msg="手机号格式错误" class="javaex-text"
+                       placeholder="请填写正确的手机号码"/>
+            </div>
+        </div>
 
-				<!--提交按钮-->
-				<div class="javaex-unit clear tc">
-					<input type="button" id="save" class="javaex-btn yes" value="保存" />
-				</div>
-			</form>
-		</div>
-	</body>
+        <!--提交按钮-->
+        <div class="javaex-unit clear tc">
+            <input type="button" id="save" class="javaex-btn yes" value="保存"/>
+        </div>
+    </form>
+</div>
+</body>
 
-	<script type="text/javascript">
-		$(".pick-area1").pickArea({
-			"format": "请选择/请选择/请选择", //格式
-			"width": "310",
-			"borderColor": "#CCCCCC", //文本边框的色值
-			"arrowColor": "#CCCCCC", //箭头颜色
-			"listBdColor": "#CCCCCC", //下拉框父元素ul的border色值
-			"color": "#1B9AEE", //字体颜色
-			"fontSize": "13px", //字体大小
-			"hoverColor": "#1B9AEE",
-			"paddingLeft": "10px",
-			"arrowRight": "10px",
-			//"preSet":"北京市/市辖区/东城区",
-			"getVal": function() {}
-		});
-		// 监听点击保存按钮事件
-		$("#save").click(function() {
-			var token = localStorage.getItem("token_user");
-			// 表单验证函数
-			
-			var code = $("#code").val().trim();
-			if (javaexVerify()) {
-				var arr = $(".pick-area-hidden").val().split(" ");
-				console.log(arr);
-				var name = $("#name").val().trim();
-				var address = $("#address").val().trim();
-				var code = $("#code").val().trim();
-				var phone = $("#phone").val().trim();
-				if (arr.length == 3 && ((code != null &&  code != "") ? code.length == 6 : true)) {
-					javaex.tip({
-						content: "数据提交中，请稍候...",
-						type: "submit"
-					});
-					$.ajax({
-						type: "post",
-						//后端需要调用的地址
-						url: "http://" + getAddressHost() + "/address/add",
-						dataType: "json",
-						data: {
-							"province": arr[0],
-							"city": arr[1],
-							"district": arr[2],
-							"address": address,
-							"code": code,
-							"phone": phone,
-							"name": name
-						},
-						headers: {
-							"token": token
-						},
-						timeout: 10000,
-						async: true,
-						success: function(res) {
-							console.log(res)
-							if (res.code == 200) {
-								javaex.tip({
-									content: "操作成功",
-									type: "success"
-								});
-								// 建议延迟加载
-								setTimeout(function() {
-									parent.location.reload();
-								}, 1000);
-							} else {
-								javaex.tip({
-									content: "操作失败",
-									type: "error"
-								});
-							}
-						},
-						error: function(res) {
-							javaex.tip({
-								content: "操作失败",
-								type: "error"
-							});
-						}
-					});
-				} else {
-					javaex.alert({
-						content: "请确认信息填写无误"
-					});
-				}
-			}
-		});
-	</script>
+<script type="text/javascript">
+    $(".pick-area1").pickArea({
+        "format": "请选择/请选择/请选择", //格式
+        "width": "310",
+        "borderColor": "#CCCCCC", //文本边框的色值
+        "arrowColor": "#CCCCCC", //箭头颜色
+        "listBdColor": "#CCCCCC", //下拉框父元素ul的border色值
+        "color": "#1B9AEE", //字体颜色
+        "fontSize": "13px", //字体大小
+        "hoverColor": "#1B9AEE",
+        "paddingLeft": "10px",
+        "arrowRight": "10px",
+        //"preSet":"北京市/市辖区/东城区",
+        "getVal": function () {
+        }
+    });
+    // 监听点击保存按钮事件
+    $("#save").click(function () {
+        var token = localStorage.getItem("token_user");
+        // 表单验证函数
+
+        var code = $("#code").val().trim();
+        if (javaexVerify()) {
+            var arr = $(".pick-area-hidden").val().split(" ");
+            console.log(arr);
+            var name = $("#name").val().trim();
+            var address = $("#address").val().trim();
+            var code = $("#code").val().trim();
+            var phone = $("#phone").val().trim();
+            if (arr.length == 3 && ((code != null && code != "") ? code.length == 6 : true)) {
+                javaex.tip({
+                    content: "数据提交中，请稍候...",
+                    type: "submit"
+                });
+                $.ajax({
+                    type: "post",
+                    //后端需要调用的地址
+                    url: "http://" + getAddressHost() + "/address/add",
+                    dataType: "json",
+                    data: {
+                        "province": arr[0],
+                        "city": arr[1],
+                        "district": arr[2],
+                        "address": address,
+                        "code": code,
+                        "phone": phone,
+                        "name": name
+                    },
+                    headers: {
+                        "token": token
+                    },
+                    timeout: 10000,
+                    async: true,
+                    success: function (res) {
+                        console.log(res)
+                        if (res.code == 200) {
+                            javaex.tip({
+                                content: "操作成功",
+                                type: "success"
+                            });
+                            // 建议延迟加载
+                            setTimeout(function () {
+                                parent.location.reload();
+                            }, 1000);
+                        } else {
+                            javaex.tip({
+                                content: "操作失败",
+                                type: "error"
+                            });
+                        }
+                    },
+                    error: function (res) {
+                        javaex.tip({
+                            content: "操作失败",
+                            type: "error"
+                        });
+                    }
+                });
+            } else {
+                javaex.alert({
+                    content: "请确认信息填写无误"
+                });
+            }
+        }
+    });
+</script>
 </html>

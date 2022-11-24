@@ -50,9 +50,9 @@ public class TrMemberImpl implements ITrMemberService {
 
     @Override
     public Boolean findById(Integer id) {
-        boolean flag=false;
-        if(trMemberDao.findById(id).isPresent())
-            flag=true;
+        boolean flag = false;
+        if (trMemberDao.findById(id).isPresent())
+            flag = true;
         return flag;
     }
 

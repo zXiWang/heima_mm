@@ -49,9 +49,9 @@ public class StCourseServiceImpl implements IStCourseService {
 
     @Override
     public boolean findById(Integer id) {
-        boolean flag=false;
-        if(stCourseDao.findById(id).isPresent())
-            flag=true;
+        boolean flag = false;
+        if (stCourseDao.findById(id).isPresent())
+            flag = true;
         return flag;
     }
 

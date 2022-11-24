@@ -17,25 +17,25 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class UserAdmin {
 
-        @Id
-        @Column(name = "id")
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-        @Column(name = "name")
-        private String name;
+    @Column(name = "name")
+    private String name;
 
-        @Column(name = "password" )
-        private String password;
+    @Column(name = "password")
+    private String password;
 
-        @CreatedDate
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-        @Column(name ="create_time" )
-        private Date createTime;
+    @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(name = "create_time")
+    private Date createTime;
 
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-        @Column(name = "apply_time")
-        private Date applyTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(name = "apply_time")
+    private Date applyTime;
 
 
 }

@@ -35,37 +35,37 @@ public class StCatalogController {
     }
 
     @PostMapping("/add")
-    public Result add(String name,String remark,String courseName){
-            StCatalog stCatalog=new StCatalog();
-            stCatalog.setName(name);
-            stCatalog.setRemark(remark);
-            stCatalog.setCourseName(courseName);
-            stCatalog.setCourseId(stCourseService.findByName(courseName).getId());
-            stCatalogService.insert(stCatalog);
-            if(stCatalogService.findByName(name)==null)
-                return new Result("500","添加失败!",null);
-            return new Result("200","添加成功",null);
+    public Result add(String name, String remark, String courseName) {
+        StCatalog stCatalog = new StCatalog();
+        stCatalog.setName(name);
+        stCatalog.setRemark(remark);
+        stCatalog.setCourseName(courseName);
+        stCatalog.setCourseId(stCourseService.findByName(courseName).getId());
+        stCatalogService.insert(stCatalog);
+        if (stCatalogService.findByName(name) == null)
+            return new Result("500", "添加失败!", null);
+        return new Result("200", "添加成功", null);
     }
 
     @PostMapping("/del")
-    public Result del(Integer id){
+    public Result del(Integer id) {
         stCatalogService.delById(id);
-        if (stCatalogService.findById(id)!=null)
-            return new Result("500","删除失败!",null);
-        return new Result("200","删除成功!",null);
+        if (stCatalogService.findById(id) != null)
+            return new Result("500", "删除失败!", null);
+        return new Result("200", "删除成功!", null);
     }
 
     @PostMapping("/change")
-    public Result change(Integer id,String name,String remark,String courseName){
-        StCatalog stCatalog=new StCatalog();
+    public Result change(Integer id, String name, String remark, String courseName) {
+        StCatalog stCatalog = new StCatalog();
         stCatalog.setName(name);
         stCatalog.setRemark(remark);
         stCatalog.setCourseName(courseName);
         stCatalog.setId(id);
         stCatalogService.update(stCatalog);
-        if(stCatalogService.findByName(name)==null)
-            return new Result("500","更新失败!",null);
-        return new Result("200","更新成功",null);
+        if (stCatalogService.findByName(name) == null)
+            return new Result("500", "更新失败!", null);
+        return new Result("200", "更新成功", null);
     }
 
     @RequestMapping("/show")

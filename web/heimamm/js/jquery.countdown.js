@@ -356,26 +356,26 @@
             // Prepare the HTML content of the <time> element.
             var html = [
                 '<span class="item item-dd">',
-                    '<span class="dd"></span>',
-                    '<span class="label label-dd">', this.options.label_dd, '</span>',
+                '<span class="dd"></span>',
+                '<span class="label label-dd">', this.options.label_dd, '</span>',
                 '</span>',
                 '<span class="separator separator-dd">', this.options.separator_days, '</span>',
                 '<span class="item item-hh">',
-                    '<span class="hh-1"></span>',
-                    '<span class="hh-2"></span>',
-                    '<span class="label label-hh">', this.options.label_hh, '</span>',
+                '<span class="hh-1"></span>',
+                '<span class="hh-2"></span>',
+                '<span class="label label-hh">', this.options.label_hh, '</span>',
                 '</span>',
                 '<span class="separator">', this.options.separator, '</span>',
                 '<span class="item item-mm">',
-                    '<span class="mm-1"></span>',
-                    '<span class="mm-2"></span>',
-                    '<span class="label label-mm">', this.options.label_mm, '</span>',
+                '<span class="mm-1"></span>',
+                '<span class="mm-2"></span>',
+                '<span class="label label-mm">', this.options.label_mm, '</span>',
                 '</span>',
                 '<span class="separator">', this.options.separator, '</span>',
                 '<span class="item item-ss">',
-                    '<span class="ss-1"></span>',
-                    '<span class="ss-2"></span>',
-                    '<span class="label label-ss">', this.options.label_ss, '</span>',
+                '<span class="ss-1"></span>',
+                '<span class="ss-2"></span>',
+                '<span class="label label-ss">', this.options.label_ss, '</span>',
                 '</span>'
             ];
             this.timeElement.html(html.join(''));
@@ -391,9 +391,9 @@
                 this.timeElement.find('.separator').last().remove();
             }
             // Cache elements.
-            this.item_dd       = this.timeElement.find('.item-dd');
-            this.separator_dd  = this.timeElement.find('.separator-dd');
-            this.remaining_dd  = this.timeElement.find('.dd');
+            this.item_dd = this.timeElement.find('.item-dd');
+            this.separator_dd = this.timeElement.find('.separator-dd');
+            this.remaining_dd = this.timeElement.find('.dd');
             this.remaining_hh1 = this.timeElement.find('.hh-1');
             this.remaining_hh2 = this.timeElement.find('.hh-2');
             this.remaining_mm1 = this.timeElement.find('.mm-1');
@@ -433,7 +433,9 @@
             }
             // Reload it.
             var self = this;
-            window.setTimeout(function () { self.doCountDown(); }, self.setTimeoutDelay);
+            window.setTimeout(function () {
+                self.doCountDown();
+            }, self.setTimeoutDelay);
             return this.timeElement.trigger('time.tick', ms);
         },
 
@@ -493,7 +495,7 @@
             });
         }
 
-        // Allow any public function (i.e. a function whose name isn't 'init' or doesn't start with an underscore)
+            // Allow any public function (i.e. a function whose name isn't 'init' or doesn't start with an underscore)
         // to be called via the jQuery plugin, e.g. $(element).countDown('functionName', arg1, arg2).
         else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
 

@@ -1,197 +1,197 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>购物车</title>
-		<!--字体图标-->
-		<link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet" />
-		<!--动画-->
-		<link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet" />
-		<!--骨架样式-->
-		<link href="../../lib/javaex/pc/css/common.css" rel="stylesheet" />
-		<!--皮肤-->
-		<link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet" />
-		<!--jquery，不可修改版本-->
-		<script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
-		<!--核心组件-->
-		<script src="../../lib/javaex/pc/js/javaex.min.js"></script>
-		<!--表单验证-->
-		<script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
-		<script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			.main {
-				margin-top: 20px;
-			}
+<head>
+    <meta charset="utf-8">
+    <title>购物车</title>
+    <!--字体图标-->
+    <link href="../../lib/javaex/pc/css/icomoon.css" rel="stylesheet"/>
+    <!--动画-->
+    <link href="../../lib/javaex/pc/css/animate.css" rel="stylesheet"/>
+    <!--骨架样式-->
+    <link href="../../lib/javaex/pc/css/common.css" rel="stylesheet"/>
+    <!--皮肤-->
+    <link href="../../lib/javaex/pc/css/skin/default.css" rel="stylesheet"/>
+    <!--jquery，不可修改版本-->
+    <script src="../../lib/javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <!--核心组件-->
+    <script src="../../lib/javaex/pc/js/javaex.min.js"></script>
+    <!--表单验证-->
+    <script src="../../lib/javaex/pc/js/javaex-formVerify.js"></script>
+    <script src="../../js/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .main {
+            margin-top: 20px;
+        }
 
-			.title {
-				width: 150px;
-				height: 50px;
-				background-color: #1B9AEE;
-				text-align: center;
-				font-size: 25px;
-				padding-top: 5px;
-				color: #fff;
-				margin-bottom: 20px;
-			}
+        .title {
+            width: 150px;
+            height: 50px;
+            background-color: #1B9AEE;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 5px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
 
-			.line {
-				border-top: 1px solid #1B9AEE;
-			}
+        .line {
+            border-top: 1px solid #1B9AEE;
+        }
 
-			.container {
-				min-width: 1000px;
-				max-width: 1300px;
-				min-height: 600px;
-				margin: 100px auto 0 auto;
-			}
+        .container {
+            min-width: 1000px;
+            max-width: 1300px;
+            min-height: 600px;
+            margin: 100px auto 0 auto;
+        }
 
-			.fixButton {
-				position: fixed;
-				bottom: 0;
-				width: 100%;
-				z-index: 100;
-				height: 60px;
-				background-color: #DFE1E5;
-				padding: 20px;
-			}
-		</style>
-	</head>
+        .fixButton {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            height: 60px;
+            background-color: #DFE1E5;
+            padding: 20px;
+        }
+    </style>
+</head>
 
-	<body>
-		<header>
-			<div class="javaex-navbar">
-				<div class="javaex-container-fluid clear">
-					<!--logo名称-->
-					<div class="javaex-logo">九美阁商城</div>
-					<!--左侧导航-->
-					<ul class="javaex-nav fl">
-						<li class="active"><a href="javascript:;">首页</a></li>
-					</ul>
+<body>
+<header>
+    <div class="javaex-navbar">
+        <div class="javaex-container-fluid clear">
+            <!--logo名称-->
+            <div class="javaex-logo">九美阁商城</div>
+            <!--左侧导航-->
+            <ul class="javaex-nav fl">
+                <li class="active"><a href="javascript:;">首页</a></li>
+            </ul>
 
-					<!--右侧-->
-					<ul class="javaex-nav fr">
-						<li>
-							<a href="javascript:;">欢迎您，管理员</a>
-							<ul class="javaex-nav-dropdown-menu" style="right: 10px;">
-								<li><a href="javascript:;">退出当前账号</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
-		<div class="container">
-			<div class="main">
-				<fieldset class="javaex-fieldset javaex-fieldset-line">
-					<legend>
-						<div class="title">
-							购物车
-						</div>
-					</legend>
-				</fieldset>
-			</div>
-			<!-- <button class="javaex-btn red" style="margin: 0 0 20px 50px;"><span class="icon-close2"></span> 删除</button> -->
-			<div class="result" id="result">
+            <!--右侧-->
+            <ul class="javaex-nav fr">
+                <li>
+                    <a href="javascript:;">欢迎您，管理员</a>
+                    <ul class="javaex-nav-dropdown-menu" style="right: 10px;">
+                        <li><a href="javascript:;">退出当前账号</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="main">
+        <fieldset class="javaex-fieldset javaex-fieldset-line">
+            <legend>
+                <div class="title">
+                    购物车
+                </div>
+            </legend>
+        </fieldset>
+    </div>
+    <!-- <button class="javaex-btn red" style="margin: 0 0 20px 50px;"><span class="icon-close2"></span> 删除</button> -->
+    <div class="result" id="result">
 
-				<table id="table" class="javaex-table td-c-1">
-					<thead>
-						<tr>
-							<th style="width: 100px;">图片</th>
-<!-- 							<th class="javaex-table-filter-col"><input type="checkbox" class="javaex-fill"
-									listen="listen-1" onclick="changeTotalAdd()" /> </th> -->
-							<th>商品名</th>
-							<th>数量</th>
-							<th>价格</th>
-							<th style="width:200px;">操作</th>
-						</tr>
-					</thead>
-					<tbody id="tbody">
-					</tbody>
-				</table>
+        <table id="table" class="javaex-table td-c-1">
+            <thead>
+            <tr>
+                <th style="width: 100px;">图片</th>
+                <!-- 							<th class="javaex-table-filter-col"><input type="checkbox" class="javaex-fill"
+                                                    listen="listen-1" onclick="changeTotalAdd()" /> </th> -->
+                <th>商品名</th>
+                <th>数量</th>
+                <th>价格</th>
+                <th style="width:200px;">操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
 
-			</div>
+    </div>
 
-		</div>
-		<!-- <div class="fixButton ">
-			<div style="float: left;">
-				已选择商品
-				<span id="selectedNum">
-					0
-				</span>
-				件
-			</div>
-			<div style="float: right;">
-				<span style="margin-right: 20px;">
-					<span>总价：</span>
-					<span id="totalMoney">0</span>￥
-				</span>
-				<button id="payBtn" class="javaex-btn yellow " style="font-size: 20px;">付款</button>
-			</div>
-		</div> -->
-	</body>
-	<script type="text/javascript">
-		var token;
-		var totalMoney = 0;
-		var shopCart;
+</div>
+<!-- <div class="fixButton ">
+    <div style="float: left;">
+        已选择商品
+        <span id="selectedNum">
+            0
+        </span>
+        件
+    </div>
+    <div style="float: right;">
+        <span style="margin-right: 20px;">
+            <span>总价：</span>
+            <span id="totalMoney">0</span>￥
+        </span>
+        <button id="payBtn" class="javaex-btn yellow " style="font-size: 20px;">付款</button>
+    </div>
+</div> -->
+</body>
+<script type="text/javascript">
+    var token;
+    var totalMoney = 0;
+    var shopCart;
 
-		window.onload = function() {
-			token = localStorage.getItem("token_user")
-			initPage();
-		}
+    window.onload = function () {
+        token = localStorage.getItem("token_user")
+        initPage();
+    }
 
 
-		function initPage() {
-			javaex.loading({
-				mode: "manual",
-				containerId: "table",
-				type: "open"
-			});
-			$.ajax({
-				type: "post",
-				//后端需要调用的地址
-				url: "http://" + getCartHost() + "/shopCart/show",
-				dataType: "json",
-				data: {
-					"context": '',
-					"currentPage": 0,
-					"pageSize": -1,
-					"sort": '',
-					"asc": true
-				},
-				headers: {
-					"token": token,
-				},
-				timeout: 10000,
-				async: true,
-				success: function(res) {
-					console.log(res)
-					// 关闭
-					javaex.loading({
-						mode: "manual",
-						containerId: "table",
-						type: "close"
-					});
-					if (res.code == 200) {
-						cart = JSON.parse(res.shopCart);
-						initTable(cart);
-						javaex.render();
-					}
-				}
-			});
-		}
+    function initPage() {
+        javaex.loading({
+            mode: "manual",
+            containerId: "table",
+            type: "open"
+        });
+        $.ajax({
+            type: "post",
+            //后端需要调用的地址
+            url: "http://" + getCartHost() + "/shopCart/show",
+            dataType: "json",
+            data: {
+                "context": '',
+                "currentPage": 0,
+                "pageSize": -1,
+                "sort": '',
+                "asc": true
+            },
+            headers: {
+                "token": token,
+            },
+            timeout: 10000,
+            async: true,
+            success: function (res) {
+                console.log(res)
+                // 关闭
+                javaex.loading({
+                    mode: "manual",
+                    containerId: "table",
+                    type: "close"
+                });
+                if (res.code == 200) {
+                    cart = JSON.parse(res.shopCart);
+                    initTable(cart);
+                    javaex.render();
+                }
+            }
+        });
+    }
 
-		function initTable(cart) {
-			$("#tbody").html('');
-			for (var i = 0; i < cart.length; i++) {
-				if (cart[i].goodsName.length > 30) {
-					cart[i].goodsName = cart[i].goodsName.substr(0, 30) + "...";
-				}
-				if (cart[i].goodsStatus == 0) {
-					totalMoney += cart[i].num * cart[i].goodsPrice;
-				}
-				var html = '';
-				html = html + `
+    function initTable(cart) {
+        $("#tbody").html('');
+        for (var i = 0; i < cart.length; i++) {
+            if (cart[i].goodsName.length > 30) {
+                cart[i].goodsName = cart[i].goodsName.substr(0, 30) + "...";
+            }
+            if (cart[i].goodsStatus == 0) {
+                totalMoney += cart[i].num * cart[i].goodsPrice;
+            }
+            var html = '';
+            html = html + `
 					<tr>
 						<td><img style="width: 50px" src="` + cart[i].goodsImg + `">
 						<td>` + cart[i].goodsName + `</td>
@@ -206,187 +206,186 @@
 						<td>
 						`
 
-				html = html + `
+            html = html + `
 						<button class="javaex-btn red" onclick="deleteDialog(obj, ` + cart[i].id + `)" >删除</button>
 						<button class="javaex-btn yellow" onclick="buy(` + i + `)">购买</button>
 				`
-				$("#tbody").append(html);
-			}
-		}
+            $("#tbody").append(html);
+        }
+    }
 
-		function deleteDialog(obj, id) {
-			console.log(obj)
-			// obj是必须的
-			javaex.deleteDialog(obj, {
-				content: "确定要删除么？",
-				confirm: function() {
-					//console.log("获取变量值：" + id);
-					javaex.loading({
-						mode: "manual",
-						containerId: "table",
-						type: "open"
-					});
-					$.ajax({
-						url: "http://" + getCartHost() + "/shopCart/delete",
-						headers: {
-							"token": token
-						},
-						data: {
-							"cartId": id,
-						},
-						dataType: "json",
-						type: "post",
-						timeout: 10000,
-						async: true,
-						success: function(res) {
-							console.log(res)
-							if (res.code == "200") {
-								javaex.tip({
-									content: "操作成功",
-									type: "success"
-								});
-								// 建议延迟加载
-								setTimeout(function() {
-									window.location.reload();
-								}, 1000);
+    function deleteDialog(obj, id) {
+        console.log(obj)
+        // obj是必须的
+        javaex.deleteDialog(obj, {
+            content: "确定要删除么？",
+            confirm: function () {
+                //console.log("获取变量值：" + id);
+                javaex.loading({
+                    mode: "manual",
+                    containerId: "table",
+                    type: "open"
+                });
+                $.ajax({
+                    url: "http://" + getCartHost() + "/shopCart/delete",
+                    headers: {
+                        "token": token
+                    },
+                    data: {
+                        "cartId": id,
+                    },
+                    dataType: "json",
+                    type: "post",
+                    timeout: 10000,
+                    async: true,
+                    success: function (res) {
+                        console.log(res)
+                        if (res.code == "200") {
+                            javaex.tip({
+                                content: "操作成功",
+                                type: "success"
+                            });
+                            // 建议延迟加载
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
 
-							} else {
-								javaex.tip({
-									content: "操作失败",
-									type: "error"
-								});
-							}
-						}
-					});
+                        } else {
+                            javaex.tip({
+                                content: "操作失败",
+                                type: "error"
+                            });
+                        }
+                    }
+                });
 
-					// 如果你想阻止弹出层关闭，直接 return false; 即可
-					// return false;
-				}
-			});
-		}
+                // 如果你想阻止弹出层关闭，直接 return false; 即可
+                // return false;
+            }
+        });
+    }
 
 
+    function addItem(obj, index) {
+        var text = $(obj).parent('.javaex-numChose-wrap').children("input");
+        var num = Number(text.val()) + 1;
+        if (num > 200) {
+            return;
+        }
 
-		function addItem(obj, index) {
-			var text = $(obj).parent('.javaex-numChose-wrap').children("input");
-			var num = Number(text.val()) + 1;
-			if (num > 200) {
-				return;
-			}
+        console.log(cart[index].id);
+        console.log(num);
 
-			console.log(cart[index].id);
-			console.log(num);
+        $.ajax({
+            url: "http://" + getCartHost() + "/shopCart/update",
+            headers: {
+                "token": token
+            },
+            data: {
+                "cartId": cart[index].id,
+                "num": num
+            },
+            dataType: "json",
+            type: "post",
+            async: false,
+            cache: false,
+            success: function (res) {
+                console.log(res)
+                if (res.code == "200") {
+                    javaex.tip({
+                        content: "操作成功",
+                        type: "success"
+                    });
 
-			$.ajax({
-				url: "http://" + getCartHost() + "/shopCart/update",
-				headers: {
-					"token": token
-				},
-				data: {
-					"cartId": cart[index].id,
-					"num": num
-				},
-				dataType: "json",
-				type: "post",
-				async: false,
-				cache: false,
-				success: function(res) {
-					console.log(res)
-					if (res.code == "200") {
-						javaex.tip({
-							content: "操作成功",
-							type: "success"
-						});
+                    text.val(num);
+                    cart[index].num = num;
 
-						text.val(num);
-						cart[index].num = num;
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+    }
 
-					} else {
-						javaex.tip({
-							content: "操作失败",
-							type: "error"
-						});
-					}
-				}
-			});
-		}
+    function minusItem(obj, index) {
+        var text = $(obj).parent('.javaex-numChose-wrap').children("input");
+        var num = Number(text.val()) - 1;
+        if (num <= 0) {
+            return;
+        }
 
-		function minusItem(obj, index) {
-			var text = $(obj).parent('.javaex-numChose-wrap').children("input");
-			var num = Number(text.val()) - 1;
-			if (num <= 0) {
-				return;
-			}
+        console.log(cart[index].id);
+        console.log(num);
 
-			console.log(cart[index].id);
-			console.log(num);
+        $.ajax({
+            url: "http://" + getCartHost() + "/shopCart/update",
+            headers: {
+                "token": token
+            },
+            data: {
+                "cartId": cart[index].id,
+                "num": num
+            },
+            dataType: "json",
+            type: "post",
+            async: false,
+            cache: false,
+            success: function (res) {
+                console.log(res)
+                if (res.code == "200") {
+                    javaex.tip({
+                        content: "操作成功",
+                        type: "success"
+                    });
 
-			$.ajax({
-				url: "http://" + getCartHost() + "/shopCart/update",
-				headers: {
-					"token": token
-				},
-				data: {
-					"cartId": cart[index].id,
-					"num": num
-				},
-				dataType: "json",
-				type: "post",
-				async: false,
-				cache: false,
-				success: function(res) {
-					console.log(res)
-					if (res.code == "200") {
-						javaex.tip({
-							content: "操作成功",
-							type: "success"
-						});
+                    text.val(num);
+                    cart[index].num = num;
 
-						text.val(num);
-						cart[index].num = num;
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+    }
 
-					} else {
-						javaex.tip({
-							content: "操作失败",
-							type: "error"
-						});
-					}
-				}
-			});
-		}
-
-		function buy(index) {
-			$.ajax({
-				url: "http://" + getOrdersHost() + "/orders/add",
-				headers: {
-					"token": token
-				},
-				data: {
-					"goodsNum": cart[index].num,
-					"goodsId": cart[index].goodsId,
-				},
-				dataType: "json",
-				type: "post",
-				async: false,
-				cache: false,
-				success: function(res) {
-					console.log(res)
-					if (res.code == "200") {
-						javaex.tip({
-							content: "操作成功",
-							type: "success"
-						});
-						//删除此商品
-						//跳转
-					} else {
-						javaex.tip({
-							content: "操作失败",
-							type: "error"
-						});
-					}
-				}
-			});
-		}
-	</script>
+    function buy(index) {
+        $.ajax({
+            url: "http://" + getOrdersHost() + "/orders/add",
+            headers: {
+                "token": token
+            },
+            data: {
+                "goodsNum": cart[index].num,
+                "goodsId": cart[index].goodsId,
+            },
+            dataType: "json",
+            type: "post",
+            async: false,
+            cache: false,
+            success: function (res) {
+                console.log(res)
+                if (res.code == "200") {
+                    javaex.tip({
+                        content: "操作成功",
+                        type: "success"
+                    });
+                    //删除此商品
+                    //跳转
+                } else {
+                    javaex.tip({
+                        content: "操作失败",
+                        type: "error"
+                    });
+                }
+            }
+        });
+    }
+</script>
 
 </html>
